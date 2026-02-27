@@ -1,0 +1,291 @@
+/* =========================================================
+   BHAARAT INTERNATIONAL — Hero Section
+   ========================================================= */
+
+/* ---------- Section ---------- */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 680px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* ---------- Video ---------- */
+.hero__video-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    /* Animated gradient fallback when video isn't available */
+    background: linear-gradient(135deg, #001d4d 0%, #003580 40%, #005bb5 70%, #0077cc 100%);
+    background-size: 300% 300%;
+    animation: hero-bg-shift 10s ease infinite;
+}
+
+@keyframes hero-bg-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.hero__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Two-layer overlay */
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+}
+
+/* Diagonal gradient overlay — navy + teal */
+.hero__overlay--grad {
+    background: linear-gradient(125deg,
+            rgba(0, 29, 77, 0.82) 0%,
+            rgba(0, 86, 179, 0.55) 50%,
+            rgba(0, 170, 255, 0.25) 100%);
+    z-index: 1;
+}
+
+/* Extra dark base for readability */
+.hero__overlay--dark {
+    background: rgba(5, 15, 40, 0.35);
+    z-index: 2;
+}
+
+/* ---------- Content ---------- */
+.hero__content {
+    position: relative;
+    z-index: 10;
+    max-width: 780px;
+    padding-top: 120px;
+    /* clear header */
+    padding-bottom: 60px;
+}
+
+/* ---------- Pre-text badge ---------- */
+.hero__pre {
+    margin-bottom: 1.5rem;
+}
+
+.hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.45rem 1.1rem;
+    border-radius: 100px;
+}
+
+.hero__badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.3);
+    animation: pulse-dot 2s infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pulse-dot {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgba(52, 211, 153, 0.1);
+    }
+}
+
+/* ---------- Heading ---------- */
+.hero__heading {
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.13;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
+}
+
+.hero__heading-accent {
+    background: linear-gradient(90deg, #38bdf8 0%, #34d399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ---------- Sub-text ---------- */
+.hero__sub {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.75;
+    max-width: 580px;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+}
+
+/* ---------- Action Buttons ---------- */
+.hero__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 14px 30px;
+    border-radius: 12px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+}
+
+/* Primary — solid gradient */
+.hero__btn--primary {
+    background: linear-gradient(135deg, #0056b3 0%, #0ea5e9 100%);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 8px 24px -6px rgba(0, 86, 179, 0.55);
+}
+
+.hero__btn--primary:hover {
+    box-shadow: 0 14px 32px -6px rgba(0, 86, 179, 0.65);
+}
+
+/* Outline — glass */
+.hero__btn--outline {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.hero__btn--outline:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.65);
+}
+
+.hero__play-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    flex-shrink: 0;
+}
+
+/* ---------- Scroll Indicator ---------- */
+.hero__scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero__scroll-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.hero__scroll-bar {
+    width: 1.5px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero__scroll-dot {
+    width: 100%;
+    height: 40%;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+    animation: scroll-run 1.6s ease-in-out infinite;
+}
+
+@keyframes scroll-run {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(280%);
+    }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .hero__content {
+        padding-top: 100px;
+        max-width: 100%;
+    }
+
+    .hero__heading {
+        font-size: 2.2rem;
+    }
+
+    .hero__sub {
+        font-size: 0.95rem;
+    }
+
+    .hero__btn {
+        padding: 12px 22px;
+        font-size: 0.88rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero__actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero__btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

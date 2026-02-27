@@ -1,0 +1,180 @@
+import React, { useRef, useState, useCallback } from 'react';
+import { motion, useInView, useSpring, animate } from 'framer-motion';
+import { ShieldCheck, Globe, Award, Users, ArrowRight, CheckCircle2 } from 'lucide-react';
+import './Overview.css';
+
+/* ── Animated counter ── */
+const Counter = ({ target, suffix = '', duration = 2, startAnimation }) => {
+  const nodeRef = useRef(null);
+
+  React.useEffect(() => {
+    if (!startAnimation) return;
+
+    const controls = animate(0, target, {
+      duration: duration,
+      onUpdate: (value) => {
+        if (nodeRef.current) {
+          nodeRef.current.textContent = Math.floor(value) + suffix;
+        }
+      },
+      ease: "easeOut",
+    });
+
+    return () => controls.stop();
+  }, [startAnimation, target, duration, suffix]);
+
+  return <span ref={nodeRef}>0{suffix}</span>;
+};
+
+const stats = [
+  { icon: Award, value: 25, suffix: '+', label: 'Years of Excellence' },
+  { icon: Globe, value: 40, suffix: '+', label: 'Countries Served' },
+  { icon: Users, value: 500, suffix: '+', label: 'Healthcare Partners' },
+  { icon: ShieldCheck, value: 100, suffix: '%', label: 'Quality Assured' },
+];
+
+const highlights = [
+  'ISO 13485 Certified Manufacturing',
+  'CE Marked & FDA Compliant Products',
+  'End-to-end supply chain management',
+  'Dedicated after-sales support team',
+  'Custom OEM & private label solutions',
+];
+
+/* ── Animation variants ── */
+const fadeLeft = {
+  hidden: { opacity: 0, x: -60 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+};
+
+const fadeRight = {
+  hidden: { opacity: 0, x: 60 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+};
+
+const fadeUp = (delay = 0) => ({
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay } },
+});
+
+/* ── Stat card ── */
+const StatCard = ({ icon: Icon, value, suffix, label, delay, inView }) => {
+  const cardRef = useRef(null);
+
+  // ✅ FIXED (removed invalid margin)
+  const cardInView = useInView(cardRef, { once: true });
+
+  return (
+    <motion.div
+      ref={cardRef}
+      className="overview__stat-card"
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ delay, duration: 0.55 }}
+    >
+      <div className="overview__stat-icon-wrap">
+        <Icon size={24} className="overview__stat-icon" />
+      </div>
+
+      <div className="overview__stat-number">
+        <Counter
+          target={value}
+          suffix={suffix}
+          startAnimation={cardInView}
+        />
+      </div>
+
+      <div className="overview__stat-label">{label}</div>
+    </motion.div>
+  );
+};
+
+/* ── Main Component ── */
+const Overview = () => {
+  const sectionRef = useRef(null);
+  const inView = useInView(sectionRef, { once: true, amount: 0.15 });
+
+  return (
+    <section className="overview" id="about" ref={sectionRef}>
+      <div className="container overview__grid">
+
+        {/* LEFT COLUMN */}
+        <motion.div
+          className="overview__image-col"
+          variants={fadeLeft}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+        >
+          <img
+            src="/overview.png"
+            alt="Bhaarat International — Medical Instruments"
+            className="overview__img"
+          />
+        </motion.div>
+
+        {/* RIGHT COLUMN */}
+        <motion.div
+          className="overview__content-col"
+          variants={fadeRight}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+        >
+          <motion.h2
+            className="overview__heading"
+            variants={fadeUp(0.2)}
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
+          >
+            Company <span className="overview__heading-accent">Overview</span>
+          </motion.h2>
+
+          <motion.p
+            className="overview__body"
+            variants={fadeUp(0.3)}
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
+          >
+            Bhaarat International is a leading exporter and manufacturer of precision surgical instruments and hospital equipment.
+          </motion.p>
+
+          <motion.ul
+            className="overview__highlights"
+            variants={fadeUp(0.45)}
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
+          >
+            {highlights.map((item) => (
+              <li key={item} className="overview__highlight-item">
+                <CheckCircle2 size={17} />
+                {item}
+              </li>
+            ))}
+          </motion.ul>
+
+          <a href="#contact" className="overview__cta">
+            Learn More About Us <ArrowRight size={17} />
+          </a>
+        </motion.div>
+      </div>
+
+      {/* STATS */}
+      <div className="container">
+        <div className="overview__stats">
+          {stats.map(({ icon, value, suffix, label }, i) => (
+            <StatCard
+              key={label}
+              icon={icon}
+              value={value}
+              suffix={suffix}
+              label={label}
+              delay={0.4 + i * 0.12}
+              inView={inView}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Overview;

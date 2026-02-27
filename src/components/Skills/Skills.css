@@ -1,0 +1,320 @@
+/* =========================================================
+   BHAARAT INTERNATIONAL — Skills / Expertise Section
+   ========================================================= */
+
+.sk {
+    position: relative;
+    padding: 110px 0 100px;
+    background: #f8fafc;
+    overflow: hidden;
+}
+
+/* ── Watermark ── */
+.sk__watermark {
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    font-size: clamp(5rem, 13vw, 10rem);
+    font-weight: 900;
+    color: rgba(0, 86, 179, 0.05);
+    letter-spacing: -0.04em;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+}
+
+/* ── Grid ── */
+.sk__grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+/* ─────────────────────────────
+   Left side
+───────────────────────────── */
+
+/* Eyebrow */
+.sk__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 0.9rem;
+}
+
+.sk__eyebrow-line {
+    width: 28px;
+    height: 2px;
+    background: #f97316;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+/* Heading */
+.sk__heading {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    color: var(--text-main);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+}
+
+.sk__heading-accent {
+    background: linear-gradient(90deg, #0056b3 0%, #17a2b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Lead paragraph */
+.sk__tagline {
+    font-size: 0.95rem;
+    color: var(--text-body);
+    line-height: 1.8;
+    margin-bottom: 2.25rem;
+    max-width: 480px;
+}
+
+/* ── Bars ── */
+.sk__bars {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.sk__bar-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sk__bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sk__bar-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: 0.01em;
+}
+
+.sk__bar-pct {
+    font-size: 0.88rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    min-width: 40px;
+    text-align: right;
+}
+
+/* Track */
+.sk__track {
+    position: relative;
+    height: 8px;
+    background: rgba(0, 86, 179, 0.09);
+    border-radius: 100px;
+    overflow: visible;
+}
+
+/* Animated fill bar */
+.sk__fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 100px;
+}
+
+/* Glowing moving dot at tip */
+.sk__tip {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2.5px solid white;
+    z-index: 2;
+    transition: box-shadow 0.3s;
+}
+
+/* ── Mini stats row ── */
+.sk__mini-stats {
+    display: flex;
+    gap: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 86, 179, 0.1);
+}
+
+.sk__mini-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.sk__mini-val {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--text-main);
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #0056b3, #17a2b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sk__mini-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+}
+
+/* ─────────────────────────────
+   Right side
+───────────────────────────── */
+
+.sk__right {
+    position: relative;
+    perspective: 1200px;
+}
+
+.sk__tilt-frame {
+    position: relative;
+    border-radius: 24px;
+    transition: transform 0.1s ease-out;
+    transform-style: preserve-3d;
+}
+
+.sk__shine {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+    border-radius: 24px;
+    transition: opacity 0.4s ease;
+}
+
+.sk__img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 24px;
+    display: block;
+    box-shadow: 0 30px 70px -15px rgba(0, 44, 95, 0.22);
+    transition: box-shadow 0.4s ease;
+}
+
+.sk__tilt-frame--hovered .sk__img {
+    box-shadow: 0 45px 90px -20px rgba(0, 44, 95, 0.35);
+}
+
+/* Floating quality card */
+.sk__float-card {
+    position: absolute;
+    bottom: -22px;
+    left: -28px;
+    background: white;
+    border-radius: 18px;
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 16px 44px -10px rgba(0, 86, 179, 0.2);
+    border: 1px solid rgba(0, 86, 179, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 200px;
+}
+
+/* Animated ring / gauge visual */
+.sk__float-ring {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: conic-gradient(#0056b3 0% 99%, #e2e8f0 99%);
+    flex-shrink: 0;
+    position: relative;
+}
+
+.sk__float-ring::after {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    background: white;
+}
+
+.sk__float-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.sk__float-val {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--text-main);
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
+.sk__float-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+/* Dots decoration */
+.sk__dots-deco {
+    position: absolute;
+    top: -24px;
+    right: -24px;
+    width: 110px;
+    height: 110px;
+    background-image: radial-gradient(circle, rgba(0, 86, 179, 0.22) 1.5px, transparent 1.5px);
+    background-size: 12px 12px;
+    border-radius: 8px;
+    z-index: -1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .sk__grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+
+    .sk__img {
+        height: 380px;
+    }
+}
+
+@media (max-width: 640px) {
+    .sk {
+        padding: 70px 0 70px;
+    }
+
+    .sk__img {
+        height: 280px;
+    }
+
+    .sk__float-card {
+        left: 0;
+        bottom: -18px;
+    }
+
+    .sk__mini-stats {
+        gap: 1.25rem;
+    }
+}

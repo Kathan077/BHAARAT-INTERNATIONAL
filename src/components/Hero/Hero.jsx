@@ -1,0 +1,109 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Play } from 'lucide-react';
+import './Hero.css';
+
+const Hero = () => {
+  return (
+    <section className="hero" id="home">
+      {/* ── Video Background ── */}
+      <div className="hero__video-wrap">
+        <video
+          className="hero__video"
+          src="/hero-video.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+        {/* Layered overlays */}
+        <div className="hero__overlay hero__overlay--grad" />
+        <div className="hero__overlay hero__overlay--dark" />
+      </div>
+
+      {/* ── Content ── */}
+      <div className="container hero__content">
+
+        {/* Pre-text / eyebrow */}
+        <motion.div
+          className="hero__pre"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <span className="hero__badge">
+            <span className="hero__badge-dot" />
+            ISO 13485 Certified &nbsp;·&nbsp; Trusted in 40+ Countries
+          </span>
+        </motion.div>
+
+        {/* Main heading */}
+        <motion.h1
+          className="hero__heading"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.35 }}
+        >
+          Precision Medical <br />
+          <span className="hero__heading-accent">Instruments</span> for a <br />
+          Healthier World
+        </motion.h1>
+
+        {/* Sub-text */}
+        <motion.p
+          className="hero__sub"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
+          World-class surgical instruments, orthopedic implants, and hospital
+          equipment — engineered for excellence and trusted by healthcare
+          professionals worldwide.
+        </motion.p>
+
+        {/* Two CTAs */}
+        <motion.div
+          className="hero__actions"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.65 }}
+        >
+          <motion.a
+            href="#products"
+            className="hero__btn hero__btn--primary"
+            whileHover={{ y: -3, scale: 1.02 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            Explore Products <ArrowRight size={18} />
+          </motion.a>
+
+          <motion.a
+            href="#quote"
+            className="hero__btn hero__btn--outline"
+            whileHover={{ y: -3, scale: 1.02 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <span className="hero__play-icon"><Play size={14} fill="currentColor" /></span>
+            Get a Quote
+          </motion.a>
+        </motion.div>
+
+      </div>
+
+      {/* ── Scroll indicator ── */}
+      <motion.div
+        className="hero__scroll"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+      >
+        <span className="hero__scroll-label">Scroll down</span>
+        <div className="hero__scroll-bar">
+          <div className="hero__scroll-dot" />
+        </div>
+      </motion.div>
+    </section>
+  );
+};
+
+export default Hero;

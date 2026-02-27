@@ -1,0 +1,103 @@
+/* Hide native cursor */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+.cur__canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99997;
+}
+
+.cur__dot,
+.cur__ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+/* DOT */
+.cur__dot {
+  z-index: 99999;
+  width: 7px;
+  height: 7px;
+  margin-left: -3.5px;
+  margin-top: -3.5px;
+  background: #0056b3;
+  box-shadow:
+    0 0 0 2px rgba(0,86,179,0.2),
+    0 0 12px rgba(0,86,179,0.6),
+    0 0 28px rgba(0,86,179,0.2);
+  transition: all 0.2s ease;
+}
+
+/* RING */
+.cur__ring {
+  z-index: 99998;
+  width: 42px;
+  height: 42px;
+  margin-left: -21px;
+  margin-top: -21px;
+  border: 1.5px solid #ffffff;
+  mix-blend-mode: difference;
+  transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+  animation: ring-breathe 4s ease-in-out infinite;
+}
+
+@keyframes ring-breathe {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* HOVER */
+.cur__ring--hover {
+  width: 70px;
+  height: 70px;
+  margin-left: -35px;
+  margin-top: -35px;
+  background: rgba(255,255,255,0.15);
+}
+
+/* CLICK */
+.cur__ring--click {
+  animation: shockwave 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+
+@keyframes shockwave {
+  0% { transform: scale(0.5); opacity: 1; }
+  60% { transform: scale(1.3); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* TEXT */
+.cur__dot--text {
+  width: 2px;
+  height: 18px;
+  margin-left: -1px;
+  margin-top: -9px;
+  border-radius: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+.cur__ring--text {
+  opacity: 0;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Touch devices */
+@media (pointer: coarse) {
+  .cur__canvas,
+  .cur__dot,
+  .cur__ring {
+    display: none;
+  }
+}

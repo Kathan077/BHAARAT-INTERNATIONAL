@@ -1,0 +1,54 @@
+/* =========================================================
+   BHAARAT INTERNATIONAL — Scroll Progress Bar
+   ========================================================= */
+
+.sp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: transparent;
+    z-index: 99998;
+    /* just below cursor */
+    pointer-events: none;
+}
+
+.sp__bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg,
+            #0056b3 0%,
+            #17a2b8 40%,
+            #00d4aa 80%,
+            #f97316 100%);
+    border-radius: 0 2px 2px 0;
+    box-shadow:
+        0 0 8px rgba(0, 86, 179, 0.6),
+        0 0 20px rgba(23, 162, 184, 0.3);
+    transition: width 0.08s linear;
+    position: relative;
+}
+
+/* Glowing tip */
+.sp__bar::after {
+    content: '';
+    position: absolute;
+    right: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #17a2b8;
+    box-shadow:
+        0 0 8px #17a2b8,
+        0 0 16px rgba(23, 162, 184, 0.6);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Show tip only when scrolled */
+.sp__bar[style*="width"]:not([style*="0%"])::after {
+    opacity: 1;
+}

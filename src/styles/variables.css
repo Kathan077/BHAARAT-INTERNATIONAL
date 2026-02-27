@@ -1,0 +1,72 @@
+:root {
+    /* Primary Palette - Medical Blue & Teal */
+    --primary-blue: #0056b3;
+    --primary-blue-dark: #004494;
+    --primary-blue-deep: #002d5f;
+    --primary-blue-light: #eef4ff;
+    --accent-teal: #17a2b8;
+    --accent-teal-dark: #117a8b;
+    --secondary-teal: #17a2b8;
+
+    /* Gradients */
+    --grad-primary: linear-gradient(135deg, #0056b3 0%, #00aaff 100%);
+    --grad-surface: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(248, 249, 250, 1) 100%);
+
+    /* Neutral Palette - Brighter & Cleaner */
+    --text-main: #0a1128;
+    /* Deep corporate midnight */
+    --text-body: #475569;
+    --text-muted: #94a3b8;
+    --bg-light: #f8fafc;
+    --bg-white: #ffffff;
+    --border-light: #f1f5f9;
+
+    /* Functional Colors */
+    --success: #38a169;
+    --warning: #dd6b20;
+    --danger: #e53e3e;
+
+    /* Layout & Spacing */
+    --container-width: 1280px;
+    --header-height: 90px;
+    --topbar-height: 44px;
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius-sm: 6px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 20px;
+
+    /* Shadows - Refined for Light Mode */
+    --shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.02);
+    --shadow-pro: 0 10px 40px -10px rgba(0, 86, 179, 0.08);
+    /* Softer */
+    --shadow-mega: 0 30px 60px -12px rgba(0, 0, 0, 0.05);
+
+    /* Gaps */
+    --gap-nav: 2.5rem;
+    --gap-dropdown: 0.75rem;
+
+    /* Typography Scales */
+    --fs-h1: 3.5rem;
+    --fs-h2: 2.5rem;
+    --fs-h3: 1.75rem;
+    --fs-body: 1rem;
+    --fs-small: 0.875rem;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --fs-h1: 2.5rem;
+        --fs-h2: 2rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --fs-h1: 2rem;
+        --fs-h2: 1.75rem;
+        --fs-h3: 1.25rem;
+        --fs-body: 0.9rem;
+    }
+}

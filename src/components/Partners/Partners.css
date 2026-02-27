@@ -1,0 +1,296 @@
+/* =========================================================
+   BHAARAT INTERNATIONAL — Partners / Certifications Section
+   ========================================================= */
+
+.pt {
+    position: relative;
+    padding: 110px 0 80px;
+    background: #fafbff;
+    overflow: hidden;
+}
+
+/* ── World map background SVG dots ── */
+.pt__map-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle, rgba(0, 86, 179, 0.12) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 0%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.pt__inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+/* ── Giant number hero ── */
+.pt__hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.pt__big-num {
+    font-size: clamp(5rem, 14vw, 10rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    /* Image-clip text effect */
+    background: linear-gradient(135deg, #0056b3 0%, #17a2b8 40%, #0ea5e9 70%, #34d399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: num-shine 4s ease infinite;
+    display: inline-block;
+}
+
+@keyframes num-shine {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.pt__hero-label {
+    font-size: 1rem;
+    color: var(--text-body);
+    margin-top: 0.75rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+/* ── Heading ── */
+.pt__heading-wrap {
+    text-align: center;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.pt__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #f97316;
+}
+
+.pt__eyebrow-line {
+    width: 24px;
+    height: 2px;
+    background: #f97316;
+    border-radius: 2px;
+}
+
+.pt__heading {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+.pt__heading-accent {
+    background: linear-gradient(90deg, #0056b3 0%, #17a2b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Logo card grid (4 per row) ── */
+.pt__logo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.pt__logo-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 86, 179, 0.1);
+    box-shadow: 0 4px 14px -6px rgba(0, 44, 95, 0.08);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    min-height: 100px;
+}
+
+.pt__logo-card:hover {
+    border-color: rgba(0, 86, 179, 0.3);
+    box-shadow: 0 12px 32px -8px rgba(0, 44, 95, 0.15);
+}
+
+.pt__logo-img {
+    max-width: 100%;
+    max-height: 55px;
+    object-fit: contain;
+    filter: grayscale(30%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+    display: block;
+}
+
+.pt__logo-card:hover .pt__logo-img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/* ── Marquee logos strip ── */
+.pt__marquee-wrap {
+    width: 100%;
+    position: relative;
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+}
+
+.pt__marquee-wrap::before,
+.pt__marquee-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.pt__marquee-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, #fafbff, transparent);
+}
+
+.pt__marquee-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, #fafbff, transparent);
+}
+
+.pt__marquee {
+    overflow: hidden;
+    width: 100%;
+    padding: 1.25rem 0;
+    border-top: 1px solid rgba(0, 86, 179, 0.08);
+    border-bottom: 1px solid rgba(0, 86, 179, 0.08);
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.pt__marquee-track {
+    display: flex;
+    gap: 0;
+    white-space: nowrap;
+    animation: marquee-logo-scroll 22s linear infinite;
+    width: max-content;
+}
+
+@keyframes marquee-logo-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.pt__marquee-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 3rem;
+    flex-shrink: 0;
+}
+
+.pt__marquee-img {
+    height: 36px;
+    max-width: 120px;
+    object-fit: contain;
+    filter: grayscale(50%) opacity(0.7);
+    transition: filter 0.3s ease;
+}
+
+.pt__marquee-logo:hover .pt__marquee-img {
+    filter: grayscale(0%) opacity(1);
+}
+
+/* ── Country pill tags ── */
+.pt__countries {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    padding: 1.5rem 0 0.5rem;
+}
+
+.pt__country-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: white;
+    border: 1px solid rgba(0, 86, 179, 0.12);
+    border-radius: 100px;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-body);
+    transition: all 0.2s ease;
+}
+
+.pt__country-tag:hover {
+    background: var(--primary-blue-light);
+    border-color: rgba(0, 86, 179, 0.25);
+    color: var(--primary-blue);
+}
+
+.pt__country-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0056b3, #17a2b8);
+    flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .pt__logo-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .pt {
+        padding: 70px 0 60px;
+    }
+
+    .pt__logo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .pt__logo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

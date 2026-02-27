@@ -1,0 +1,182 @@
+/* =========================================================
+   BHAARAT INTERNATIONAL — Page Preloader
+   ========================================================= */
+
+.pl {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    background: #04142e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+    overflow: hidden;
+}
+
+/* ── Decorative circles ── */
+.pl__circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.06;
+    pointer-events: none;
+}
+
+.pl__circle--1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #0056b3, transparent);
+    top: -150px;
+    right: -150px;
+    animation: pl-float 4s ease-in-out infinite alternate;
+}
+
+.pl__circle--2 {
+    width: 30px;
+    height: 350px;
+    background: radial-gradient(circle, #17a2b8, transparent);
+    bottom: -100px;
+    left: -100px;
+    animation: pl-float 5s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes pl-float {
+    from {
+        transform: scale(0.95);
+    }
+
+    to {
+        transform: scale(1.05);
+    }
+}
+
+/* ── Logo ── */
+.pl__logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: pl-logo-in 0.6s ease 0.2s forwards;
+}
+
+@keyframes pl-logo-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pl__icon {
+    animation: pl-spin-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+    filter: drop-shadow(0 0 24px rgba(0, 86, 179, 0.4));
+}
+
+@keyframes pl-spin-in {
+    from {
+        transform: rotate(-90deg) scale(0.4);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+.pl__wordmark {
+    display: flex;
+    flex-direction: column;
+}
+
+.pl__word-b {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    background: linear-gradient(90deg, #ffffff, #a8d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.pl__word-i {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Progress bar ── */
+.pl__bar-wrap {
+    width: 220px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+    overflow: hidden;
+    opacity: 0;
+    animation: pl-fadein 0.4s ease 0.6s forwards;
+}
+
+.pl__bar {
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #0056b3, #17a2b8, #0056b3);
+    background-size: 200% 100%;
+    width: 0%;
+    transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pl__bar--hold,
+.pl__bar--exit {
+    width: 100%;
+    animation: pl-shimmer 1.2s linear infinite;
+}
+
+@keyframes pl-shimmer {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* ── Tagline ── */
+.pl__tag {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.pl__tag--hold,
+.pl__tag--exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes pl-fadein {
+    to {
+        opacity: 1;
+    }
+}
+
+/* ── Exit animation ── */
+.pl--exit {
+    opacity: 0;
+    transform: translateY(-6px) scale(1.015);
+    pointer-events: none;
+}

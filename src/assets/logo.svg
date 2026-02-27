@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 72" fill="none">
+  <defs>
+    <clipPath id="gc">
+      <circle cx="36" cy="36" r="29"/>
+    </clipPath>
+  </defs>
+
+  <!-- Globe base -->
+  <circle cx="36" cy="36" r="29" fill="#EEF4FF" clip-path="url(#gc)"/>
+
+  <!-- Green continents -->
+  <g clip-path="url(#gc)">
+    <ellipse cx="22" cy="29" rx="5" ry="10" fill="#2d8a3e"/>
+    <ellipse cx="35" cy="32" rx="7" ry="10" fill="#2d8a3e"/>
+    <ellipse cx="45" cy="22" rx="9" ry="6" fill="#2d8a3e"/>
+    <ellipse cx="50" cy="38" rx="5" ry="4" fill="#2d8a3e"/>
+    <ellipse cx="52" cy="50" rx="3.5" ry="3" fill="#2d8a3e"/>
+
+    <!-- Grid lines -->
+    <line x1="7" y1="36" x2="65" y2="36" stroke="#1a2a5e" stroke-width="0.5" opacity="0.25"/>
+    <line x1="7" y1="24" x2="65" y2="24" stroke="#1a2a5e" stroke-width="0.5" opacity="0.25"/>
+    <line x1="7" y1="48" x2="65" y2="48" stroke="#1a2a5e" stroke-width="0.5" opacity="0.25"/>
+    <line x1="36" y1="7" x2="36" y2="65" stroke="#1a2a5e" stroke-width="0.5" opacity="0.25"/>
+    <line x1="24" y1="7" x2="24" y2="65" stroke="#1a2a5e" stroke-width="0.5" opacity="0.25"/>
+    <line x1="48" y1="7" x2="48" y2="65" stroke="#1a2a5e" stroke-width="0.5" opacity="0.25"/>
+
+    <!-- Saffron swoosh band -->
+    <path d="M 5 14 Q 36 4 67 14 L 67 22 Q 36 12 5 22 Z" fill="#FF9933" opacity="0.92"/>
+    <!-- White swoosh band -->
+    <path d="M 5 26 Q 36 17 67 26 L 67 33 Q 36 24 5 33 Z" fill="#ffffff" opacity="0.95"/>
+    <!-- Green swoosh band -->
+    <path d="M 5 38 Q 36 29 67 38 L 67 45 Q 36 36 5 45 Z" fill="#138808" opacity="0.92"/>
+  </g>
+
+  <!-- Globe border ring -->
+  <circle cx="36" cy="36" r="29" stroke="#1a2a5e" stroke-width="2" fill="none"/>
+
+  <!-- Vertical separator -->
+  <line x1="80" y1="12" x2="80" y2="60" stroke="#CBD5E1" stroke-width="1"/>
+
+  <!-- Company name -->
+  <text x="90" y="34" font-family="'Inter','Segoe UI',Arial,sans-serif" font-size="22" font-weight="800" fill="#1a2a5e" letter-spacing="2">BHAARAT</text>
+  <line x1="90" y1="39" x2="229" y2="39" stroke="#E2E8F0" stroke-width="0.8"/>
+  <text x="91" y="53" font-family="'Inter','Segoe UI',Arial,sans-serif" font-size="9.5" font-weight="600" fill="#64748b" letter-spacing="4.2">INTERNATIONAL</text>
+</svg>

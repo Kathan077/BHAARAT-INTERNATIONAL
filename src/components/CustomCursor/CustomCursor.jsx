@@ -11,38 +11,52 @@ import './CustomCursor.css';
 ───────────────────────────────────────────── */
 
 class Spark {
-  constructor(x, y) {
+  constructor(x, y, isBurst = false) {
     const angle = Math.random() * Math.PI * 2;
-    const speed = Math.random() * 2 + 0.5;
+    const force = isBurst ? (Math.random() * 6 + 2) : (Math.random() * 2.5 + 0.5);
     this.x = x;
     this.y = y;
-    this.vx = Math.cos(angle) * speed;
-    this.vy = Math.sin(angle) * speed - 0.6;
-    this.r = Math.random() * 2 + 1;
+    this.vx = Math.cos(angle) * force;
+    this.vy = Math.sin(angle) * force - (isBurst ? 1 : 0.5);
+    this.r = Math.random() * 1.5 + 0.2; // Sharper glitter
     this.life = 1;
-    this.decay = Math.random() * 0.03 + 0.02;
+    this.decay = Math.random() * 0.015 + 0.005; // Longer shelf life
+    this.twinkleSpeed = Math.random() * 0.2 + 0.1;
+    this.phase = Math.random() * Math.PI * 2;
+    this.wander = Math.random() * 0.05 - 0.025;
+    
+    const colors = [
+      { top: 'rgba(52, 152, 219, 1)', mid: 'rgba(52, 152, 219, 0.8)', bot: 'rgba(52, 152, 219, 0)' }, // Blue
+      { top: 'rgba(0, 86, 179, 1)', mid: 'rgba(0, 112, 224, 0.7)', bot: 'rgba(0, 44, 95, 0)' }  // Vibrant Bhaarat Blue
+    ];
+    this.color = colors[Math.floor(Math.random() * colors.length)];
   }
 
   update() {
     this.x += this.vx;
     this.y += this.vy;
-    this.vy += 0.05;
-    this.r *= 0.95;
+    this.vx += Math.sin(this.phase) * this.wander; // Wandering motion
+    this.vy += 0.02; // Very light gravity
+    this.vx *= 0.99;
+    this.phase += this.twinkleSpeed;
     this.life -= this.decay;
   }
 
   draw(ctx) {
     if (this.life <= 0) return;
 
+    // Twinkle flickering
+    const flicker = (Math.sin(this.phase * 5) * 0.5 + 0.5) * this.life;
+    
     ctx.save();
-    ctx.globalAlpha = this.life * 0.8;
-    const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r * 2);
-    grad.addColorStop(0, 'rgba(255,255,255,0.9)');
-    grad.addColorStop(0.4, 'rgba(96,239,255,0.6)');
-    grad.addColorStop(1, 'rgba(0,86,179,0)');
+    ctx.globalAlpha = flicker;
+    const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r * 4);
+    grad.addColorStop(0, this.color.top);
+    grad.addColorStop(0.3, this.color.mid);
+    grad.addColorStop(1, this.color.bot);
     ctx.fillStyle = grad;
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.r * 2, 0, Math.PI * 2);
+    ctx.arc(this.x, this.y, this.r * 3, 0, Math.PI * 2);
     ctx.fill();
     ctx.restore();
   }
@@ -94,7 +108,11 @@ const CustomCursor = () => {
 
       sparkAcc += speed;
       if (sparkAcc > 10) {
-        sparks.push(new Spark(mouse.x, mouse.y));
+        // Lowered density
+        const count = Math.min(Math.floor(speed / 10) + 1, 3);
+        for(let i=0; i<count; i++) {
+          sparks.push(new Spark(mouse.x, mouse.y));
+        }
         sparkAcc = 0;
       }
     };
@@ -113,7 +131,13 @@ const CustomCursor = () => {
     };
 
     const onOut = () => setState('default');
-    const onDown = () => setState('click');
+    const onDown = () => {
+      setState('click');
+      // Reduced Glitter Explosion
+      for(let i=0; i<10; i++) {
+        sparks.push(new Spark(mouse.x, mouse.y, true));
+      }
+    };
     const onUp = () => setState('hover');
 
     document.addEventListener('mousemove', onMove);

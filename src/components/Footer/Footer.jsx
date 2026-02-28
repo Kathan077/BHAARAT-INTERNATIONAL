@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Mail, MapPin, Award, ShieldCheck, Globe, Calendar, ArrowUpRight, Facebook, Linkedin, Twitter, Instagram } from 'lucide-react';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/BHAARAT_International_Logo_No_BG.png';
 import './Footer.css';
 
 const Footer = () => {
@@ -11,10 +12,10 @@ const Footer = () => {
     {
       title: 'Company',
       links: [
-        { label: 'About Us', href: '#about' },
-        { label: 'Our Services', href: '#services' },
-        { label: 'Quality Standards', href: '#quality' },
-        { label: 'Global Presence', href: '#about' },
+        { label: 'About Us', href: '/about' },
+        { label: 'Our Services', href: '/#services' },
+        { label: 'Quality Standards', href: '/#quality' },
+        { label: 'Global Presence', href: '/#about' },
       ]
     },
     {
@@ -113,10 +114,10 @@ const Footer = () => {
               <ul className="footer__links">
                 {group.links.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="footer__link">
+                    <Link to={link.href} className="footer__link">
                       {link.label}
                       <ArrowUpRight size={12} className="footer__link-arrow" />
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

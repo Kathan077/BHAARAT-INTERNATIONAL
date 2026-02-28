@@ -1,0 +1,213 @@
+.about-hero {
+    position: relative;
+    height: 95vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #020617;
+    /* Deepest blue-black */
+    perspective: 2000px;
+}
+
+/* ── Background Elements ── */
+.about-hero__bg-container {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    will-change: transform, opacity;
+}
+
+.about-hero__bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5) contrast(1.2) saturate(0.8);
+}
+
+.about-hero__vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 20%, rgba(2, 6, 23, 0.8) 100%);
+}
+
+.about-hero__grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
+
+.about-hero__sweep {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: screen;
+}
+
+/* ── Perspective Content ── */
+.about-hero__perspective {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.about-hero__glass-card {
+    position: relative;
+    padding: 5rem 7rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    box-shadow:
+        0 40px 100px -20px rgba(0, 0, 0, 0.8),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+    transform-style: preserve-3d;
+}
+
+/* ── Mask Reveal Typography ── */
+.about-hero__mask {
+    overflow: hidden;
+    display: block;
+}
+
+.about-hero__premium-label {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5em;
+    color: #3498db;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.about-hero__title-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.about-hero__pro-title {
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 900;
+    line-height: 0.9;
+    color: #ffffff;
+    display: inline-block;
+}
+
+.about-hero__pro-title.accent {
+    background: linear-gradient(135deg, #3498db 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 10px 20px rgba(52, 152, 219, 0.3));
+}
+
+.about-hero__premium-line {
+    height: 2px;
+    width: 100%;
+    max-width: 150px;
+    margin: 0 auto;
+    background: linear-gradient(90deg, transparent, #3498db, transparent);
+    transform-origin: center;
+}
+
+.about-hero__depth-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(-50px);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(52, 152, 219, 0.2), transparent 70%);
+    filter: blur(40px);
+    z-index: -1;
+}
+
+/* ── Floating Orbs ── */
+.about-hero__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.about-hero__orb--1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(52, 152, 219, 0.3);
+    top: -100px;
+    right: -100px;
+    animation: float 15s infinite alternate ease-in-out;
+}
+
+.about-hero__orb--2 {
+    width: 300px;
+    height: 300px;
+    background: rgba(168, 85, 247, 0.2);
+    bottom: -50px;
+    left: -50px;
+    animation: float 12s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(40px, 60px);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        height: auto;
+        min-height: 80vh;
+        padding: 100px 0;
+    }
+
+    .about-hero__glass-card {
+        padding: 3rem 1.5rem;
+        border-radius: 20px;
+        margin: 0 1rem;
+    }
+
+    .about-hero__premium-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.3em;
+        margin-bottom: 1.5rem;
+    }
+
+    .about-hero__pro-title {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+
+    .about-hero__premium-line {
+        max-width: 100px;
+    }
+
+    .about-hero__depth-glow {
+        filter: blur(30px);
+    }
+}
+
+@media (max-width: 380px) {
+    .about-hero__pro-title {
+        font-size: 2.8rem;
+    }
+
+    .about-hero__glass-card {
+        padding: 2.5rem 1rem;
+    }
+}

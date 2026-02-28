@@ -1,0 +1,46 @@
+.about-page {
+    padding-bottom: 4rem;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+}
+
+.section-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.section-title .accent {
+    color: #3498db;
+    position: relative;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.about-overview-wrapper {
+    background: #f8f9fa;
+    padding-top: 4rem;
+}
+
+/* Custom layout helpers */
+.accent-line {
+    height: 4px;
+    width: 60px;
+    background: #3498db;
+    margin-bottom: 2rem;
+    border-radius: 2px;
+}

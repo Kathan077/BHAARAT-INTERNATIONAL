@@ -1,16 +1,13 @@
 import React, { useState, useCallback } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Hero from './components/Hero/Hero';
-import Overview from './components/Overview/Overview';
-import Services from './components/Services/Services';
-import Skills from './components/Skills/Skills';
-import Partners from './components/Partners/Partners';
-import Quality from './components/Quality/Quality';
-import Certifications from './components/Certifications/Certifications';
 import Footer from './components/Footer/Footer';
 import CustomCursor from './components/CustomCursor/CustomCursor';
 import Preloader from './components/Preloader/Preloader';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
+import BackToTop from './components/BackToTop/BackToTop';
+import Home from './pages/Home/Home';
+import AboutUs from './pages/About_us/AboutUs';
 import './styles/index.css';
 
 function App() {
@@ -22,17 +19,15 @@ function App() {
       {/* Global overlays */}
       <CustomCursor />
       <ScrollProgress />
+      <BackToTop />
       {!preloaderDone && <Preloader onFinish={onFinish} />}
 
       <Header />
       <main>
-        <Hero />
-        <Overview />
-        <Services />
-        <Skills />
-        <Partners />
-        <Quality />
-        <Certifications />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
+        </Routes>
       </main>
       <Footer />
     </div>

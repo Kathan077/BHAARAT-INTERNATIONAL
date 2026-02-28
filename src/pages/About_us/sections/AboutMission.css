@@ -1,0 +1,186 @@
+.about-mission-ultra {
+    position: relative;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+/* ── Mesh Background ── */
+.mission-mesh-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-color: #ffffff;
+    background-image:
+        radial-gradient(at 0% 0%, rgba(52, 152, 219, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(46, 204, 113, 0.05) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(52, 152, 219, 0.05) 0px, transparent 50%);
+    filter: blur(40px);
+}
+
+.mission-header-ultra {
+    text-align: center;
+    margin-bottom: 6rem;
+    position: relative;
+    z-index: 10;
+}
+
+.mission-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.4em;
+    color: #3498db;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid rgba(52, 152, 219, 0.2);
+    display: inline-block;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.mission-header-ultra h2 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #3498db, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header-divider {
+    width: 60px;
+    height: 4px;
+    background: #3498db;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* ── 3D Grid & Cards ── */
+.mission-grid-ultra {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    perspective: 1500px;
+    /* Enable 3D depth */
+    position: relative;
+    z-index: 10;
+}
+
+.mission-card-ultra {
+    position: relative;
+    padding: 5rem 3rem;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 32px;
+    box-shadow: 0 40px 80px rgba(15, 23, 42, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: default;
+    transition: border-color 0.3s ease;
+}
+
+.mission-card-ultra:hover {
+    border-color: rgba(52, 152, 219, 0.3);
+}
+
+.card-glass-shine {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 50%);
+    border-radius: 32px;
+    pointer-events: none;
+}
+
+.mission-icon-wrap {
+    margin-bottom: 3rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-glow {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;
+    filter: blur(20px);
+    z-index: -1;
+}
+
+.card-tag {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: #94a3b8;
+    border-left: 3px solid #3498db;
+    padding-left: 0.75rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.mission-card-ultra h3 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 1.25rem;
+}
+
+.mission-card-ultra p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #475569;
+}
+
+.card-footer-glow {
+    position: absolute;
+    bottom: -50px;
+    width: 150px;
+    height: 100px;
+    filter: blur(40px);
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .about-mission-ultra {
+        padding: 80px 0;
+    }
+
+    .mission-header-ultra h2 {
+        font-size: 2.5rem;
+    }
+
+    .mission-card-ultra {
+        padding: 4rem 2rem;
+        margin: 0 1rem;
+    }
+
+    .mission-icon-wrap {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .mission-header-ultra h2 {
+        font-size: 2.2rem;
+    }
+
+    .mission-card-ultra {
+        padding: 3.5rem 1.5rem;
+    }
+
+    .mission-grid-ultra {
+        grid-template-columns: 1fr;
+    }
+}

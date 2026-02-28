@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/BHAARAT_International_Logo_No_BG.png';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   Mail, 
   Phone, 
@@ -24,6 +25,7 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileExpanded, setMobileExpanded] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -131,9 +133,9 @@ const Header = () => {
             initial="hidden"
             animate="visible"
           >
-            <a href="/" className="logo">
+            <Link to="/" className="logo">
               <img src={logo} alt="Bhaarat International" className="logo-img" />
-            </a>
+            </Link>
           </motion.div>
 
           {/* Desktop Menu */}
@@ -150,10 +152,10 @@ const Header = () => {
                 onMouseEnter={() => link.dropdown && setActiveDropdown(index)}
                 onMouseLeave={() => link.dropdown && setActiveDropdown(null)}
               >
-                <a href={link.path} className={index === 0 ? 'active' : ''}>
+                <Link to={link.path} className={window.location.pathname === link.path ? 'active' : ''}>
                   {link.name} 
                   {link.dropdown && <ChevronDown size={14} className={`chevron ${activeDropdown === index ? 'rotate' : ''}`} />}
-                </a>
+                </Link>
                 
                 {link.dropdown && (
                   <AnimatePresence>
@@ -243,9 +245,9 @@ const Header = () => {
                   {navLinks.map((link, i) => (
                     <motion.div key={link.name} variants={itemVariants} className="mobile-nav-item">
                       <div className="mobile-link-row">
-                        <a href={link.path} onClick={() => !link.dropdown && setIsMobileMenuOpen(false)}>
+                        <Link to={link.path} onClick={() => !link.dropdown && setIsMobileMenuOpen(false)}>
                           {link.name}
-                        </a>
+                        </Link>
                         {link.dropdown && (
                           <button 
                             className={`expand-btn ${mobileExpanded === i ? 'active' : ''}`}

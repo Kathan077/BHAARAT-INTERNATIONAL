@@ -73,30 +73,60 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 76px;
+    height: 75px;
+    /* Refined height */
 }
 
 /* ---------- Logo ---------- */
 .logo-wrapper {
     display: flex;
     align-items: center;
+    height: 100%;
 }
 
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
 }
 
 .logo-img {
-    height: 56px;
-    /* Increased from 48px for "proper" size */
+    height: 155px;
+    /* Balanced height */
     width: auto;
-    transition: transform 0.3s ease;
+    /* Auto width to maintain aspect ratio */
+    max-width: 180px;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), filter 0.3s ease;
+    display: block;
+    object-fit: contain;
+}
+
+/* Cinematic Shine Animation Wrapper */
+.logo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent);
+    transform: skewX(-25deg);
+    transition: none;
+}
+
+.logo:hover::after {
+    left: 150%;
+    transition: left 0.7s ease-in-out;
 }
 
 .logo:hover .logo-img {
-    opacity: 0.88;
+    transform: scale(1.04);
 }
 
 /* ---------- Desktop Nav Menu ---------- */
@@ -325,7 +355,7 @@
 }
 
 .drawer-header .logo-img {
-    height: 50px;
+    width: 160px;
 }
 
 .drawer-close {
@@ -506,7 +536,7 @@
     }
 
     .logo-img {
-        height: 52px;
+        width: 180px;
     }
 
     .nav-content {

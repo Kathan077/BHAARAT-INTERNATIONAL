@@ -29,11 +29,10 @@
   height: 7px;
   margin-left: -3.5px;
   margin-top: -3.5px;
-  background: #0056b3;
+  background: #3498db;
   box-shadow:
-    0 0 0 2px rgba(0,86,179,0.2),
-    0 0 12px rgba(0,86,179,0.6),
-    0 0 28px rgba(0,86,179,0.2);
+    0 0 0 2px rgba(52, 152, 219, 0.3),
+    0 0 15px rgba(52, 152, 219, 0.8);
   transition: all 0.2s ease;
 }
 
@@ -46,13 +45,20 @@
   margin-top: -21px;
   border: 1.5px solid #ffffff;
   mix-blend-mode: difference;
-  transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   animation: ring-breathe 4s ease-in-out infinite;
 }
 
 @keyframes ring-breathe {
-  0%,100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 /* HOVER */
@@ -61,18 +67,29 @@
   height: 70px;
   margin-left: -35px;
   margin-top: -35px;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 /* CLICK */
 .cur__ring--click {
-  animation: shockwave 0.5s cubic-bezier(0.22,1,0.36,1);
+  animation: shockwave 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @keyframes shockwave {
-  0% { transform: scale(0.5); opacity: 1; }
-  60% { transform: scale(1.3); opacity: 0.6; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+
+  60% {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* TEXT */
@@ -90,11 +107,14 @@
 }
 
 @keyframes blink {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }
 
 /* Touch devices */
 @media (pointer: coarse) {
+
   .cur__canvas,
   .cur__dot,
   .cur__ring {

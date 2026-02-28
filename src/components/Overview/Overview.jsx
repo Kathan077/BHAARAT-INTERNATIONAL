@@ -89,6 +89,72 @@ const StatCard = ({ icon: Icon, value, suffix, label, delay, inView }) => {
   );
 };
 
+/* ── 3D Tilt Frame (Pro Level) ── */
+const TiltFrame = ({ children, className = '' }) => {
+  const ref = useRef(null);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [hovered, setHovered] = useState(false);
+
+  const springX = useSpring(0, { stiffness: 150, damping: 20 });
+  const springY = useSpring(0, { stiffness: 150, damping: 20 });
+
+  const onMove = useCallback((e) => {
+    const el = ref.current;
+    if (!el) return;
+    const { left, top, width, height } = el.getBoundingClientRect();
+    const x = ((e.clientX - left) / width - 0.5) * 20;
+    const y = ((e.clientY - top) / height - 0.5) * 16;
+    springX.set(y);
+    springY.set(-x);
+    setTilt({ x, y });
+  }, [springX, springY]);
+
+  const onLeave = useCallback(() => {
+    springX.set(0);
+    springY.set(0);
+    setHovered(false);
+    setTilt({ x: 0, y: 0 });
+  }, [springX, springY]);
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={onMove}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={onLeave}
+      style={{
+        rotateX: springX,
+        rotateY: springY,
+        transformStyle: 'preserve-3d',
+        transformPerspective: 1000,
+      }}
+      className={`overview__tilt-frame ${className} ${hovered ? 'overview__tilt-frame--hovered' : ''}`}
+    >
+      {children}
+      
+      {/* Dynamic Shine */}
+      <div
+        className="overview__shine"
+        style={{
+          background: `radial-gradient(circle at ${50 + tilt.x * 2.5}% ${50 + tilt.y * 2.5}%, rgba(255,255,255,0.25) 0%, transparent 65%)`,
+          opacity: hovered ? 1 : 0,
+        }}
+      />
+      
+      {/* 3D Parallax Badges */}
+      
+
+      <motion.div 
+        className="overview__float-exp"
+        style={{ translateZ: 80 }}
+      >
+        <span className="overview__exp-num">25+</span>
+        <span className="overview__exp-label">Years of<br/>Expertise</span>
+      </motion.div>
+    </motion.div>
+  );
+};
+
 /* ── Main Component ── */
 const Overview = () => {
   const sectionRef = useRef(null);
@@ -105,11 +171,13 @@ const Overview = () => {
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
-          <img
-            src="/overview.png"
-            alt="Bhaarat International — Medical Instruments"
-            className="overview__img"
-          />
+          <TiltFrame className="overview__img-frame">
+            <img
+              src="/overview.png"
+              alt="Bhaarat International — Medical Instruments"
+              className="overview__img"
+            />
+          </TiltFrame>
         </motion.div>
 
         {/* RIGHT COLUMN */}

@@ -135,10 +135,26 @@ const Skills = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
+  const [hoveredLetters, setHoveredLetters] = useState({});
+
+  const handleLetterHover = (index) => {
+    setHoveredLetters(prev => ({ ...prev, [index]: true }));
+  };
+
   return (
     <section className="sk" id="skills" ref={ref}>
       {/* Background watermark */}
-      <div className="sk__watermark" aria-hidden="true">Skills</div>
+      <div className="sk__watermark" aria-hidden="true">
+        {"Skills".split("").map((letter, index) => (
+          <span 
+            key={index} 
+            className={`sk__watermark-letter ${hoveredLetters[index] ? 'sk__watermark-letter--active' : ''}`}
+            onMouseEnter={() => handleLetterHover(index)}
+          >
+            {letter}
+          </span>
+        ))}
+      </div>
 
       <div className="container sk__grid">
 

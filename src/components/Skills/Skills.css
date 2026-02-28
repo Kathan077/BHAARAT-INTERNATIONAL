@@ -16,11 +16,39 @@
     left: -20px;
     font-size: clamp(5rem, 13vw, 10rem);
     font-weight: 900;
-    color: rgba(0, 86, 179, 0.05);
     letter-spacing: -0.04em;
     pointer-events: none;
     user-select: none;
     line-height: 1;
+    z-index: 1;
+    transition: all 0.4s ease;
+}
+
+.sk__watermark-letter {
+    display: inline-block;
+    color: rgba(0, 86, 179, 0.05);
+    /* Base blue tint */
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: default;
+    pointer-events: auto;
+}
+
+.sk__watermark-letter:hover,
+.sk__watermark-letter--active {
+    color: #0056b3 !important;
+    /* Skill blue */
+    transform: translateY(-12px) scale(1.15) rotate(-4deg);
+    text-shadow: 0 15px 40px rgba(0, 86, 179, 0.3);
+    z-index: 10;
+}
+
+/* Parent hover subtle lift */
+.sk:hover .sk__watermark-letter:not(:hover) {
+    color: rgba(0, 86, 179, 0.1);
+}
+
+.sk:hover .sk__watermark {
+    transform: scale(1.02);
 }
 
 /* ── Grid ── */
@@ -138,17 +166,7 @@
 }
 
 /* Glowing moving dot at tip */
-.sk__tip {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    border: 2.5px solid white;
-    z-index: 2;
-    transition: box-shadow 0.3s;
-}
+
 
 /* ── Mini stats row ── */
 .sk__mini-stats {

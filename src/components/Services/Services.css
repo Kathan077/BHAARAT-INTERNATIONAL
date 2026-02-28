@@ -19,21 +19,43 @@
     font-size: clamp(5rem, 14vw, 11rem);
     font-weight: 900;
     letter-spacing: -0.03em;
-    color: rgba(255, 255, 255, 0.04);
     white-space: nowrap;
+    /* Container is invisible to mouse but letters are active */
     pointer-events: none;
     user-select: none;
     line-height: 1;
-
-    /* NEW */
     transition: all 0.4s ease;
+    z-index: 1;
+    /* Above background but behind interactive content usually */
 }
 
-/* ✅ NEW — Section hover par watermark thoda hard */
+/* Individual letters */
+.srv__watermark-letter {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.04);
+    /* Base color here */
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: default;
+    pointer-events: auto;
+    /* Enable hover for letters */
+}
+
+.srv__watermark-letter:hover,
+.srv__watermark-letter--active {
+    color: #f97316 !important;
+    /* Force color change */
+    transform: translateY(-12px) scale(1.15) rotate(4deg);
+    text-shadow: 0 15px 40px rgba(249, 115, 22, 0.5);
+    z-index: 10;
+}
+
+/* Update parent hover to not override individual letters */
+.srv:hover .srv__watermark-letter:not(:hover) {
+    color: rgba(255, 255, 255, 0.09);
+}
+
 .srv:hover .srv__watermark {
-    color: rgba(255, 255, 255, 0.14);
-    transform: translateX(-50%) scale(1.05);
-    letter-spacing: -0.01em;
+    transform: translateX(-50%) scale(1.02);
 }
 
 /* ── Header row ── */

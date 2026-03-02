@@ -135,11 +135,6 @@ const Skills = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
-  const [hoveredLetters, setHoveredLetters] = useState({});
-
-  const handleLetterHover = (index) => {
-    setHoveredLetters(prev => ({ ...prev, [index]: true }));
-  };
 
   return (
     <section className="sk" id="skills" ref={ref}>
@@ -148,8 +143,7 @@ const Skills = () => {
         {"Skills".split("").map((letter, index) => (
           <span 
             key={index} 
-            className={`sk__watermark-letter ${hoveredLetters[index] ? 'sk__watermark-letter--active' : ''}`}
-            onMouseEnter={() => handleLetterHover(index)}
+            className="sk__watermark-letter"
           >
             {letter}
           </span>

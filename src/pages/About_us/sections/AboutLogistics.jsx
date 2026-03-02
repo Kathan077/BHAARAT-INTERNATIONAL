@@ -22,7 +22,7 @@ const AboutLogistics = () => {
     offset: ["start end", "end start"]
   });
 
-  const yBg = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  const yBg = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
 
   // Mouse Parallax Logic
   const mouseX = useMotionValue(0);
@@ -35,15 +35,16 @@ const AboutLogistics = () => {
     mouseY.set((clientY / innerHeight) - 0.5);
   };
 
-  const xOrb1 = useSpring(useTransform(mouseX, [-0.5, 0.5], [50, -50]));
-  const yOrb1 = useSpring(useTransform(mouseY, [-0.5, 0.5], [50, -50]));
+  const springConfig = { stiffness: 40, damping: 25 };
+  const xOrb1 = useSpring(useTransform(mouseX, [-0.5, 0.5], [60, -60]), springConfig);
+  const yOrb1 = useSpring(useTransform(mouseY, [-0.5, 0.5], [60, -60]), springConfig);
   
-  const xOrb2 = useSpring(useTransform(mouseX, [-0.5, 0.5], [-80, 80]));
-  const yOrb2 = useSpring(useTransform(mouseY, [-0.5, 0.5], [-80, 80]));
+  const xOrb2 = useSpring(useTransform(mouseX, [-0.5, 0.5], [-100, 100]), springConfig);
+  const yOrb2 = useSpring(useTransform(mouseY, [-0.5, 0.5], [-100, 100]), springConfig);
 
   return (
     <section className="about-logistics-pro" onMouseMove={handleMouseMove} ref={containerRef}>
-      {/* ── Custom High-Fidelity Background ── */}
+      {/* ── Background Image Layer ── */}
       <motion.div 
         className="logistics-custom-bg"
         style={{ y: yBg }}
@@ -55,7 +56,7 @@ const AboutLogistics = () => {
         <div className="bg-overlay-gradient" />
       </motion.div>
 
-      {/* ── Ultra-Pro Animation Layers ── */}
+      {/* ── Animation Layers ── */}
       <div className="logistics-bg-layers">
         <motion.div className="bg-orb bg-orb--1" style={{ x: xOrb1, y: yOrb1 }} />
         <motion.div className="bg-orb bg-orb--2" style={{ x: xOrb2, y: yOrb2 }} />
@@ -73,31 +74,33 @@ const AboutLogistics = () => {
         <div className="logistics-hero-pro">
           <motion.div 
             className="logistics-number-wrap"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.8, ease: [0.165, 0.84, 0.44, 1] }}
           >
             <motion.h1 
               className="pro-logistics-num"
               animate={{ backgroundPosition: ["0% 100%", "100% 50%", "0% 50%"] }}
-              transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+              transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
             >
               22,800
             </motion.h1>
             <motion.div 
               className="num-underline"
               initial={{ width: 0 }}
-              whileInView={{ width: '120px' }}
-              transition={{ delay: 0.8, duration: 1 }}
+              whileInView={{ width: '150px' }}
+              viewport={{ once: true }}
+              transition={{ delay: 1, duration: 1.5, ease: [0.165, 0.84, 0.44, 1] }}
             />
           </motion.div>
           
           <motion.p 
             className="pro-logistics-sub"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 0.8, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 1.5, duration: 1.5, ease: "easeOut" }}
           >
             GLOBAL DELIVERIES MANAGED BY OUR ELITE LOGISTICS TEAM
           </motion.p>
@@ -111,7 +114,7 @@ const AboutLogistics = () => {
             animate={{ x: [0, -2000] }}
             transition={{ 
               repeat: Infinity, 
-              duration: 40, 
+              duration: 50, // Slower marquee
               ease: "linear" 
             }}
           >

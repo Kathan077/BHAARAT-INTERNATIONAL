@@ -68,11 +68,6 @@ const Services = () => {
 
   const visible = services.slice(start, start + VISIBLE);
 
-  const [hoveredLetters, setHoveredLetters] = useState({});
-
-  const handleLetterHover = (index) => {
-    setHoveredLetters(prev => ({ ...prev, [index]: true }));
-  };
 
   return (
     <section className="srv" id="services" ref={sectionRef}>
@@ -81,8 +76,7 @@ const Services = () => {
         {"Services".split("").map((letter, index) => (
           <span 
             key={index} 
-            className={`srv__watermark-letter ${hoveredLetters[index] ? 'srv__watermark-letter--active' : ''}`}
-            onMouseEnter={() => handleLetterHover(index)}
+            className="srv__watermark-letter"
           >
             {letter}
           </span>

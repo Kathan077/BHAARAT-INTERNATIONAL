@@ -16,7 +16,14 @@ import {
   Linkedin,
   Facebook,
   Twitter,
-  MapPin
+  MapPin,
+  Shield,
+  User,
+  Footprints,
+  Layers,
+  Activity,
+  HeartPulse,
+  Sparkles
 } from 'lucide-react';
 import './Header.css';
 
@@ -43,19 +50,67 @@ const Header = () => {
     }
   }, [isMobileMenuOpen]);
 
+  const productCategories = [
+    {
+      id: 'ply-face-mask',
+      title: 'PLY FACE MASK',
+      icon: Shield,
+      items: ['Elastic Mask', 'B/W Mask', 'IIR Mask', 'Kids Mask', 'Tie-On Mask', 'Pull Out Mask']
+    },
+    {
+      id: 'disposable-face-mask',
+      title: 'Disposable FACE MASK',
+      icon: ShieldCheck,
+      items: ['N95 Ear Loop', 'N95 Head Loop', 'KF 94 Mask', 'Dust Mask', 'Kids N95 Mask', 'Cup Mask']
+    },
+    {
+      id: 'head-cap',
+      title: 'HEAD CAP',
+      icon: User,
+      items: ['Examination Lights', 'Bouffant Cap', 'Surgeon Cap', 'Beard Cap', 'Chef Cap', 'Hood Cap', 'Shower Cap', 'Ear Cap', 'Customize Cap', 'Nylon Cap']
+    },
+    {
+      id: 'shoe-cover-gloves',
+      title: 'SHOE COVER & GLOVES',
+      icon: Footprints,
+      items: ['Disposable Shoe Covers', 'Plastic Shoe Covers', 'Knee-Length Shoe Covers', 'Latex Gloves', 'Nitrile Gloves', 'Surgical Gloves', 'Plastic Gloves', 'Veterinary Gloves', 'Hand Sleeves']
+    },
+    {
+      id: 'disposable-apron',
+      title: 'DISPOSABLE APRON',
+      icon: Layers,
+      items: ['Plastic', 'NON WOVEN']
+    },
+    {
+      id: 'disposable-plain-sheet',
+      title: 'DISPOSABLE PLAIN SHEET / BED SHEET',
+      icon: Activity,
+      items: ['Lab Coat', 'Coverall', 'Dead Body Cover', 'Non-Woven Bed Sheet', 'Plastic Bed Sheet', 'Bed Rol', 'Scrub Suit', 'Shorts', 'Protective Gown']
+    },
+    {
+      id: 'health-hygine',
+      title: 'HEALTH & HYGINE',
+      icon: HeartPulse,
+      items: ['Underpads']
+    },
+    {
+      id: 'salon-spa',
+      title: 'SALON & SPA',
+      icon: Sparkles,
+      items: ['Salon Apron', 'Spa Gown', 'Wax Strips', 'Bed Sheet', 'Wrap', 'Non-Woven Brief', 'Spun Lace Brief', 'Disposable Napkin', 'Disposable Towel', 'Head Bands']
+    }
+  ];
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
     { 
       name: 'Products', 
       path: '/products',
-      dropdown: [
-        { name: 'Surgical Instruments', desc: 'Precision crafted tools for surgery' },
-        { name: 'Orthopedic Implants', desc: 'High-grade orthopedic solutions' },
-        { name: 'Hospital Furniture', desc: 'Modern equipment for medical facilities' }
-      ]
+      isMega: true,
+      categories: productCategories
     },
-     { name: 'Support', path: '/Support' },
+    { name: 'Support', path: '/Support' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -149,14 +204,48 @@ const Header = () => {
               <motion.li 
                 key={link.name}
                 variants={itemVariants}
-                onMouseEnter={() => link.dropdown && setActiveDropdown(index)}
-                onMouseLeave={() => link.dropdown && setActiveDropdown(null)}
+                onMouseEnter={() => (link.dropdown || link.isMega) && setActiveDropdown(index)}
+                onMouseLeave={() => (link.dropdown || link.isMega) && setActiveDropdown(null)}
               >
                 <Link to={link.path} className={window.location.pathname === link.path ? 'active' : ''}>
                   {link.name} 
-                  {link.dropdown && <ChevronDown size={14} className={`chevron ${activeDropdown === index ? 'rotate' : ''}`} />}
+                  {(link.dropdown || link.isMega) && <ChevronDown size={14} className={`chevron ${activeDropdown === index ? 'rotate' : ''}`} />}
                 </Link>
                 
+                {link.isMega && (
+                  <AnimatePresence>
+                    {activeDropdown === index && (
+                      <motion.div 
+                        className="mega-menu"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 15 }}
+                        transition={{ duration: 0.25 }}
+                      >
+                        <div className="container mega-menu-grid">
+                          {link.categories.map((cat, idx) => (
+                            <Link 
+                              key={idx} 
+                              to={`/products#${cat.id}`} 
+                              className="mega-column-link"
+                              onClick={() => setActiveDropdown(null)}
+                            >
+                              <div className="mega-column">
+                                <div className="mega-category-header">
+                                  <div className="mega-icon-wrapper">
+                                    <cat.icon size={20} strokeWidth={2.5} />
+                                  </div>
+                                  <h4 className="mega-title">{cat.title}</h4>
+                                </div>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                )}
+
                 {link.dropdown && (
                   <AnimatePresence>
                     {activeDropdown === index && (
@@ -256,6 +345,14 @@ const Header = () => {
                             <ChevronDown size={20} />
                           </button>
                         )}
+                        {link.isMega && (
+                          <button 
+                            className={`expand-btn ${mobileExpanded === i ? 'active' : ''}`}
+                            onClick={() => toggleMobileSub(i)}
+                          >
+                            <ChevronDown size={20} />
+                          </button>
+                        )}
                       </div>
                       
                       {link.dropdown && (
@@ -271,6 +368,33 @@ const Header = () => {
                                 <a key={sub.name} href="#" onClick={() => setIsMobileMenuOpen(false)}>
                                   {sub.name}
                                 </a>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      )}
+
+                      {link.isMega && (
+                        <AnimatePresence>
+                          {mobileExpanded === i && (
+                            <motion.div 
+                              className="mobile-mega-menu"
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                            >
+                              {link.categories.map((cat, catIdx) => (
+                                <Link 
+                                  key={catIdx} 
+                                  to={`/products#${cat.id}`}
+                                  className="mobile-cat-group-link"
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                  <div className="mobile-cat-header">
+                                    <cat.icon size={18} strokeWidth={2.5} className="mobile-cat-icon" />
+                                    <div className="mobile-cat-title">{cat.title}</div>
+                                  </div>
+                                </Link>
                               ))}
                             </motion.div>
                           )}

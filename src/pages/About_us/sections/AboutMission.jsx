@@ -11,16 +11,16 @@ const MissionCard = ({ item }) => {
   const y = useMotionValue(0);
 
   // Smooth springs for "pro" feel
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
+  const mouseXSpring = useSpring(x, { stiffness: 60, damping: 20 });
+  const mouseYSpring = useSpring(y, { stiffness: 60, damping: 20 });
 
   // Transformations for 3D tilt
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["8deg", "-8deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-8deg", "8deg"]);
 
   // Transformations for magnetic icon
-  const iconX = useTransform(mouseXSpring, [-0.5, 0.5], [-15, 15]);
-  const iconY = useTransform(mouseYSpring, [-0.5, 0.5], [-15, 15]);
+  const iconX = useTransform(mouseXSpring, [-0.5, 0.5], [-20, 20]);
+  const iconY = useTransform(mouseYSpring, [-0.5, 0.5], [-20, 20]);
 
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
@@ -51,10 +51,10 @@ const MissionCard = ({ item }) => {
         rotateY,
         transformStyle: "preserve-3d"
       }}
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 1.5, ease: [0.165, 0.84, 0.44, 1] }}
     >
       <div className="card-glass-shine" />
       
@@ -112,16 +112,26 @@ const AboutMission = () => {
             className="mission-badge"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
           >
             OUR VALUES
           </motion.div>
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, delay: 0.2, ease: [0.165, 0.84, 0.44, 1] }}
           >
             Guided by <span className="gradient-text">Excellence</span>
           </motion.h2>
-          <div className="header-divider" />
+          <motion.div 
+            className="header-divider"
+            initial={{ width: 0 }}
+            whileInView={{ width: '80px' }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, delay: 0.8 }}
+          />
         </div>
 
         <div className="mission-grid-ultra">

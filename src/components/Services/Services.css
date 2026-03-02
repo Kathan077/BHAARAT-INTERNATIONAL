@@ -40,8 +40,7 @@
     /* Enable hover for letters */
 }
 
-.srv__watermark-letter:hover,
-.srv__watermark-letter--active {
+.srv__watermark-letter:hover {
     color: #f97316 !important;
     /* Force color change */
     transform: translateY(-12px) scale(1.15) rotate(4deg);

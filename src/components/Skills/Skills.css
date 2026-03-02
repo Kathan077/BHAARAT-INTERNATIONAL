@@ -33,8 +33,7 @@
     pointer-events: auto;
 }
 
-.sk__watermark-letter:hover,
-.sk__watermark-letter--active {
+.sk__watermark-letter:hover {
     color: #0056b3 !important;
     /* Skill blue */
     transform: translateY(-12px) scale(1.15) rotate(-4deg);

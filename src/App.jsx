@@ -9,6 +9,7 @@ import BackToTop from './components/BackToTop/BackToTop';
 import Home from './pages/Home/Home';
 import AboutUs from './pages/About_us/AboutUs';
 import Products from './pages/Products/Products';
+import Support from './pages/Support/Support';
 import './styles/index.css';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/Support" element={<Support />} />
         </Routes>
       </main>
       <Footer />

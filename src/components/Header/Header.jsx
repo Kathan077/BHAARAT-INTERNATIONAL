@@ -32,6 +32,8 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileExpanded, setMobileExpanded] = useState(null);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -110,8 +112,7 @@ const Header = () => {
       isMega: true,
       categories: productCategories
     },
-    { name: 'Support', path: '/Support' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Support', path: '/Support' }
   ];
 
   const toggleMobileSub = (index) => {
@@ -279,7 +280,11 @@ const Header = () => {
             initial="hidden"
             animate="visible"
           >
-            <button className="search-btn desktop-only" aria-label="Search">
+            <button 
+              className="search-btn desktop-only" 
+              aria-label="Search"
+              onClick={() => setIsSearchOpen(true)}
+            >
               <Search size={20} />
             </button>
             <motion.a 
@@ -288,7 +293,7 @@ const Header = () => {
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
-              Get a Quote
+              Contact us
             </motion.a>
             <button 
               className="mobile-toggle-btn" 
@@ -429,7 +434,106 @@ const Header = () => {
           </div>
         )}
       </AnimatePresence>
+      {/* Search Overlay */}
+      <AnimatePresence>
+        {isSearchOpen && (
+          <motion.div 
+            className="search-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className="container search-container">
+              <div className="search-header">
+                <div className="search-input-wrapper">
+                  <Search size={24} className="search-input-icon" />
+                  <input 
+                    type="text" 
+                    placeholder="Search products, materials, and more..." 
+                    className="search-input"
+                    autoFocus
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                </div>
+                <button className="search-close" onClick={() => {
+                  setIsSearchOpen(false);
+                  setSearchQuery('');
+                }}>
+                  <X size={28} />
+                </button>
+              </div>
+
+              <div className="search-results">
+                {searchQuery.length > 1 && (
+                  <div className="results-grid">
+                    {productCategories.flatMap(cat => 
+                      cat.items.map(item => ({
+                        name: typeof item === 'string' ? item : item.name,
+                        categoryId: cat.id,
+                        categoryTitle: cat.title
+                      }))
+                    )
+                    .filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                    .map((product, idx) => (
+                      <motion.div
+                        key={idx}
+                        className="search-result-item"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: idx * 0.05 }}
+                        onClick={() => {
+                          navigate(`/products#${product.categoryId}`);
+                          setIsSearchOpen(false);
+                          setSearchQuery('');
+                        }}
+                      >
+                        <div className="result-info">
+                          <span className="result-name">{product.name}</span>
+                          <span className="result-category">in {product.categoryTitle}</span>
+                        </div>
+                        <ArrowRight size={16} />
+                      </motion.div>
+                    ))}
+                    {productCategories.flatMap(cat => 
+                      cat.items.map(item => ({
+                        name: typeof item === 'string' ? item : item.name,
+                        categoryId: cat.id,
+                        categoryTitle: cat.title
+                      }))
+                    ).filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase())).length === 0 && (
+                      <div className="no-results">
+                        No products found matching "{searchQuery}"
+                      </div>
+                    )}
+                  </div>
+                )}
+                {searchQuery.length <= 1 && (
+                  <div className="search-suggestions">
+                    <h5>SUGGESTED CATEGORIES</h5>
+                    <div className="suggested-grid">
+                      {productCategories.slice(0, 4).map(cat => (
+                        <button 
+                          key={cat.id} 
+                          className="suggested-item"
+                          onClick={() => {
+                            navigate(`/products#${cat.id}`);
+                            setIsSearchOpen(false);
+                          }}
+                        >
+                          {cat.title}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
+
   );
 };
 

@@ -31,10 +31,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <span className="hero__badge">
-            <span className="hero__badge-dot" />
-            ISO 13485 Certified &nbsp;·&nbsp; Trusted in 40+ Countries
-          </span>
+        
         </motion.div>
 
         {/* Main heading */}

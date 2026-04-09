@@ -1,0 +1,345 @@
+/* =========================================================
+   BHAARAT INTERNATIONAL — Support Page Styles (Refined)
+   ========================================================= */
+
+.support-page-pro {
+    background: #ffffff;
+    min-height: 100vh;
+}
+
+/* ---------- Hero Section ---------- */
+.support-hero {
+    background: linear-gradient(135deg, #002d5f 0%, #0056b3 100%);
+    padding: 170px 0 100px;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+}
+
+.support-badge {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    margin-bottom: 2rem;
+}
+
+.support-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    color: #e0f2fe;
+}
+
+
+
+.support-hero p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ---------- Support Channels ---------- */
+.support-channels {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+
+.channels-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.channel-card {
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 32px;
+    box-shadow: 0 15px 35px -5px rgba(0, 44, 95, 0.08);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    border: 1px solid rgba(0, 86, 179, 0.03);
+}
+
+.channel-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -10px rgba(0, 44, 95, 0.15);
+    border-color: rgba(0, 86, 179, 0.1);
+}
+
+.card-icon-wrapper {
+    width: 68px;
+    height: 68px;
+    border-radius: 20px;
+    background: var(--card-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.channel-card h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.channel-card p {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-value {
+    font-weight: 700;
+    color: #334155;
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+}
+
+.card-action {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 800;
+    color: #0056b3;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: auto;
+}
+
+/* ---------- FAQ & Layout ---------- */
+.faq-simple-section {
+    padding: 120px 0;
+}
+
+.secondary-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 6rem;
+    align-items: start;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 2.5rem;
+}
+
+.faq-list-simple {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.faq-item-simple {
+    background: #f8fafc;
+    border-radius: 20px;
+    padding: 1.75rem 2rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.25s ease;
+}
+
+.faq-item-simple.active {
+    background: white;
+    border-color: #e2e8f0;
+    box-shadow: 0 10px 30px -10px rgba(0, 44, 95, 0.08);
+}
+
+.faq-q-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 1.1rem;
+}
+
+.chevron-icon {
+    transition: transform 0.3s ease;
+    color: #94a3b8;
+}
+
+.chevron-icon.rotate {
+    transform: rotate(180deg);
+    color: #0056b3;
+}
+
+.faq-answer-text {
+    padding-top: 1.5rem;
+    color: #64748b;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* ---------- Form Column ---------- */
+.form-card-minimal {
+    background: #ffffff;
+    padding: 3.5rem;
+    border-radius: 35px;
+    box-shadow: 0 35px 70px -15px rgba(0, 44, 95, 0.15);
+    border: 1px solid rgba(0, 86, 179, 0.05);
+}
+
+.form-card-minimal h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.form-card-minimal p {
+    color: #64748b;
+    margin-bottom: 2.5rem;
+}
+
+.minimal-support-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.minimal-support-form input,
+.minimal-support-form textarea {
+    padding: 1.25rem;
+    border-radius: 16px;
+    background: #f1f5f9;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.minimal-support-form input:focus,
+.minimal-support-form textarea:focus {
+    background: white;
+    border-color: #0056b3;
+    box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.05);
+}
+
+.minimal-support-form button {
+    background: #0056b3;
+    color: white;
+    padding: 1.25rem;
+    border-radius: 16px;
+    border: none;
+    font-weight: 800;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.minimal-support-form button:hover {
+    background: #002d5f;
+    transform: scale(1.02);
+}
+
+/* ---------- Map Section ---------- */
+.location-map {
+    padding: 120px 0;
+    background: #f8fafc;
+}
+
+.section-header.centered {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.icon-badge {
+    display: inline-flex;
+    padding: 0.75rem;
+    background: #e0f2fe;
+    color: #0369a1;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.map-wrapper {
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 40px 80px -20px rgba(0, 44, 95, 0.2);
+    border: 12px solid white;
+}
+
+/* ---------- Trust Grid ---------- */
+.support-trust {
+    padding: 100px 0;
+    background: #001e3c;
+    color: white;
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10rem;
+    text-align: center;
+}
+
+.trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.trust-item h4 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #f1f5f9;
+}
+
+.trust-item p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+    .secondary-layout {
+        grid-template-columns: 1fr;
+        gap: 5rem;
+    }
+
+    .trust-grid {
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .channels-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trust-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-card-minimal {
+        padding: 2rem;
+    }
+}

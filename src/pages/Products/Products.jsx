@@ -34,7 +34,7 @@ import kf94MaskImg from './img/kf94-mask.jpg';
 import dustMaskImg from './img/dust-mask.jpg';
 import kidsN95MaskImg from './img/kids-n95-mask.jpg';
 import cupMaskImg from './img/cup-mask.jpg';
-import bouffantCapImg from './img/bouffant-cap.jpg';
+
 import examLightImg from './img/examination-light.jpg';
 import surgeonCapImg from './img/surgeon-cap.jpg';
 import beardCapImg from './img/beard-cap.jpg';
@@ -99,8 +99,8 @@ const productCategories = [
     color: '#0056b3',
     image: headCapImg,
     items: [
-      { name: 'Examination Lights', image: examLightImg },
-      { name: 'Bouffant Cap', image: bouffantCapImg },
+    
+      { name: 'Bouffant Cap', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR8wWV24sQZKSmzAq0OaAbPiZB6L0_eeS2Pcz7ckOayUDZXHgX1zRxHupPWVtphKG3affW1TA9YaRHqiY-8EdxAsKC2NXUlYA' },
       { name: 'Surgeon Cap', image: surgeonCapImg },
       { name: 'Beard Cap', image: beardCapImg },
       { name: 'Chef Cap', image: chefCapImg },
@@ -146,7 +146,26 @@ const productCategories = [
     icon: Activity,
     color: '#0369a1',
     image: bedSheetImg,
-    items: ['Lab Coat', 'Coverall', 'Dead Body Cover', 'Non-Woven Bed Sheet', 'Plastic Bed Sheet', 'Bed Rol', 'Scrub Suit', 'Shorts', 'Protective Gown']
+    items: [
+      { name: 'Non-Woven Bed Sheet', image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS81_l2QloSpVyJg2IlK0VKiSo76HAUOTmZywbEBiVaoyXxNmRSFzhkllkDs4dujsd3RBwFGh2Hq-CjvKfSL2gdQGgENt7i' },
+      { name: 'Plastic Bed Sheet', image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTeN561UntYDdL2k7lkmFkK7wNV2rMAOKzU9avcSMkhgaKUTTmr6bZjJbhJQoW49-xBE_6jFpLsWk15t4Yzoa54efGgboLV0wZJdP-48swray6ip0pKy0T68Q' },
+      { name: 'Bed Rol', image: 'https://m.media-amazon.com/images/I/31R37l-eOIL._AC_UF1000,1000_QL80_.jpg' }
+    ]
+  },
+  {
+    id: 'disposable-apparel',
+    title: 'DISPOSABLE APPAREL',
+    icon: Layers,
+    color: '#1e40af',
+    image: apronImg,
+    items: [
+      { name: 'Lab Coat', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTr_IGDnn2q4uYtOLphIv3Jrwy3gXe0jeFvVLGTiVSnMLIkBozuXtbGJ23o56sHYefdaijImiiD4ho10V_vUPF2spyI4rNGuw' },
+      { name: 'Coverall', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSbUldO7yvJ4ondChLq0bJDAd88TOFtz7UvDTmhsJShgysPkZLH3y_wxHJwVAkhjdmi-YCWJFY14RYaCaL-yTf_5g-9SLyjKw' },
+      { name: 'Scrub Suit', image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTTK_o1ZE1hSkhhJNuzZ2yRGwLt_xpMF6tX_Zu_HKqu8qLQ6Q76jTu-A0VTDj1KXOb1Gy1W5U49_6J6mTdPRLIWnoLzaefBWRoV6UA8nuiOAikaKcM1zA92' },
+      { name: 'Protective Gown', image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQPAkalvfhmYtbWE_zN8pST3EnqMQnTrdYDkimPxVxuWOkxR4oT13EnGUsqUbplBzMJ8dXpv5XR2t2dnJycpkANBY-6f-pNcxwfpuHDwzFHyrntzT6xsJnmQS8' },
+      { name: 'Shorts', image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTazevLqAVLrXpT9WCDLJKYxvNUCH8LFczx3B1jAeLdHM2CqU6lXT1-QeCBFWEGCy0SMdC6RJCIj11__Mrmo9aJ2oz-KXJYPA' },
+      { name: 'Dead Body Cover', image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQOYRmHIcJYLg1Gm14McAIZzh_Pl4GT5AaH-bLTRWqu5EjAvATEvnqj_dbEBkDGn3xznv24NzpJct6gW8XP63gxTDb7e56M' }
+    ]
   },
   {
     id: 'health-hygine',
@@ -154,7 +173,9 @@ const productCategories = [
     icon: HeartPulse,
     color: '#0c4a6e',
     image: healthHygineImg,
-    items: ['Underpads']
+    items: [
+      { name: 'Underpads', image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTUg4eKQhziPOETeRe5AGqvieVgRYjxsHbKBNw4zd4ubCzCiHUbFh6DAe9GOBA3664aG7YNOzGUmL9dDLBAVGO8zpF3j4M-3BdHM7SH0dHkZ8arpXOCv1KmQ_8' }
+    ]
   },
   {
     id: 'salon-spa',
@@ -162,7 +183,18 @@ const productCategories = [
     icon: Sparkles,
     color: '#075985',
     image: salonSpaImg,
-    items: ['Salon Apron', 'Spa Gown', 'Wax Strips', 'Bed Sheet', 'Wrap', 'Non-Woven Brief', 'Spun Lace Brief', 'Disposable Napkin', 'Disposable Tow Towel', 'Head Bands']
+    items: [
+      { name: 'Salon Apron', image: 'https://rukminim2.flixcart.com/image/1500/1500/xif0q/makeup-apron/j/v/k/pack-of-20-disposable-hair-cutting-aprons-for-salon-spa-parlour-original-imahkm9ngf3nbway.jpeg' },
+      { name: 'Spa Gown', image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSRWSHMYHDdutO_mqPAUS4NuGqpyv3yZaOVBFtf2Q0kfk_-wb0HI_MwOeUVo0c9VZ863qLLc1h8-qX1c2Vmcc3IUSnbXEcmpXbc-h_Idhyx_J_vSrovsT5gMrs' },
+      { name: 'Wax Strips', image: 'https://m.media-amazon.com/images/I/51PamTAOUWL.jpg' },
+      { name: 'Bed Sheet', image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRkFZF3BwKN89D3rcUyiNvS-Q3rn3d6kQHOhiURtvkMvGQIEpxz0C5SCSTH3Jz0OVLwxSpclJliYpo13sc9nbhP92Dfl_4BPAG8Sx3lSvu6' },
+      { name: 'Wrap', image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTT3KFHmz75vwMlz1Q2KpJeuDYBUQu5nO8J28Yi0LrFqmEKa7x_MLg34JFh75r5Jnh1bh-DYPryuUdQxiVpVThNzNpKflat' },
+      { name: 'Non-Woven Brief', image: 'https://m.media-amazon.com/images/I/61Xom+-IWBL.jpg' },
+      { name: 'Spun Lace Brief', image: 'https://m.media-amazon.com/images/I/610YUg8-Z1L.jpg' },
+      { name: 'Disposable Napkin', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRPYsqJZShMv0PRw12IlA4xl4i7xl-Ck3Sq_4Xw5W6LerbK7QrT8gbnKV13jHqMCIageishwElagzrc1F5xy06K5HXma34xwK07T-JJuvhnB-yfICmgCY8Y' },
+      { name: 'Disposable Tow Towel', image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSvsizdCa7EYP9NsvAItQpXr73HCYocf5PSxq9p2CcoTJcsw6ayriipJAd1c7kSDHys9o4s129-iw7PJ9QcFQ2bRdHmPjeh5lI-u_dV7UYrVdtATUckkN6v' },
+      { name: 'Head Bands', image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR8-7Z6VVqFHlob0PZHg5G-xR_go-kG-qUzZAZro_hBuf9kXztEZ8ll3aGyhHwJcsUNoGVhetH8Uocgzv-62UPOd6pAdTc' }
+    ]
   }
 ];
 

@@ -256,7 +256,7 @@
 
 .minimal-support-form button:hover {
     background: #002d5f;
-    transform: scale(1.02);
+    transform: ale(1.02);
 }
 
 /* ---------- Map Section ---------- */

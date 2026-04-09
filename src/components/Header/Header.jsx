@@ -112,7 +112,8 @@ const Header = () => {
       isMega: true,
       categories: productCategories
     },
-    { name: 'Support', path: '/Support' }
+    { name: 'Support', path: '/Support' },
+ 
   ];
 
   const toggleMobileSub = (index) => {

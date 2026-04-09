@@ -13,7 +13,8 @@
 }
 
 .site-header.scrolled {
-    box-shadow: 0 4px 24px -6px rgba(0, 44, 95, 0.13);
+    box-shadow: 0 10px 30px -10px rgba(0, 44, 95, 0.2);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 /* ---------- Top Bar ---------- */
@@ -23,6 +24,15 @@
     padding: 7px 0;
     font-size: 0.8rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.scrolled .top-bar {
+    height: 0;
+    padding: 0;
+    opacity: 0;
+    border-bottom: none;
 }
 
 .top-bar-content {
@@ -73,16 +83,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 120px;
-    /* Constant height to accommodate the 155px logo */
+    height: 80px;
+    /* Shorter as requested while keeping logo 155px */
     position: relative;
     transition: all 0.35s ease;
 }
 
-.scrolled .nav-content {
-    height: 120px;
-    /* Keep it consistent since logo doesn't change */
-}
+
 
 /* ---------- Logo ---------- */
 .logo-wrapper {
@@ -105,7 +112,7 @@
     width: auto;
     max-width: 220px;
     /* Slightly more room */
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: block;
     object-fit: contain;
     z-index: 10;
@@ -113,8 +120,9 @@
 }
 
 .scrolled .logo-img {
-    height: 155px;
-    /* Stay large as requested */
+    height: 90px;
+    /* Reduced from 155px for better scroll experience */
+    filter: drop-shadow(0 4px 8px rgba(0, 44, 95, 0.05));
 }
 
 /* Cinematic Shine Animation Wrapper */
@@ -644,11 +652,13 @@
     }
 
     .nav-content {
-        height: 64px;
+        height: 85px;
+        /* Taller on tablets */
     }
 
     .logo-img {
-        height: 110px;
+        height: 120px;
+        /* Slightly larger logo */
     }
 }
 
@@ -659,11 +669,12 @@
     }
 
     .logo-img {
-        height: 110px;
+        height: 120px;
     }
 
     .nav-content {
-        height: 60px;
+        height: 70px;
+        /* Taller on mobile to avoid 'small' header look on scroll */
     }
 }
 

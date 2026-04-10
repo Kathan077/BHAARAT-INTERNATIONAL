@@ -6,6 +6,8 @@ import CustomCursor from './components/CustomCursor/CustomCursor';
 import Preloader from './components/Preloader/Preloader';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
 import BackToTop from './components/BackToTop/BackToTop';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton';
 import Home from './pages/Home/Home';
 import AboutUs from './pages/About_us/AboutUs';
 import Products from './pages/Products/Products';
@@ -20,6 +22,8 @@ function App() {
   return (
     <div className="App">
       {/* Global overlays */}
+      <ScrollToTop />
+      <WhatsAppButton />
       <CustomCursor />
       <ScrollProgress />
       <BackToTop />

@@ -6,10 +6,33 @@ import './Quote.css';
 const Quote = () => {
   const [formState, setFormState] = useState('idle'); // idle, loading, success
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormState('loading');
-    setTimeout(() => setFormState('success'), 1500);
+    
+    const formData = new FormData(e.target);
+    formData.append("access_key", "c5c86471-7818-4794-98e0-5183f58b37a0");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setFormState('success');
+        e.target.reset();
+      } else {
+        console.error("Error", data);
+        setFormState('idle');
+        alert("Submission failed: " + data.message);
+      }
+    } catch (error) {
+      console.error("Error", error);
+      setFormState('idle');
+      alert("An error occurred. Please try again later.");
+    }
   };
 
   return (
@@ -91,23 +114,23 @@ const Quote = () => {
                 <div className="form-grid">
                   <div className="input-group">
                     <label>Full Name</label>
-                    <input type="text" placeholder="John Doe" required />
+                    <input type="text" name="name" placeholder="John Doe" required />
                   </div>
                   <div className="input-group">
                     <label>Work Email</label>
-                    <input type="email" placeholder="john@hospital.com" required />
+                    <input type="email" name="email" placeholder="john@hospital.com" required />
                   </div>
                   <div className="input-group">
                     <label>Company/Institution</label>
-                    <input type="text" placeholder="Global Health Care" required />
+                    <input type="text" name="company" placeholder="Global Health Care" required />
                   </div>
                   <div className="input-group">
                     <label>Phone Number</label>
-                    <input type="tel" placeholder="+91 00000 00000" required />
+                    <input type="tel" name="phone" placeholder="+91 00000 00000" required />
                   </div>
                   <div className="input-group full-width">
                     <label>Product Category</label>
-                    <select required>
+                    <select name="category" required>
                       <option value="">Select a Category</option>
                       <option value="masks">Face Masks & Protection</option>
                       <option value="caps">Head Caps & Bouffant</option>
@@ -118,7 +141,7 @@ const Quote = () => {
                   </div>
                   <div className="input-group full-width">
                     <label>Requirements Brief</label>
-                    <textarea placeholder="Tell us about the quantity and specific standards you require..." rows="4" required></textarea>
+                    <textarea name="message" placeholder="Tell us about the quantity and specific standards you require..." rows="4" required></textarea>
                   </div>
                 </div>
 

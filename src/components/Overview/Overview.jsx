@@ -1,6 +1,7 @@
 import React, { useRef, useState, useCallback } from 'react';
 import { motion, useInView, useSpring, animate } from 'framer-motion';
 import { ShieldCheck, Globe, Award, Users, ArrowRight, CheckCircle2 } from 'lucide-react';
+import overviewImg from '../../assets/WhatsApp Image 2026-04-10 at 2.40.55 PM.jpeg';
 import './Overview.css';
 
 /* ── Animated counter ── */
@@ -143,13 +144,7 @@ const TiltFrame = ({ children, className = '' }) => {
       {/* 3D Parallax Badges */}
       
 
-      <motion.div 
-        className="overview__float-exp"
-        style={{ translateZ: 80 }}
-      >
-        <span className="overview__exp-num">25+</span>
-        <span className="overview__exp-label">Years of<br/>Expertise</span>
-      </motion.div>
+     
     </motion.div>
   );
 };
@@ -172,7 +167,7 @@ const Overview = () => {
         >
           <TiltFrame className="overview__img-frame">
             <img
-              src="/overview.png"
+              src={overviewImg}
               alt="Bhaarat International — Medical Instruments"
               className="overview__img"
             />

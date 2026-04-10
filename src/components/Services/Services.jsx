@@ -7,7 +7,7 @@ const services = [
   {
     id: 1,
     icon: Stethoscope,
-    tag: 'Category 01',
+   
     title: 'Ply Face Mask',
     description:
       'Single-use face masks ensuring hygiene, protection, and ease of use.',
@@ -17,7 +17,7 @@ const services = [
   {
     id: 2,
     icon: Bone,
-    tag: 'Category 02',
+  
     title: 'Head Cap',
     description:
       'Comfortable disposable caps for effective hygiene and contamination control.',
@@ -27,7 +27,7 @@ const services = [
   {
     id: 3,
     icon: BedDouble,
-    tag: 'Category 03',
+
     title: 'Shoe Cover & Gloves',
     description:
       'Protective wear designed to maintain cleanliness and prevent contamination.',
@@ -37,7 +37,7 @@ const services = [
   {
     id: 4,
     icon: Activity,
-    tag: 'Category 04',
+   
     title: 'Disposable Apron',
     description:
       'Reliable disposable aprons for safe and hygienic work environments.',

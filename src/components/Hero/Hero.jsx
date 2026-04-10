@@ -61,7 +61,7 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.65 }}
         >
           <motion.a
-            href="#products"
+            href="/products"
             className="hero__btn hero__btn--primary"
             whileHover={{ y: -3, scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
@@ -70,12 +70,12 @@ const Hero = () => {
           </motion.a>
 
           <motion.a
-            href="#quote"
+            href="/Quote"
             className="hero__btn hero__btn--outline"
             whileHover={{ y: -3, scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
           >
-            <span className="hero__play-icon"><Play size={14} fill="currentColor" /></span>
+          
             Get a Quote
           </motion.a>
         </motion.div>

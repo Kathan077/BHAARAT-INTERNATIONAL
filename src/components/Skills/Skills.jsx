@@ -201,7 +201,7 @@ const Skills = () => {
           transition={{ duration: 0.75, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
           <TiltFrame className="sk__img-frame">
-            <img src="/skills.png" alt="Quality inspection of medical instruments" className="sk__img" />
+            <img src="https://media.licdn.com/dms/image/v2/D5612AQETOlWhNKWkYg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1721594484828?e=2147483647&v=beta&t=L7tviVgY_t7ck5PFyv5kQD3m-xcsVWYidvYU5YWObQ8" alt="Quality inspection of medical instruments" className="sk__img" />
 
             {/* Floating card */}
             <motion.div

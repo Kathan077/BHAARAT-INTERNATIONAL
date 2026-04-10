@@ -63,6 +63,7 @@
     border-bottom: 1px solid rgba(0, 86, 179, 0.09);
     padding: 0;
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .scrolled .main-nav {
@@ -72,10 +73,10 @@
 .nav-content {
     display: flex;
     justify-content: space-between;
+
     align-items: center;
-    height: 90px;
+    height: 80px;
     position: relative;
-    /* Essential for mega-menu full width */
 }
 
 /* ---------- Logo ---------- */
@@ -134,7 +135,7 @@
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 0.25rem;
+    gap: 30px;
     align-items: center;
 }
 

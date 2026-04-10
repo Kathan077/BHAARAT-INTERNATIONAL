@@ -28,17 +28,16 @@ const Counter = ({ target, suffix = '', duration = 2, startAnimation }) => {
 
 const stats = [
   { icon: Award, value: 25, suffix: '+', label: 'Years of Excellence' },
-  { icon: Globe, value: 40, suffix: '+', label: 'Countries Served' },
-  { icon: Users, value: 500, suffix: '+', label: 'Healthcare Partners' },
+  
   { icon: ShieldCheck, value: 100, suffix: '%', label: 'Quality Assured' },
 ];
 
 const highlights = [
-  'ISO 13485 Certified Manufacturing',
-  'CE Marked & FDA Compliant Products',
-  'End-to-end supply chain management',
-  'Dedicated after-sales support team',
-  'Custom OEM & private label solutions',
+  'International Supplier of Medical & Protective Solutions',
+  'Certified Manufacturing with Global Quality Standards',
+  'Reliable Bulk Supply Across Multiple Countries',
+  'Flexible Custom Branding & Private Label Support',
+  'Consistent Quality with Scalable Production Capacity',
 ];
 
 /* ── Animation variants ── */
@@ -202,7 +201,7 @@ const Overview = () => {
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
           >
-            Bhaarat International is a leading exporter and manufacturer of precision surgical instruments and hospital equipment.
+           We are engaged in the import and export of high-quality surgical and medical products, delivering reliable solutions to global markets.
           </motion.p>
 
           <motion.ul

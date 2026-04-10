@@ -1,187 +1,130 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ShieldCheck, Globe, Truck, Users } from 'lucide-react';
 import './AboutStory.css';
 
 const AboutStory = () => {
-  const containerRef = useRef(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  // Mega smooth springs for cinematic feel
-  const springConfig = { stiffness: 45, damping: 25, restDelta: 0.001 };
-  
-  const yWatermark = useSpring(useTransform(scrollYProgress, [0, 1], [-150, 150]), springConfig);
-  const yMainImg = useSpring(useTransform(scrollYProgress, [0, 1], [80, -80]), springConfig);
-  const yFloatCard = useSpring(useTransform(scrollYProgress, [0, 1], [150, -150]), springConfig);
-  const rotateImg = useSpring(useTransform(scrollYProgress, [0, 1], [-3, 3]), springConfig);
-
-  const titleWords = "Crafting the Future of Precision".split(" ");
-
-  const wordVariants = {
-    hidden: { y: 60, opacity: 0 },
-    visible: (i) => ({
-      y: 0,
-      opacity: 1,
-      transition: { 
-        duration: 1.2, 
-        delay: i * 0.15, 
-        ease: [0.165, 0.84, 0.44, 1] 
-      }
-    })
-  };
-
-  const textStagger = {
+  const fadeUp = {
     hidden: { opacity: 0, y: 30 },
-    visible: (i) => ({
+    visible: (i = 0) => ({
       opacity: 1,
       y: 0,
-      transition: { duration: 1.4, delay: 0.8 + (i * 0.25), ease: [0.165, 0.84, 0.44, 1] }
+      transition: { duration: 0.8, delay: i * 0.1, ease: [0.25, 0.1, 0.25, 1] }
     })
   };
 
   return (
-    <section className="about-story-pro" ref={containerRef}>
-      {/* ── Background Watermark ── */}
-      <motion.div 
-        className="story-watermark"
-        style={{ y: yWatermark }}
-      >
-        EXCELLENCE
-      </motion.div>
-
-      <div className="container story-grid-pro">
-        <div className="story-content-pro">
+    <section className="about-story-new">
+      <div className="container story-wrapper">
+        <div className="story-grid-main">
+          {/* Visual Column */}
           <motion.div 
-            className="pro-accent-line"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: [0.165, 0.84, 0.44, 1] }}
-          />
-          
-          <h2 className="pro-section-title">
-            {titleWords.map((word, i) => (
-              <span key={i} className="word-wrap">
-                <motion.span
-                  custom={i}
-                  variants={wordVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-50px" }}
-                  className={word.toLowerCase() === "future" ? "accent" : ""}
-                >
-                  {word}
-                </motion.span>
-                {i !== titleWords.length - 1 && "\u00A0"}
-              </span>
-            ))}
-          </h2>
-
-          <div className="pro-description">
-            {[
-              "Our story began in 2020 with a single, uncompromising goal: to bridge the gap between artisanal craftsmanship and medical-grade precision.",
-              "Today, Bhaarat International stands as a global beacon of reliability, serving over 40 countries with instruments that are as much works of art as they are surgical tools.",
-              "We believe that every cut matters, every stitch counts, and every life saved is a testament to the tools used by heroes."
-            ].map((text, i) => (
-              <motion.p 
-                key={i}
-                custom={i}
-                variants={textStagger}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                {text}
-              </motion.p>
-            ))}
-          </div>
-
-          <motion.div 
-            className="pro-stats-grid"
+            className="story-visual"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.15,
-                  delayChildren: 0.8
-                }
-              }
-            }}
+            variants={fadeUp}
           >
-            {[
-              { num: '40+', label: 'NATIONS' },
-              { num: '5k+', label: 'SURGEONS' },
-              { num: '100%', label: 'PRECISION' }
-            ].map((stat, idx) => (
-              <motion.div 
-                key={idx}
-                className="pro-stat-item"
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-                }}
-              >
-                <span className="num">{stat.num}</span>
-                <span className="label">{stat.label}</span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-
-        <div className="story-visuals-pro">
-          {/* Main Image Layer */}
-          <motion.div 
-            className="pro-main-img-wrap"
-            style={{ y: yMainImg, rotate: rotateImg }}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.8, ease: [0.165, 0.84, 0.44, 1] }}
-          >
-            <img 
-              src="/story-main.jpg" 
-              alt="Elite Precision Instruments" 
-              onError={(e) => e.target.src = 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000'}
-            />
-            <div className="pro-img-overlay" />
-          </motion.div>
-
-          {/* Floating Glass Card */}
-          <motion.div 
-            className="pro-float-glass"
-            style={{ y: yFloatCard }}
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 1.2, duration: 1.5, ease: [0.165, 0.84, 0.44, 1] }}
-          >
-            <div className="glass-inner">
-              <div className="glass-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
+            <div className="main-image-container">
+              <img 
+                src="https://www.entrepreneurindia.co/blogs/wp-content/uploads/2025/03/159.png" 
+                alt="Medical Precision" 
+                className="main-story-img"
+              />
+              <div className="image-accent-border" />
+              <div className="experience-badge">
+                <span className="years">Reliable</span>
+                <span className="text">Global Supply</span>
               </div>
-              <h5>Global Standard</h5>
-              <p>Hand-finished in our specialized facility for ISO-certified excellence.</p>
+            </div>
+            
+            <div className="mini-features">
+              <div className="m-feature">
+                <ShieldCheck size={24} />
+                <span>Certified Quality</span>
+              </div>
+              <div className="m-feature">
+                <Globe size={24} />
+                <span>Export Specialist</span>
+              </div>
             </div>
           </motion.div>
 
-          {/* Decorative Elements */}
-          <motion.div 
-            className="pro-dot-pattern" 
-            initial={{ opacity: 0, rotate: -45 }}
-            whileInView={{ opacity: 0.4, rotate: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 2, delay: 0.5 }}
-          />
+          {/* Content Column */}
+          <div className="story-content-new">
+            <motion.div 
+              className="content-header"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={1}
+              variants={fadeUp}
+            >
+              <span className="story-eyebrow">COMPANY OVERVIEW</span>
+              <h2 className="story-title">
+Medical consumables <span className="highlight">Instruments</span> for a Healthier World</h2>
+            </motion.div>
+
+            <motion.div 
+              className="story-description-large"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={2}
+              variants={fadeUp}
+            >
+              <p>
+                <strong>Bhaarat International</strong> is a growing and reliable company engaged in the import and export 
+                of high quality surgical and medical products, serving clients across domestic and international markets. 
+                Our focus is on delivering products that meet strict quality, safety, and hygiene standards required in 
+                modern healthcare environments.
+              </p>
+              
+              <p>
+                We offer a wide range of products including face masks, disposable medical supplies, protective wear, 
+                surgical accessories, and hygiene essentials. Each product is carefully sourced and supplied to ensure 
+                consistency, durability, and performance, making them suitable for hospitals, clinics, laboratories, 
+                and healthcare professionals.
+              </p>
+
+              <div className="story-highlights">
+                <div className="h-item">
+                  <div className="h-icon"><Truck size={20} /></div>
+                  <div className="h-text">
+                    <h4>Efficient Logistics</h4>
+                    <p>Complete supply process managed from sourcing to timely delivery.</p>
+                  </div>
+                </div>
+                <div className="h-item">
+                  <div className="h-icon"><Users size={20} /></div>
+                  <div className="h-text">
+                    <h4>Client Focused</h4>
+                    <p>Building long-term relationships through transparent communication.</p>
+                  </div>
+                </div>
+              </div>
+
+              <p>
+                With a strong understanding of global trade and logistics, we manage the complete supply process 
+                efficiently from sourcing and quality checks to packaging and timely delivery. Our streamlined 
+                operations help us fulfill bulk orders while maintaining reliability and cost-effectiveness.
+              </p>
+              
+              <p>
+                At Bhaarat International, we believe in building long-term business relationships by providing 
+                dependable products, transparent communication, and responsive customer support. Our commitment is 
+                to deliver value, trust, and satisfaction to every client we work with, making us a preferred partner 
+                in the surgical and medical supply industry.
+              </p>
+            </motion.div>
+          </div>
         </div>
+      </div>
+
+      {/* Background Decorative Elements */}
+      <div className="story-bg-decoration">
+        <div className="circle circle-1" />
+        <div className="circle circle-2" />
       </div>
     </section>
   );

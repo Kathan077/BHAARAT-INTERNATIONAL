@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, Award, ShieldCheck, Globe, Calendar, ArrowUpRight, Facebook, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Award, ShieldCheck, Globe, Calendar, ArrowUpRight, Facebook, Linkedin, Twitter, Instagram } from 'lucide-react';
 import logo from '../../assets/BHAARAT_International_Logo_No_BG.png';
 import './Footer.css';
 
@@ -21,10 +21,10 @@ const Footer = () => {
     {
       title: 'Products',
       links: [
-        { label: 'Surgical Instruments', href: '#services' },
-        { label: 'Orthopedic Implants', href: '#services' },
-        { label: 'Hospital Equipment', href: '#services' },
-        { label: 'Custom Solutions', href: '#skills' },
+        { label: 'Ply Face Mask', href: '/products' },
+        { label: 'Head Cap', href: '/products' },
+        { label: 'Shoe Cover & Gloves', href: '/products' },
+        { label: 'Disposable Apron', href: '/products' },
       ]
     }
   ];
@@ -56,8 +56,8 @@ const Footer = () => {
               <img src={logo} alt="Bhaarat International Logo" className="footer__logo-img" />
             </div>
             <p className="footer__description">
-              A leading name in TRADING and manufacturing of precision surgical instruments 
-              and hospital equipment since 2020.
+              Specializing in the export and import of high-quality surgical and medical 
+              consumable products, delivering reliable healthcare solutions to global markets.
             </p>
             <div className="footer__socials">
               {[Facebook, Linkedin, Twitter, Instagram].map((Icon, i) => (
@@ -90,7 +90,11 @@ const Footer = () => {
               </li>
               <li className="footer__info-item">
                 <Mail className="footer__info-icon" size={18} />
-                <a href="mailto:bhaaratinternational@gmail.com">bhaaratinternational@gmail.com</a>
+                <a href="mailto:bhaaratinternational@zohomail.in">bhaaratinternational@zohomail.in</a>
+              </li>
+              <li className="footer__info-item">
+                <Phone className="footer__info-icon" size={18} />
+                <a href="tel:+919825275668">+91 98252 75668</a>
               </li>
               <li className="footer__info-item">
                 <Calendar className="footer__info-icon" size={18} />

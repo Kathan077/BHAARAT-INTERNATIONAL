@@ -3,8 +3,9 @@ import { motion } from 'framer-motion';
 import AboutHero from './sections/AboutHero';
 import AboutStory from './sections/AboutStory';
 import AboutLogistics from './sections/AboutLogistics';
+import AboutProcess from './sections/AboutProcess';
 import AboutMission from './sections/AboutMission';
-import Overview from '../../components/Overview/Overview';
+
 import './AboutUs.css';
 
 const AboutUs = () => {
@@ -23,10 +24,9 @@ const AboutUs = () => {
       <AboutHero />
       <AboutStory />
       <AboutLogistics />
+      <AboutProcess />
       <AboutMission />
-      <div className="about-overview-wrapper">
-        <Overview />
-      </div>
+      
     </motion.div>
   );
 };

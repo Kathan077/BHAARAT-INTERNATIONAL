@@ -1,307 +1,190 @@
-.about-logistics-pro {
+.about-logistics-optimized {
     position: relative;
-    background: #ffffff;
-    padding: 180px 0;
+    background: #0f172a;
+    padding: 160px 0;
     overflow: hidden;
+    color: #ffffff;
 }
 
-/* ── Custom High-Fidelity Background ── */
-.logistics-custom-bg {
+/* ── High-Performance CSS Parallax ── */
+.optimized-bg-fixed {
     position: absolute;
-    inset: -10% -5%;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2000');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Pure CSS Parallax - Very Efficient */
+    filter: brightness(0.2) contrast(1.1);
     z-index: 0;
     pointer-events: none;
 }
 
-.logistics-custom-bg img {
-    width: 100%;
-    height: 120%;
-    object-fit: cover;
-    filter: brightness(0.6) contrast(1.1);
+/* Fallback for devices that don't support fixed attachment well */
+@supports (-webkit-overflow-scrolling: touch) {
+    .optimized-bg-fixed {
+        background-attachment: scroll;
+    }
 }
 
-.bg-overlay-gradient {
+.optimized-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom,
-            #ffffff 0%,
-            rgba(255, 255, 255, 0.4) 15%,
-            transparent 30%,
-            transparent 70%,
-            rgba(255, 255, 255, 0.4) 85%,
-            #ffffff 100%);
+    background: radial-gradient(circle at center, transparent 0%, rgba(15, 23, 42, 0.9) 100%);
     z-index: 1;
 }
 
-/* ── Ultra-Pro Background Layers ── */
-.logistics-bg-layers {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.bg-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.1;
-}
-
-.bg-orb--1 {
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, #3498db, transparent);
-    top: -100px;
-    right: -50px;
-}
-
-.bg-orb--2 {
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, #a855f7, transparent);
-    bottom: -100px;
-    left: -50px;
-}
-
-.bg-scan-line {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
-    animation: scanMove 12s infinite linear;
-    z-index: 5;
-}
-
-@keyframes scanMove {
-    0% {
-        transform: translateY(-100%);
-    }
-
-    100% {
-        transform: translateY(1200%);
-    }
-}
-
-.logistics-map {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-}
-
-.map-dot-pattern {
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(#ffffff 1px, transparent 1px);
-    background-size: 32px 32px;
-    mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
-    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
-    opacity: 0.4;
-}
-
-.map-pulsar {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: #3498db;
-    border-radius: 50%;
-    box-shadow: 0 0 15px #3498db;
-}
-
-.map-pulsar::after {
-    content: '';
-    position: absolute;
-    inset: -8px;
-    border: 1px solid #3498db;
-    border-radius: 50%;
-    animation: pulseOut 2s infinite ease-out;
-}
-
-.map-pulsar--1 {
-    top: 35%;
-    left: 20%;
-}
-
-.map-pulsar--2 {
-    top: 55%;
-    left: 75%;
-}
-
-.map-pulsar--3 {
-    top: 75%;
-    left: 35%;
-}
-
-@keyframes pulseOut {
-    0% {
-        transform: scale(0.5);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(3.5);
-        opacity: 0;
-    }
-}
-
-/* ── Cinematic Number ── */
-.logistics-hero-pro {
-    text-align: center;
-    margin-bottom: 8rem;
+.optimized-grid-container {
+    position: relative;
     z-index: 10;
 }
 
-.logistics-number-wrap {
-    display: flex;
-    flex-direction: column;
+.logistics-optimized-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
     align-items: center;
-    margin-bottom: 2.5rem;
 }
 
-.pro-logistics-num {
-    font-size: clamp(6rem, 20vw, 15rem);
-    font-weight: 950;
-    background: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=2000');
-    background-size: 200% auto;
-    background-clip: text;
+/* ── Headline Block ── */
+.opt-headline-block {
+    text-align: left;
+}
+
+.opt-eyebrow {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #3498db;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    margin-bottom: 24px;
+}
+
+.opt-title {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 40px;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #3498db, #a855f7);
     -webkit-background-clip: text;
     color: transparent;
-    line-height: 0.8;
-    letter-spacing: -0.05em;
-    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
 }
 
-.num-underline {
-    height: 5px;
-    background: #3498db;
-    border-radius: 4px;
-    margin-top: 2rem;
-}
-
-.pro-logistics-sub {
-    font-size: 1.1rem;
-    font-weight: 800;
-    letter-spacing: 0.4em;
-    color: #ffffff;
-    text-transform: uppercase;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* ── Pro Logo Marquee ── */
-.logistics-marquee-container {
-    position: relative;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    overflow: hidden;
-    padding: 4rem 0;
-    z-index: 10;
-}
-
-.marquee-fade {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 25%;
-    z-index: 15;
-    pointer-events: none;
-}
-
-.marquee-fade--left {
-    left: 0;
-    background: linear-gradient(to right, #ffffff 20%, transparent);
-}
-
-.marquee-fade--right {
-    right: 0;
-    background: linear-gradient(to left, #ffffff 20%, transparent);
-}
-
-.logistics-marquee {
+.opt-stats-hero {
     display: flex;
-    align-items: center;
-    gap: 4rem;
-    /* Adjusted gap for containers */
-    white-space: nowrap;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.marquee-brand-item {
-    flex-shrink: 0;
-    padding: 1.5rem 3rem;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+.opt-hero-num {
+    font-size: clamp(4rem, 8vw, 6.5rem);
+    font-weight: 950;
+    color: #ffffff;
+    line-height: 0.8;
+}
+
+.opt-hero-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #94a3b8;
+}
+
+/* ── Features Grid (Optimized - No Blur) ── */
+.opt-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.opt-feature-card {
+    position: relative;
+    background: rgba(30, 41, 59, 0.7);
+    /* Solid base without backdrop-filter blur */
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+    will-change: transform;
+}
+
+.opt-feature-card:hover {
+    transform: translateY(-8px);
+    background: rgba(30, 41, 59, 0.9);
+    border-color: rgba(52, 152, 219, 0.4);
+}
+
+.opt-card-icon-wrap {
+    width: 54px;
+    height: 54px;
+    background: rgba(52, 152, 219, 0.15);
+    color: #3498db;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    border-radius: 12px;
 }
 
-.brand-logo-img {
-    height: 50px;
-    /* Refined height */
-    width: auto;
-    filter: none;
-    /* Full color */
-    opacity: 1;
-    /* Full visibility */
-    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+.opt-card-content h4 {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #f8fafc;
 }
 
-.marquee-brand-item:hover {
-    transform: translateY(-10px) scale(1.05);
-    background: #ffffff;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-    border-color: #3498db;
+.opt-card-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #94a3b8;
+    margin: 0;
 }
 
-.marquee-brand-item:hover .brand-logo-img {
-    transform: scale(1.1);
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+    .logistics-optimized-grid {
+        gap: 60px;
+    }
 }
 
-@media (max-width: 768px) {
-    .about-logistics-pro {
+@media (max-width: 992px) {
+    .about-logistics-optimized {
         padding: 100px 0;
     }
 
-    .logistics-hero-pro {
-        margin-bottom: 5rem;
+    .logistics-optimized-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 60px;
     }
 
-    .pro-logistics-num {
-        font-size: clamp(3.5rem, 15vw, 6rem);
+    .opt-headline-block {
+        text-align: center;
     }
 
-    .logistics-marquee {
-        gap: 2rem;
+    .opt-stats-hero {
+        align-items: center;
     }
 
-    .brand-logo-img {
-        height: 35px;
-    }
-
-    .marquee-brand-item {
-        padding: 1rem 2rem;
-    }
-
-    .bg-orb {
-        width: 250px;
-        height: 250px;
-        filter: blur(80px);
+    .optimized-bg-fixed {
+        background-attachment: scroll;
+        /* Performance safety on mobile */
     }
 }
 
-@media (max-width: 380px) {
-    .pro-logistics-sub {
-        font-size: 0.8rem;
-        letter-spacing: 0.2em;
+@media (max-width: 768px) {
+    .opt-features-grid {
+        grid-template-columns: 1fr;
     }
 
-    .pro-logistics-num {
-        font-size: 3.2rem;
+    .opt-title {
+        font-size: 2.5rem;
     }
 }

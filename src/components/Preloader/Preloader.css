@@ -1,182 +1,372 @@
-/* =========================================================
-   BHAARAT INTERNATIONAL — Page Preloader
-   ========================================================= */
+/* ============================================================
+   BHAARAT INTERNATIONAL — PRO LEVEL ANIMATED PRELOADER
+   Sleek · Aerodynamic · Dark Glowing Theme
+   ============================================================ */
 
-.pl {
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
+
+/* ── Base ──────────────────────────────────────────────────── */
+.pl-pro {
     position: fixed;
     inset: 0;
-    z-index: 999999;
-    background: #04142e;
+    z-index: 99999;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+    justify-content: space-between;
+    padding: clamp(32px, 5vh, 60px) clamp(24px, 6vw, 80px);
+    background: #020617;
+    /* Deepest slate black */
+    font-family: 'Outfit', sans-serif;
     overflow: hidden;
+    transition: opacity 0.85s cubic-bezier(0.76, 0, 0.24, 1),
+        transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-/* ── Decorative circles ── */
-.pl__circle {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.06;
+.pl-pro--enter {
+    opacity: 0;
+    transform: scale(1.04);
+}
+
+.pl-pro--hold {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.pl-pro--exit {
+    opacity: 0;
+    transform: scale(0.96) translateY(-10px);
     pointer-events: none;
 }
 
-.pl__circle--1 {
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, #0056b3, transparent);
-    top: -150px;
-    right: -150px;
-    animation: pl-float 4s ease-in-out infinite alternate;
+/* ── Dynamic Background ────────────────────────────────────── */
+.pl-pro__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
 }
 
-.pl__circle--2 {
-    width: 30px;
-    height: 350px;
-    background: radial-gradient(circle, #17a2b8, transparent);
-    bottom: -100px;
-    left: -100px;
-    animation: pl-float 5s ease-in-out infinite alternate-reverse;
+.pl-pro__grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 70%);
+    animation: grid-move 20s linear infinite;
 }
 
-@keyframes pl-float {
+@keyframes grid-move {
     from {
-        transform: scale(0.95);
+        background-position: 0 0;
     }
 
     to {
-        transform: scale(1.05);
+        background-position: -50px 0;
     }
 }
 
-/* ── Logo ── */
-.pl__logo {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: pl-logo-in 0.6s ease 0.2s forwards;
+.pl-pro__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
 }
 
-@keyframes pl-logo-in {
+.pl-pro__glow--1 {
+    width: 500px;
+    height: 500px;
+    background: rgba(14, 165, 233, 0.15);
+    top: -10%;
+    left: -10%;
+}
+
+.pl-pro__glow--2 {
+    width: 600px;
+    height: 600px;
+    background: rgba(30, 58, 138, 0.2);
+    bottom: -20%;
+    right: -20%;
+}
+
+/* ── Header ────────────────────────────────────────────────── */
+.pl-pro__hd {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fade-down 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+@keyframes fade-down {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.pl__icon {
-    animation: pl-spin-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
-    filter: drop-shadow(0 0 24px rgba(0, 86, 179, 0.4));
+.pl-pro__name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.1;
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
 }
 
-@keyframes pl-spin-in {
+.pl-pro__n1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    letter-spacing: 0.25em;
+    background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pl-pro__n2 {
+    font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+    font-weight: 700;
+    letter-spacing: 0.6em;
+    color: #38bdf8;
+}
+
+/* ── Main Scene ────────────────────────────────────────────── */
+.pl-pro__scene {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 800px;
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Parallax Lasers */
+.pl-pro__lasers {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.pl-pro__laser {
+    position: absolute;
+    right: -100px;
+    height: 2px;
+    width: 80px;
+    background: linear-gradient(90deg, transparent, #38bdf8, #fff);
+    box-shadow: 0 0 10px #38bdf8;
+    border-radius: 2px;
+}
+
+.pl-pro__laser--fast {
+    animation: laser 0.8s linear infinite;
+}
+
+.pl-pro__laser--med {
+    animation: laser 1.2s linear infinite 0.4s;
+    width: 120px;
+}
+
+.pl-pro__laser--slow {
+    animation: laser 2s linear infinite 0.8s;
+    width: 50px;
+}
+
+@keyframes laser {
     from {
-        transform: rotate(-90deg) scale(0.4);
+        transform: translateX(200px);
         opacity: 0;
     }
 
-    to {
-        transform: rotate(0deg) scale(1);
+    10% {
         opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(-1000px);
+        opacity: 0;
     }
 }
 
-.pl__wordmark {
-    display: flex;
-    flex-direction: column;
-}
-
-.pl__word-b {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 900;
-    color: #ffffff;
-    letter-spacing: 0.12em;
-    line-height: 1;
-    background: linear-gradient(90deg, #ffffff, #a8d4ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.pl__word-i {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.3em;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    -webkit-text-fill-color: rgba(255, 255, 255, 0.5);
-}
-
-/* ── Progress bar ── */
-.pl__bar-wrap {
-    width: 220px;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 2px;
-    overflow: hidden;
-    opacity: 0;
-    animation: pl-fadein 0.4s ease 0.6s forwards;
-}
-
-.pl__bar {
-    height: 100%;
-    border-radius: 2px;
-    background: linear-gradient(90deg, #0056b3, #17a2b8, #0056b3);
-    background-size: 200% 100%;
-    width: 0%;
-    transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.pl__bar--hold,
-.pl__bar--exit {
+/* Truck Wrapper */
+.pl-pro__truck {
+    position: relative;
     width: 100%;
-    animation: pl-shimmer 1.2s linear infinite;
+    max-width: 700px;
+    height: 100%;
+    z-index: 2;
+    animation: truck-hover 0.2s ease-in-out infinite alternate;
 }
 
-@keyframes pl-shimmer {
+@keyframes truck-hover {
     from {
-        background-position: 0% center;
+        transform: translateY(0);
     }
 
     to {
-        background-position: 200% center;
+        transform: translateY(-2px);
     }
 }
 
-/* ── Tagline ── */
-.pl__tag {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.22em;
+.pl-pro__svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.8));
+}
+
+/* Wheel Spin */
+.pl-pro__spin {
+    animation: spin 0.2s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Glowing Road Base */
+.pl-pro__road {
+    position: absolute;
+    bottom: 10px;
+    left: -20%;
+    right: -20%;
+    height: 2px;
+    background: rgba(56, 189, 248, 0.5);
+    box-shadow: 0 0 20px 2px rgba(56, 189, 248, 0.4);
+    z-index: 1;
+}
+
+.pl-pro__road::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(90deg,
+            transparent 0px, transparent 40px,
+            #fff 40px, #fff 100px);
+    animation: road-dash 0.4s linear infinite;
+}
+
+@keyframes road-dash {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-140px);
+    }
+}
+
+/* ── Footer / Progress ─────────────────────────────────────── */
+.pl-pro__ft {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 600px;
+    animation: fade-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+
+.pl-pro__bar {
+    position: relative;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    /* Stealth track */
+    border-radius: 4px;
+    overflow: visible;
+    margin-bottom: 1.2rem;
+}
+
+.pl-pro__fill {
+    position: relative;
+    height: 100%;
+    background: linear-gradient(90deg, #1e3a8a, #38bdf8);
+    border-radius: 4px;
+    transition: width 0.15s ease-out;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+}
+
+/* Energy pulse on fill */
+.pl-pro__fill-glow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50px;
+    background: linear-gradient(270deg, #fff, transparent);
+    animation: pulse-glow 1s linear infinite;
+    border-radius: 0 4px 4px 0;
+}
+
+@keyframes pulse-glow {
+    from {
+        opacity: 0.5;
+        width: 10px;
+    }
+
+    to {
+        opacity: 0;
+        width: 60px;
+    }
+}
+
+.pl-pro__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pl-pro__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.35);
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    color: #94a3b8;
 }
 
-.pl__tag--hold,
-.pl__tag--exit {
-    opacity: 1;
-    transform: translateY(0);
+.pl-pro__pct {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #f8fafc;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-@keyframes pl-fadein {
-    to {
-        opacity: 1;
+.pl-pro__pct small {
+    font-size: 0.7rem;
+    font-weight: 600;
+    opacity: 0.6;
+    margin-left: 2px;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 480px) {
+    .pl-pro__n1 {
+        font-size: 1.6rem;
     }
-}
 
-/* ── Exit animation ── */
-.pl--exit {
-    opacity: 0;
-    transform: translateY(-6px) scale(1.015);
-    pointer-events: none;
+    .pl-pro {
+        padding: 24px 16px;
+    }
+
+    .pl-pro__scene {
+        height: 180px;
+    }
 }

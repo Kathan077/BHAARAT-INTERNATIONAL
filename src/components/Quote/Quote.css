@@ -1,0 +1,271 @@
+.quote-section {
+    padding: 100px 0;
+    background: #f8fafc;
+    position: relative;
+    overflow: hidden;
+}
+
+.quote-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.quote-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* Info Side */
+.quote-info .quote-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(15, 23, 42, 0.05);
+    color: #0f172a;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.quote-info h2 {
+    font-size: 42px;
+    color: #0f172a;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.quote-info .highlight {
+    color: #0056b3;
+}
+
+.quote-info p {
+    font-size: 18px;
+    color: #64748b;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.contact-item-pro {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-item-pro .icon-box {
+    width: 60px;
+    height: 60px;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0056b3;
+}
+
+.item-text span {
+    display: block;
+    font-size: 13px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.item-text a,
+.item-text p {
+    font-size: 20px;
+    color: #0f172a;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 0;
+}
+
+.item-text a:hover {
+    color: #0056b3;
+}
+
+.quote-trust {
+    display: flex;
+    gap: 20px;
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #0f172a;
+    font-weight: 600;
+    background: white;
+    padding: 10px 16px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.trust-badge svg {
+    color: #22c55e;
+}
+
+/* Form Side */
+.quote-form-wrapper {
+    background: white;
+    padding: 50px;
+    border-radius: 32px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group.full-width {
+    grid-column: span 2;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    padding: 14px 18px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s;
+    background: #f8fafc;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: #0056b3;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.1);
+    outline: none;
+}
+
+.submit-btn {
+    margin-top: 32px;
+    width: 100%;
+    padding: 18px;
+    background: #0f172a;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.submit-btn:hover {
+    background: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 86, 179, 0.25);
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.success-state {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.success-icon {
+    width: 100px;
+    height: 100px;
+    background: #f0fdf4;
+    color: #22c55e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+}
+
+.success-state h3 {
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.success-state p {
+    color: #64748b;
+    margin-bottom: 30px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .quote-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .quote-info {
+        text-align: center;
+    }
+
+    .contact-item-pro {
+        justify-content: center;
+    }
+
+    .quote-trust {
+        justify-content: center;
+    }
+
+    .quote-info h2 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 576px) {
+    .quote-section {
+        padding: 60px 0;
+    }
+
+    .quote-form-wrapper {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .input-group.full-width {
+        grid-column: span 1;
+    }
+}

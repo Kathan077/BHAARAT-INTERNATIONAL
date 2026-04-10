@@ -1,252 +1,318 @@
-.about-story-pro {
+/* =========================================================
+   BHAARAT INTERNATIONAL — About Us Story (Premium Redesign)
+   ========================================================= */
+
+.about-story-new {
+    padding: 100px 0;
+    background-color: #ffffff;
     position: relative;
-    background: #ffffff;
-    padding: 220px 0;
     overflow: hidden;
 }
 
-/* ── Background Watermark ── */
-.story-watermark {
-    position: absolute;
-    top: 5%;
-    left: -2%;
-    font-size: 18vw;
-    font-weight: 900;
-    color: rgba(0, 86, 179, 0.025);
-    white-space: nowrap;
-    pointer-events: none;
-    z-index: 0;
-    user-select: none;
-    font-family: 'Inter', sans-serif;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-}
-
-.story-grid-pro {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 10rem;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-}
-
-/* ── Content Details ── */
-.pro-accent-line {
-    height: 4px;
-    width: 60px;
-    background: linear-gradient(90deg, var(--primary-blue, #0056b3), var(--accent-teal, #17a2b8));
-    margin-bottom: 3rem;
-    transform-origin: left;
-    border-radius: 20px;
-}
-
-.pro-section-title {
-    font-size: clamp(2.8rem, 6vw, 4.2rem);
-    font-weight: 900;
-    color: #0f172a;
-    line-height: 1.05;
-    margin-bottom: 3.5rem;
-    letter-spacing: -0.03em;
-}
-
-.pro-section-title .word-wrap {
-    display: inline-block;
-    overflow: hidden;
-    vertical-align: top;
-}
-
-.pro-section-title .accent {
-    background: linear-gradient(90deg, #0056b3 0%, #0ea5e9 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: inline-block;
-}
-
-.pro-description p {
-    font-size: 1.15rem;
-    line-height: 1.95;
-    color: #475569;
-    margin-bottom: 2.2rem;
-    font-weight: 450;
-    max-width: 540px;
-}
-
-.pro-stats-grid {
-    display: flex;
-    gap: 4.5rem;
-    margin-top: 4.5rem;
-    padding-top: 3.5rem;
-    border-top: 1px solid rgba(0, 86, 179, 0.08);
-}
-
-.pro-stat-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.pro-stat-item .num {
-    font-size: 2.4rem;
-    font-weight: 900;
-    color: #0f172a;
-    letter-spacing: -1.5px;
-    line-height: 1;
-}
-
-.pro-stat-item .label {
-    font-size: 0.72rem;
-    font-weight: 800;
-    color: #64748b;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    margin-top: 0.75rem;
-}
-
-/* ── Visual Parallax Stack ── */
-.story-visuals-pro {
-    position: relative;
-    padding-bottom: 4rem;
-}
-
-.pro-main-img-wrap {
+.story-wrapper {
     position: relative;
     z-index: 2;
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow:
-        0 40px 100px -20px rgba(0, 44, 95, 0.25),
-        0 15px 40px -10px rgba(0, 0, 0, 0.1);
 }
 
-.pro-main-img-wrap img {
+.story-grid-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: flex-start;
+}
+
+/* ---------- Visual Side ---------- */
+.story-visual {
+    position: sticky;
+    top: 120px;
+}
+
+.main-image-container {
+    position: relative;
+    border-radius: 24px;
+    overflow: visible;
+}
+
+.main-story-img {
     width: 100%;
-    display: block;
-    transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 850px;
+    object-fit: cover;
+    border-radius: 30px;
+    box-shadow: 0 40px 80px -20px rgba(0, 44, 95, 0.2);
 }
 
-.pro-main-img-wrap:hover img {
-    transform: scale(1.04);
-}
-
-.pro-img-overlay {
+.image-accent-border {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(0, 86, 179, 0.1), rgba(15, 23, 42, 0.3));
+    top: 20px;
+    right: -20px;
+    bottom: -20px;
+    left: 20px;
+    border: 2px solid rgba(0, 86, 179, 0.1);
+    border-radius: 24px;
+    z-index: -1;
+    margin-top: -110px;
+    /* User preferred offset */
 }
 
-.pro-float-glass {
+.experience-badge {
     position: absolute;
-    bottom: -50px;
-    left: -80px;
-    width: 280px;
+    top: 40px;
+    left: -30px;
+    background: #0056b3;
+    color: white;
+    padding: 20px 28px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.glass-inner {
-    padding: 2.5rem;
-    background: rgba(255, 255, 255, 0.82);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 28px;
-    box-shadow:
-        0 30px 60px -12px rgba(0, 44, 95, 0.18),
-        0 18px 36px -18px rgba(0, 0, 0, 0.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+.experience-badge .years {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
 }
 
-.glass-inner:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 45px 80px -20px rgba(0, 44, 95, 0.25);
+.experience-badge .text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
 }
 
-.glass-icon {
-    width: 48px;
-    height: 48px;
-    background: rgba(0, 86, 179, 0.08);
+.mini-features {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.m-feature {
+    background: #f8fafc;
+    padding: 16px 24px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(0, 44, 95, 0.05);
+    flex: 1;
+}
+
+.m-feature svg {
+    color: #0056b3;
+}
+
+.m-feature span {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+/* ---------- Content Side ---------- */
+.story-eyebrow {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #0056b3;
+    letter-spacing: 0.2em;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.story-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15;
+    color: #0f172a;
+    font-weight: 800;
+    margin-bottom: 32px;
+}
+
+.story-title .highlight {
+    color: #0056b3;
+}
+
+.story-description-large p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #475569;
+    margin-bottom: 24px;
+}
+
+.story-description-large strong {
+    color: #0f172a;
+    font-weight: 800;
+}
+
+.story-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 40px 0;
+    padding: 32px;
+    background: rgba(0, 86, 179, 0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 86, 179, 0.06);
+}
+
+.h-item {
+    display: flex;
+    gap: 16px;
+}
+
+.h-icon {
+    width: 44px;
+    height: 44px;
+    background: #ffffff;
     color: #0056b3;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 14px;
-    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
 }
 
-.glass-icon svg {
-    width: 24px;
-    height: 24px;
-}
-
-.glass-inner h5 {
-    font-size: 1.3rem;
-    font-weight: 850;
+.h-text h4 {
+    font-size: 1.1rem;
+    font-weight: 800;
     color: #0f172a;
-    margin-bottom: 0.85rem;
-    letter-spacing: -0.02em;
+    margin-bottom: 6px;
 }
 
-.glass-inner p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #475569;
-    font-weight: 450;
+.h-text p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #64748b;
+    margin-bottom: 0;
 }
 
-.pro-dot-pattern {
+/* ---------- Decorations ---------- */
+.story-bg-decoration .circle {
     position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 220px;
-    height: 220px;
-    background-image: radial-gradient(rgba(0, 86, 179, 0.15) 1.5px, transparent 1.5px);
-    background-size: 18px 18px;
+    border-radius: 50%;
+    filter: blur(80px);
     z-index: 1;
+    opacity: 0.5;
 }
 
+.circle-1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(0, 86, 179, 0.05);
+    top: -100px;
+    left: -100px;
+}
+
+.circle-2 {
+    width: 300px;
+    height: 300px;
+    background: rgba(0, 44, 95, 0.03);
+    bottom: -100px;
+    right: -100px;
+}
+
+/* ---------- Responsive ---------- */
 @media (max-width: 1200px) {
-    .story-grid-pro {
-        gap: 6rem;
+    .story-grid-main {
+        gap: 50px;
+    }
+
+    .experience-badge {
+        left: -20px;
+        padding: 16px 24px;
     }
 }
 
 @media (max-width: 992px) {
-    .about-story-pro {
-        padding: 120px 0;
+    .about-story-new {
+        padding: 80px 0;
     }
 
-    .story-grid-pro {
+    .story-grid-main {
         grid-template-columns: 1fr;
-        gap: 8rem;
     }
 
-    .pro-float-glass {
-        left: 5%;
-        width: 300px;
-        bottom: -40px;
+    .story-visual {
+        position: relative;
+        top: 0;
+        margin-bottom: 60px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .pro-description p {
-        max-width: 100%;
+    .main-story-img {
+        height: 450px;
+    }
+
+    .story-highlights {
+        grid-template-columns: 1fr;
     }
 }
 
-@media (max-width: 500px) {
-    .pro-stats-grid {
+@media (max-width: 768px) {
+    .story-title {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+    }
+
+    .experience-badge {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-top: -30px;
+        margin-left: 15px;
+        width: fit-content;
+        padding: 16px 24px;
+    }
+
+    .mini-features {
         flex-direction: column;
-        gap: 2.5rem;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-story-new {
+        padding: 50px 0;
     }
 
-    .pro-section-title {
-        font-size: 2.8rem;
+    .story-title {
+        font-size: 1.7rem;
+        margin-bottom: 20px;
     }
 
-    .pro-float-glass {
-        width: 260px;
-        left: -20px;
+    .story-description-large p {
+        font-size: 1rem;
+        margin-bottom: 16px;
     }
 
-    .pro-stat-item .num {
-        font-size: 2.6rem;
+    .story-highlights {
+        padding: 24px;
+        margin: 24px 0;
+    }
+
+    .m-feature {
+        padding: 12px 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .story-title {
+        font-size: 1.5rem;
+    }
+
+    .experience-badge .years {
+        font-size: 1.4rem;
+    }
+
+    .experience-badge .text {
+        font-size: 0.75rem;
+    }
+
+    .story-highlights {
+        padding: 16px;
     }
 }

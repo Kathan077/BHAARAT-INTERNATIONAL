@@ -69,7 +69,9 @@ const CustomCursor = () => {
   const [state, setState] = useState('default');
 
   useEffect(() => {
-    if (window.matchMedia('(pointer: coarse)').matches) return;
+    // Only disable if device ONLY has touch (no mouse/trackpad at all)
+    const isTouchOnly = window.matchMedia('(pointer: coarse)').matches && !window.matchMedia('(any-pointer: fine)').matches;
+    if (isTouchOnly) return;
 
     const dot = dotRef.current;
     const ring = ringRef.current;
@@ -103,6 +105,11 @@ const CustomCursor = () => {
 
       mouse.x = e.clientX;
       mouse.y = e.clientY;
+
+      // Show elements on first move
+      if (dot) dot.style.opacity = '1';
+      if (ring) ring.style.opacity = '1';
+      if (canvas) canvas.style.opacity = '1';
 
       dot.style.transform = `translate(${mouse.x}px,${mouse.y}px)`;
 

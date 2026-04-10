@@ -3,18 +3,14 @@ import { motion, useInView, useSpring, animate } from 'framer-motion';
 import './Skills.css';
 
 const skills = [
-  { label: 'Surgical Instrument Quality', value: 98, color: '#0056b3' },
-  { label: 'Orthopedic Implant Precision', value: 95, color: '#17a2b8' },
+  { label: 'Global Export Network', value: 98, color: '#0056b3' },
+  { label: 'Import & Distribution', value: 95, color: '#17a2b8' },
   { label: 'International Export Expertise', value: 92, color: '#0ea5e9' },
   { label: 'ISO Compliance & Certification', value: 99, color: '#138808' },
   { label: 'Customer Satisfaction Rate',    value: 97, color: '#f97316' },
 ];
 
-const extras = [
-  { value: '25+', label: 'Years Experience' },
-  { value: '40+', label: 'Countries Exported' },
-  { value: '500+', label: 'Healthcare Partners' },
-];
+
 
 /* ── 3D Tilt Frame (Agency Level) ── */
 const TiltFrame = ({ children, className = '' }) => {
@@ -194,24 +190,7 @@ const Skills = () => {
             ))}
           </div>
 
-          {/* Mini stats row */}
-          <motion.div
-            className="sk__mini-stats"
-            initial={{ opacity: 0, y: 16 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.9, duration: 0.5 }}
-          >
-            {extras.map(({ value, label }) => (
-              <motion.div
-                key={label}
-                className="sk__mini-stat"
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              >
-                <span className="sk__mini-val">{value}</span>
-                <span className="sk__mini-label">{label}</span>
-              </motion.div>
-            ))}
-          </motion.div>
+
         </div>
 
         {/* ── Right: image ── */}

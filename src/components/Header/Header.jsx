@@ -15,17 +15,10 @@ import {
   Instagram,
   Linkedin,
   Facebook,
-  Twitter,
-  MapPin,
-  Shield,
-  User,
-  Footprints,
-  Layers,
-  Activity,
-  HeartPulse,
-  Sparkles
+  Twitter
 } from 'lucide-react';
 import './Header.css';
+import { productCategories, navLinks } from './HeaderData';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -52,69 +45,6 @@ const Header = () => {
     }
   }, [isMobileMenuOpen]);
 
-  const productCategories = [
-    {
-      id: 'ply-face-mask',
-      title: 'PLY FACE MASK',
-      icon: Shield,
-      items: ['Elastic Mask', 'B/W Mask', 'IIR Mask', 'Kids Mask', 'Tie-On Mask', 'Pull Out Mask']
-    },
-    {
-      id: 'disposable-face-mask',
-      title: 'Disposable FACE MASK',
-      icon: ShieldCheck,
-      items: ['N95 Ear Loop', 'N95 Head Loop', 'KF 94 Mask', 'Dust Mask', 'Kids N95 Mask', 'Cup Mask']
-    },
-    {
-      id: 'head-cap',
-      title: 'HEAD CAP',
-      icon: User,
-      items: ['Examination Lights', 'Bouffant Cap', 'Surgeon Cap', 'Beard Cap', 'Chef Cap', 'Hood Cap', 'Shower Cap', 'Ear Cap', 'Customize Cap', 'Nylon Cap']
-    },
-    {
-      id: 'shoe-cover-gloves',
-      title: 'SHOE COVER & GLOVES',
-      icon: Footprints,
-      items: ['Disposable Shoe Covers', 'Plastic Shoe Covers', 'Knee-Length Shoe Covers', 'Latex Gloves', 'Nitrile Gloves', 'Surgical Gloves', 'Plastic Gloves', 'Veterinary Gloves', 'Hand Sleeves']
-    },
-    {
-      id: 'disposable-apron',
-      title: 'DISPOSABLE APRON',
-      icon: Layers,
-      items: ['Plastic', 'NON WOVEN']
-    },
-    {
-      id: 'disposable-plain-sheet',
-      title: 'DISPOSABLE PLAIN SHEET / BED SHEET',
-      icon: Activity,
-      items: ['Lab Coat', 'Coverall', 'Dead Body Cover', 'Non-Woven Bed Sheet', 'Plastic Bed Sheet', 'Bed Rol', 'Scrub Suit', 'Shorts', 'Protective Gown']
-    },
-    {
-      id: 'health-hygine',
-      title: 'HEALTH & HYGINE',
-      icon: HeartPulse,
-      items: ['Underpads']
-    },
-    {
-      id: 'salon-spa',
-      title: 'SALON & SPA',
-      icon: Sparkles,
-      items: ['Salon Apron', 'Spa Gown', 'Wax Strips', 'Bed Sheet', 'Wrap', 'Non-Woven Brief', 'Spun Lace Brief', 'Disposable Napkin', 'Disposable Towel', 'Head Bands']
-    }
-  ];
-
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
-    { 
-      name: 'Products', 
-      path: '/products',
-      isMega: true,
-      categories: productCategories
-    },
-    { name: 'Support', path: '/Support' },
- 
-  ];
 
   const toggleMobileSub = (index) => {
     setMobileExpanded(mobileExpanded === index ? null : index);
@@ -163,11 +93,11 @@ const Header = () => {
       >
         <div className="container top-bar-content">
           <div className="contact-info">
-            <a href="mailto:info@bhaarat.com" className="contact-item">
-              <Mail size={14} strokeWidth={2.5} /> <span>info@bhaarat.com</span>
+            <a href="mailto:bhaaratinternational@zohomail.in" className="contact-item">
+              <Mail size={14} strokeWidth={2.5} /> <span>bhaaratinternational@zohomail.in</span>
             </a>
-            <a href="tel:+919876543210" className="contact-item">
-              <Phone size={14} strokeWidth={2.5} /> <span>+91 98765 43210</span>
+            <a href="tel:+919825275668" className="contact-item">
+              <Phone size={14} strokeWidth={2.5} /> <span>+91 98252 75668</span>
             </a>
           </div>
           <div className="top-links">
@@ -206,47 +136,12 @@ const Header = () => {
               <motion.li 
                 key={link.name}
                 variants={itemVariants}
-                onMouseEnter={() => (link.dropdown || link.isMega) && setActiveDropdown(index)}
-                onMouseLeave={() => (link.dropdown || link.isMega) && setActiveDropdown(null)}
               >
                 <Link to={link.path} className={window.location.pathname === link.path ? 'active' : ''}>
                   {link.name} 
-                  {(link.dropdown || link.isMega) && <ChevronDown size={14} className={`chevron ${activeDropdown === index ? 'rotate' : ''}`} />}
                 </Link>
                 
-                {link.isMega && (
-                  <AnimatePresence>
-                    {activeDropdown === index && (
-                      <motion.div 
-                        className="mega-menu"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 15 }}
-                        transition={{ duration: 0.25 }}
-                      >
-                        <div className="container mega-menu-grid">
-                          {link.categories.map((cat, idx) => (
-                            <Link 
-                              key={idx} 
-                              to={`/products#${cat.id}`} 
-                              className="mega-column-link"
-                              onClick={() => setActiveDropdown(null)}
-                            >
-                              <div className="mega-column">
-                                <div className="mega-category-header">
-                                  <div className="mega-icon-wrapper">
-                                    <cat.icon size={20} strokeWidth={2.5} />
-                                  </div>
-                                  <h4 className="mega-title">{cat.title}</h4>
-                                </div>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                )}
+
 
                 {link.dropdown && (
                   <AnimatePresence>
@@ -288,14 +183,9 @@ const Header = () => {
             >
               <Search size={20} />
             </button>
-            <motion.a 
-              href="#quote" 
-              className="btn btn-primary btn-pro desktop-only"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Contact us
-            </motion.a>
+            <Link to="/quote" className="btn btn-primary btn-pro desktop-only">
+              Contact Us
+            </Link>
             <button 
               className="mobile-toggle-btn" 
               onClick={() => setIsMobileMenuOpen(true)}
@@ -414,10 +304,10 @@ const Header = () => {
               <div className="drawer-footer">
                 <div className="drawer-contact">
                   <div className="contact-row">
-                    <Phone size={18} /> <span>+91 98765 43210</span>
+                    <Phone size={18} /> <span>+91 98252 75668</span>
                   </div>
                   <div className="contact-row">
-                    <Mail size={18} /> <span>info@bhaarat.com</span>
+                    <Mail size={18} /> <span>bhaaratinternational@zohomail.in</span>
                   </div>
                 </div>
                 
@@ -427,9 +317,9 @@ const Header = () => {
                   <a href="#"><Facebook size={22} /></a>
                 </div>
 
-                <a href="#quote" className="btn btn-primary btn-block btn-pro" onClick={() => setIsMobileMenuOpen(false)}>
+                <Link to="/quote" className="btn btn-primary btn-block btn-pro" onClick={() => setIsMobileMenuOpen(false)}>
                   Get a Free Quote
-                </a>
+                </Link>
               </div>
             </motion.aside>
           </div>

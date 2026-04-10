@@ -23,27 +23,27 @@ const Support = () => {
       title: 'Voice Support',
       desc: 'Connect with our experts',
       action: 'Call Now',
-      value: '+91 98765 43210',
+      value: '+91 9825275668',
       color: '#0056b3',
-      link: 'tel:+919876543210'
+      link: 'tel:+919825275668'
     },
     {
       icon: MessageSquare,
       title: 'WhatsApp',
       desc: 'Quick chat assistance',
       action: 'Chat Live',
-      value: '+91 98765 43210',
+      value: '+91 9825275668',
       color: '#25D366',
-      link: 'https://wa.me/919876543210'
+      link: 'https://wa.me/919825275668'
     },
     {
       icon: Mail,
       title: 'Email Support',
       desc: 'Detailed inquiries',
       action: 'Send Email',
-      value: 'support@bhaarat.com',
+      value: 'bhaaratinternational@zohomail.in',
       color: '#ef4444',
-      link: 'mailto:support@bhaarat.com'
+      link: 'mailto:bhaaratinternational@zohomail.in'
     }
   ];
 
@@ -120,13 +120,14 @@ const Support = () => {
           </div>
           <div className="map-wrapper">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5623456789!2d77.1234567!3d28.654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM5JzE1LjUiTiA3N8KwMDcnMjQuNCJF!5e0!3m2!1sen!2sin!4v1712644200000!5m2!1sen!2sin" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.0523456789!2d72.5150822!3d22.9988057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9acd792af75d%3A0x1f6c605f7688e8ae!2sSuprabh%20Apartment!5e0!3m2!1sen!2sin!4v1712644200000!5m2!1sen!2sin" 
               width="100%" 
               height="400" 
               style={{ border: 0 }} 
               allowFullScreen="" 
               loading="lazy" 
-              title="Locate Us"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Bhaarat International — E-007 Suprabh Apartment, Vejalpur, Ahmedabad"
             ></iframe>
           </div>
         </div>

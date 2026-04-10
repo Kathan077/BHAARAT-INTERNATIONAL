@@ -1,0 +1,159 @@
+.about-process-new {
+    position: relative;
+    background-color: #f8fafc;
+    padding: 120px 0;
+    overflow: hidden;
+}
+
+.process-mesh-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 100% 0%, rgba(0, 86, 179, 0.03), transparent 40%),
+        radial-gradient(circle at 0% 100%, rgba(168, 85, 247, 0.03), transparent 40%);
+    z-index: 0;
+}
+
+.process-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.process-eyebrow {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #0056b3;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin-bottom: 16px;
+}
+
+.process-header h2 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 950;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+}
+
+.process-journey {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.process-step-card {
+    position: relative;
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+    border: 1px solid rgba(0, 86, 179, 0.05);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.03);
+}
+
+.process-step-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 40px 80px -20px rgba(15, 23, 42, 0.12);
+    border-color: rgba(0, 86, 179, 0.1);
+}
+
+.step-number {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: rgba(0, 86, 179, 0.05);
+    font-family: 'Inter', sans-serif;
+}
+
+.step-icon-inner {
+    width: 70px;
+    height: 70px;
+    background: #0f172a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px -5px rgba(15, 23, 42, 0.2);
+    transition: all 0.4s ease;
+}
+
+.process-step-card:hover .step-icon-inner {
+    background: #0056b3;
+    transform: scale(1.1) rotate(5deg);
+}
+
+.step-content h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.step-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #64748b;
+    margin: 0;
+}
+
+/* ── Connectors (Desktop Only) ── */
+.step-connector {
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(to right, rgba(0, 86, 179, 0.1), transparent);
+    transform: translateY(-50%);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+    .process-journey {
+        gap: 20px;
+    }
+
+    .step-connector {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .process-journey {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-process-new {
+        padding: 80px 0;
+    }
+
+    .process-journey {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .process-header h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .process-step-card {
+        padding: 32px 24px;
+    }
+}

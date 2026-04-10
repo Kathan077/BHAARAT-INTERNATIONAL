@@ -6,15 +6,12 @@ import './Hero.css';
 const Hero = () => {
   return (
     <section className="hero" id="home">
-      {/* ── Video Background ── */}
+      {/* ── Background Image ── */}
       <div className="hero__video-wrap">
-        <video
-          className="hero__video"
-          src="/hero-video.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
+        <img
+          className="hero__img"
+          src="https://amertranslogistics.com/wp-content/uploads/2022/06/Import-Export-Logistics.jpeg"
+          alt="Import Export Logistics background"
         />
         {/* Layered overlays */}
         <div className="hero__overlay hero__overlay--grad" />
@@ -41,7 +38,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35 }}
         >
-          Precision Medical <br />
+         Medical consumables <br />
           <span className="hero__heading-accent">Instruments</span> for a <br />
           Healthier World
         </motion.h1>
@@ -53,9 +50,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          World-class surgical instruments, orthopedic implants, and hospital
-          equipment — engineered for excellence and trusted by healthcare
-          professionals worldwide.
+ We are engaged in the import and export of high-quality surgical and medical products, delivering reliable solutions to global markets.
         </motion.p>
 
         {/* Two CTAs */}

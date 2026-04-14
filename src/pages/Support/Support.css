@@ -9,7 +9,7 @@
 
 /* ---------- Hero Section ---------- */
 .support-hero {
-    background: linear-gradient(135deg, #002d5f 0%, #0056b3 100%);
+    background: linear-gradient(135deg, #002d5f 0%, var(--primary-blue) 100%);
     padding: 170px 0 100px;
     color: white;
     text-align: center;
@@ -123,7 +123,7 @@
     align-items: center;
     gap: 0.5rem;
     font-weight: 800;
-    color: #0056b3;
+    color: var(--primary-blue);
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -186,7 +186,7 @@
 
 .chevron-icon.rotate {
     transform: rotate(180deg);
-    color: #0056b3;
+    color: var(--primary-blue);
 }
 
 .faq-answer-text {
@@ -237,12 +237,12 @@
 .minimal-support-form input:focus,
 .minimal-support-form textarea:focus {
     background: white;
-    border-color: #0056b3;
+    border-color: var(--primary-blue);
     box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.05);
 }
 
 .minimal-support-form button {
-    background: #0056b3;
+    background: var(--primary-blue);
     color: white;
     padding: 1.25rem;
     border-radius: 16px;

@@ -46,7 +46,6 @@ const Quote = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="quote-badge">GET IN TOUCH</span>
             <h2>Ready to source <span className="highlight">Premium Medical</span> supplies?</h2>
             <p>Request a personalized quote or technical consultation for your healthcare facility or export needs.</p>
             
@@ -74,14 +73,6 @@ const Quote = () => {
               </div>
             </div>
 
-            <div className="quote-trust">
-              <div className="trust-badge">
-                <CheckCircle2 size={16} /> Global Export Ready
-              </div>
-              <div className="trust-badge">
-                <CheckCircle2 size={16} /> ISO 9001:2015 Certified
-              </div>
-            </div>
           </motion.div>
 
           {/* Right Side: Form */}

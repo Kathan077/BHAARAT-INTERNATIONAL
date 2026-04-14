@@ -29,28 +29,26 @@
 /* DOT */
 .cur__dot {
   z-index: 99999;
-  width: 7px;
-  height: 7px;
-  margin-left: -3.5px;
-  margin-top: -3.5px;
-  background: #3498db;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+  background: #3b82f6;
   box-shadow:
-    0 0 0 2px rgba(52, 152, 219, 0.3),
-    0 0 15px rgba(52, 152, 219, 0.8);
-  transition: all 0.2s ease;
+    0 0 12px rgba(59, 130, 246, 1),
+    0 0 24px rgba(59, 130, 246, 0.5);
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
 }
 
 /* RING */
 .cur__ring {
   z-index: 99998;
-  width: 42px;
-  height: 42px;
-  margin-left: -21px;
-  margin-top: -21px;
-  border: 1.5px solid #ffffff;
-  mix-blend-mode: difference;
-  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  animation: ring-breathe 4s ease-in-out infinite;
+  width: 50px;
+  height: 50px;
+  margin-left: -25px;
+  margin-top: -25px;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes ring-breathe {
@@ -67,11 +65,12 @@
 
 /* HOVER */
 .cur__ring--hover {
-  width: 70px;
-  height: 70px;
-  margin-left: -35px;
-  margin-top: -35px;
-  background: rgba(255, 255, 255, 0.15);
+  width: 68px;
+  height: 68px;
+  margin-left: -34px;
+  margin-top: -34px;
+  border-color: rgba(59, 130, 246, 0.7);
+  background: rgba(59, 130, 246, 0.04);
 }
 
 /* CLICK */
@@ -81,18 +80,15 @@
 
 @keyframes shockwave {
   0% {
-    transform: scale(0.5);
+    transform: scale(0.6);
     opacity: 1;
-  }
-
-  60% {
-    transform: scale(1.3);
-    opacity: 0.6;
+    border-width: 4px;
   }
 
   100% {
-    transform: scale(1);
-    opacity: 1;
+    transform: scale(1.6);
+    opacity: 0;
+    border-width: 1px;
   }
 }
 

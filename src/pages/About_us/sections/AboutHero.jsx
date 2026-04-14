@@ -140,12 +140,6 @@ const AboutHero = () => {
             ))}
           </div>
           
-          <motion.div 
-            className="about-hero__premium-line"
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={{ scaleX: 1, opacity: 1 }}
-            transition={{ duration: 1.5, delay: 1.2, ease: "circOut" }}
-          />
 
           {/* Depth Elements */}
           <div className="about-hero__depth-glow" />

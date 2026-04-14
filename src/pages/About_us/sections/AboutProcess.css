@@ -8,8 +8,8 @@
 .process-mesh-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 100% 0%, rgba(0, 86, 179, 0.03), transparent 40%),
-        radial-gradient(circle at 0% 100%, rgba(168, 85, 247, 0.03), transparent 40%);
+    background: radial-gradient(circle at 100% 0%, var(--primary-blue-light), transparent 40%),
+        radial-gradient(circle at 0% 100%, rgba(59, 130, 246, 0.03), transparent 40%);
     z-index: 0;
 }
 
@@ -24,7 +24,7 @@
     display: inline-block;
     font-size: 0.85rem;
     font-weight: 800;
-    color: #0056b3;
+    color: var(--primary-blue);
     text-transform: uppercase;
     letter-spacing: 0.3em;
     margin-bottom: 16px;
@@ -47,23 +47,23 @@
 
 .process-step-card {
     position: relative;
-    background: #ffffff;
+    background: var(--bg-white);
     padding: 40px 30px;
-    border-radius: 30px;
+    border-radius: var(--border-radius-lg);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 24px;
-    border: 1px solid rgba(0, 86, 179, 0.05);
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.03);
+    border: 1px solid var(--border-light);
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-subtle);
 }
 
 .process-step-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 40px 80px -20px rgba(15, 23, 42, 0.12);
-    border-color: rgba(0, 86, 179, 0.1);
+    box-shadow: var(--shadow-mega);
+    border-color: var(--accent-blue);
 }
 
 .step-number {
@@ -72,8 +72,7 @@
     right: 24px;
     font-size: 1.5rem;
     font-weight: 900;
-    color: rgba(0, 86, 179, 0.05);
-    font-family: 'Inter', sans-serif;
+    color: var(--border-light);
 }
 
 .step-icon-inner {
@@ -90,7 +89,7 @@
 }
 
 .process-step-card:hover .step-icon-inner {
-    background: #0056b3;
+    background: var(--accent-blue);
     transform: scale(1.1) rotate(5deg);
 }
 

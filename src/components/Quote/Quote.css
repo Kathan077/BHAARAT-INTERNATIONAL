@@ -1,6 +1,6 @@
 .quote-section {
-    padding: 100px 0;
-    background: #f8fafc;
+    padding: 120px 0;
+    background: transparent;
     position: relative;
     overflow: hidden;
 }
@@ -32,21 +32,24 @@
 }
 
 .quote-info h2 {
-    font-size: 42px;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 900;
     color: #0f172a;
-    line-height: 1.2;
-    margin-bottom: 24px;
+    line-height: 1.05;
+    margin-bottom: 32px;
+    letter-spacing: -0.04em;
 }
 
 .quote-info .highlight {
-    color: #0056b3;
+    color: var(--primary-blue);
 }
 
 .quote-info p {
-    font-size: 18px;
-    color: #64748b;
-    margin-bottom: 40px;
-    line-height: 1.6;
+    font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+    color: #475569;
+    margin-bottom: 50px;
+    line-height: 1.7;
+    max-width: 600px;
 }
 
 .contact-list {
@@ -71,7 +74,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #0056b3;
+    color: var(--primary-blue);
 }
 
 .item-text span {
@@ -93,7 +96,7 @@
 }
 
 .item-text a:hover {
-    color: #0056b3;
+    color: var(--primary-blue);
 }
 
 .quote-trust {
@@ -120,12 +123,9 @@
 
 /* Form Side */
 .quote-form-wrapper {
-    background: white;
-    padding: 50px;
-    border-radius: 32px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+    background: transparent;
+    padding: 0;
     position: relative;
-    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .form-grid {
@@ -153,18 +153,18 @@
 .input-group input,
 .input-group select,
 .input-group textarea {
-    padding: 14px 18px;
+    padding: 16px 20px;
     border: 1.5px solid #e2e8f0;
-    border-radius: 12px;
+    border-radius: 16px;
     font-size: 16px;
     transition: all 0.3s;
-    background: #f8fafc;
+    background: #ffffff;
 }
 
 .input-group input:focus,
 .input-group select:focus,
 .input-group textarea:focus {
-    border-color: #0056b3;
+    border-color: var(--primary-blue);
     background: white;
     box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.1);
     outline: none;
@@ -189,7 +189,7 @@
 }
 
 .submit-btn:hover {
-    background: #0056b3;
+    background: var(--primary-blue);
     transform: translateY(-3px);
     box-shadow: 0 15px 30px rgba(0, 86, 179, 0.25);
 }

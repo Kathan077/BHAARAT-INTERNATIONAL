@@ -3,8 +3,6 @@
    Sleek · Aerodynamic · Dark Glowing Theme
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
-
 /* ── Base ──────────────────────────────────────────────────── */
 .pl-pro {
     position: fixed;
@@ -17,7 +15,6 @@
     padding: clamp(32px, 5vh, 60px) clamp(24px, 6vw, 80px);
     background: #020617;
     /* Deepest slate black */
-    font-family: 'Outfit', sans-serif;
     overflow: hidden;
     transition: opacity 0.85s cubic-bezier(0.76, 0, 0.24, 1),
         transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);

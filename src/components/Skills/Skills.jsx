@@ -3,11 +3,47 @@ import { motion, useInView, useSpring, animate } from 'framer-motion';
 import './Skills.css';
 
 const skills = [
-  { label: 'Global Export Network', value: 98, color: '#0056b3' },
-  { label: 'Import & Distribution', value: 95, color: '#17a2b8' },
-  { label: 'International Export Expertise', value: 92, color: '#0ea5e9' },
-  { label: 'ISO Compliance & Certification', value: 99, color: '#138808' },
-  { label: 'Customer Satisfaction Rate',    value: 97, color: '#f97316' },
+  { 
+    label: 'Global Export Network', 
+    description: 'Extensive reach across international markets with optimized supply chain logistics.',
+    color: 'var(--primary-blue)',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      </svg>
+    )
+  },
+  { 
+    label: 'Import & Distribution', 
+    description: 'Seamless import processes and efficient local distribution networks for medical supplies.',
+    color: 'var(--accent-teal)',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 8V21H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/>
+      </svg>
+    )
+  },
+  { 
+    label: 'International Export Expertise', 
+    description: 'Specialized knowledge in global trade regulations and healthcare export standards.',
+    color: 'var(--accent-blue)',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+    )
+  },
+ 
+  { 
+    label: 'Customer Logistics Support', 
+    description: 'Dedicated support for tracking, documentation, and end-to-end delivery satisfaction.',
+    color: '#d97706',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+    )
+  },
 ];
 
 
@@ -88,41 +124,23 @@ const AnimatedPercent = ({ target, inView }) => {
   return <span ref={nodeRef}>0%</span>;
 };
 
-/* Single skill bar */
-const SkillBar = ({ label, value, color, index, inView }) => (
+/* Single skill card */
+const SkillCard = ({ label, description, color, icon, index, inView }) => (
   <motion.div
-    className="sk__bar-wrap"
-    initial={{ opacity: 0, y: 20 }}
+    className="sk__card"
+    initial={{ opacity: 0, y: 30 }}
     animate={inView ? { opacity: 1, y: 0 } : {}}
-    transition={{ delay: 0.25 + index * 0.12, duration: 0.55, ease: 'easeOut' }}
-    whileHover={{ x: 6, transition: { duration: 0.2 } }}
+    transition={{ delay: index * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    whileHover={{ y: -8, transition: { duration: 0.3 } }}
   >
-    <div className="sk__bar-header">
-      <span className="sk__bar-label">{label}</span>
-      <span className="sk__bar-pct" style={{ color }}>
-        <AnimatedPercent target={value} inView={inView} />
-      </span>
+    <div className="sk__card-icon-wrap" style={{ '--icon-color': color }}>
+      <div className="sk__card-icon">{icon}</div>
+      <div className="sk__card-glow" />
     </div>
-
-    {/* Track */}
-    <div className="sk__track">
-      {/* Animated fill */}
-      <motion.div
-        className="sk__fill"
-        style={{ background: `linear-gradient(90deg, ${color}cc, ${color})` }}
-        initial={{ width: 0 }}
-        animate={inView ? { width: `${value}%` } : { width: 0 }}
-        transition={{ delay: 0.3 + index * 0.12, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-      />
-      {/* Glowing tip */}
-      <motion.div
-        className="sk__tip"
-        style={{ background: color, boxShadow: `0 0 10px 3px ${color}66` }}
-        initial={{ left: 0 }}
-        animate={inView ? { left: `calc(${value}% - 6px)` } : { left: 0 }}
-        transition={{ delay: 0.3 + index * 0.12, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-        whileHover={{ scale: 1.3, boxShadow: `0 0 15px 5px ${color}aa` }}
-      />
+    
+    <div className="sk__card-content">
+      <h3 className="sk__card-label">{label}</h3>
+      <p className="sk__card-description">{description}</p>
     </div>
   </motion.div>
 );
@@ -157,7 +175,6 @@ const Skills = () => {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
-            <span className="sk__eyebrow-line" />
             Expertise Areas
           </motion.div>
 
@@ -179,14 +196,14 @@ const Skills = () => {
             transition={{ delay: 0.18, duration: 0.5 }}
           >
             Over two decades of expertise in precision medical manufacturing,
-            global exports, and ISO-certified quality assurance — delivering
+            global exports, and quality assurance delivering
             healthcare solutions that professionals trust.
           </motion.p>
 
-          {/* Skill bars */}
-          <div className="sk__bars">
+          {/* Skill cards grid */}
+          <div className="sk__cards">
             {skills.map((s, i) => (
-              <SkillBar key={s.label} {...s} index={i} inView={inView} />
+              <SkillCard key={s.label} {...s} index={i} inView={inView} />
             ))}
           </div>
 
@@ -203,7 +220,7 @@ const Skills = () => {
           <TiltFrame className="sk__img-frame">
             <img src="https://media.licdn.com/dms/image/v2/D5612AQETOlWhNKWkYg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1721594484828?e=2147483647&v=beta&t=L7tviVgY_t7ck5PFyv5kQD3m-xcsVWYidvYU5YWObQ8" alt="Quality inspection of medical instruments" className="sk__img" />
 
-            {/* Floating card */}
+            {/* Floating info card */}
             <motion.div
               className="sk__float-card"
               initial={{ opacity: 0, y: 20, scale: 0.85 }}
@@ -216,10 +233,14 @@ const Skills = () => {
                 transition: { duration: 0.2 }
               }}
             >
-              <div className="sk__float-ring" />
+              <div className="sk__float-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
               <div className="sk__float-content">
-                <span className="sk__float-val">99%</span>
-                <span className="sk__float-label">Quality Pass Rate</span>
+                <span className="sk__float-val">Verified</span>
+                <span className="sk__float-label">Global Standards</span>
               </div>
             </motion.div>
 

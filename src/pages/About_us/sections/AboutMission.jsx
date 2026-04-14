@@ -9,7 +9,7 @@ const AboutMission = () => {
       icon: <ShieldCheck size={32} />,
       title: 'Global Integrity',
       desc: 'Executing every trade with absolute transparency and ethical rigor.',
-      color: '#0056b3'
+      color: 'var(--primary-blue)'
     },
     {
       icon: <Activity size={32} />,
@@ -79,7 +79,7 @@ const AboutMission = () => {
             <h2>Bridging the <span className="highlight">Global Gap</span> in Healthcare</h2>
             <p>
              To deliver the highest quality pharmaceutical and healthcare products to
-the global market — with integrity, precision, and compassion. We are
+the global market with integrity, precision, and compassion. We are
 committed to making India's exceptional healthcare manufacturing
 accessible to every corner of the world, improving lives through reliable
 supply chains and unwavering quality standards.
@@ -98,7 +98,7 @@ supply chains and unwavering quality standards.
             <h2>Leading Global<span className="highlight-alt">Trade with</span>Trusted Quality</h2>
             <p>
 To be the most trusted Indian export company in the global pharmaceutical
-and healthcare trade — recognized worldwide for our commitment to
+and healthcare trade  recognized worldwide for our commitment to
 quality, compliance, and customer-first service. We envision Bhaarat
 International as the gold standard for Indian healthcare exports,
 establishing benchmarks that raise the bar for the entire industry
@@ -134,7 +134,6 @@ establishing benchmarks that raise the bar for the entire industry
                   <h4>{value.title}</h4>
                   <p>{value.desc}</p>
                 </div>
-                <div className="v-card-accent" style={{ background: value.color }} />
               </motion.div>
             ))}
           </motion.div>

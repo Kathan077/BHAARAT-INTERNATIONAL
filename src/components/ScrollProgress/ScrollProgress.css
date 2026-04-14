@@ -18,8 +18,8 @@
     height: 100%;
     width: 0%;
     background: linear-gradient(90deg,
-            #0056b3 0%,
-            #17a2b8 40%,
+            var(--primary-blue) 0%,
+            var(--accent-teal) 40%,
             #00d4aa 80%,
             #f97316 100%);
     border-radius: 0 2px 2px 0;
@@ -40,9 +40,9 @@
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: #17a2b8;
+    background: var(--accent-teal);
     box-shadow:
-        0 0 8px #17a2b8,
+        0 0 8px var(--accent-teal),
         0 0 16px rgba(23, 162, 184, 0.6);
     opacity: 0;
     transition: opacity 0.2s ease;

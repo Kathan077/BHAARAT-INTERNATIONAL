@@ -24,7 +24,7 @@ const Support = () => {
       desc: 'Connect with our experts',
       action: 'Call Now',
       value: '+91 9825275668',
-      color: '#0056b3',
+      color: 'var(--primary-blue)',
       link: 'tel:+919825275668'
     },
     {
@@ -139,7 +139,7 @@ const Support = () => {
           <div className="trust-item">
             <ShieldCheck size={32} />
             <h4>Quality Certified</h4>
-            <p>ISO & CE marking across our entire catalog.</p>
+            <p> MSME & Make in india marking across our entire catalog.</p>
           </div>
           <div className="trust-item">
             <Clock size={32} />

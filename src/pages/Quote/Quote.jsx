@@ -46,7 +46,7 @@ const Quote = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="quote-badge">GET IN TOUCH</span>
+           <span className="GETtouch">GET IN TOUCH</span>
             <h2>Ready to source <span className="highlight">Premium Medical</span> supplies?</h2>
             <p>Request a personalized quote or technical consultation for your healthcare facility or export needs.</p>
             

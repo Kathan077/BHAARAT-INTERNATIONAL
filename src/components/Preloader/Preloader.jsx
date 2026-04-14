@@ -106,7 +106,7 @@ const Preloader = ({ onFinish }) => {
             {/* Glowing Brand on Trailer */}
             <g transform="translate(235, 100)">
               <text x="0" y="0" textAnchor="middle" fill="#38bdf8" fontSize="22" fontWeight="900" fontFamily="Outfit, sans-serif" letterSpacing="6" filter="url(#neon-glow)">BHAARAT</text>
-              <text x="0" y="20" textAnchor="middle" fill="#94a3b8" fontSize="11" fontWeight="700" fontFamily="Outfit, sans-serif" letterSpacing="4">GLOBAL EXPORTS</text>
+              <text x="0" y="20" textAnchor="middle" fill="#94a3b8" fontSize="11" fontWeight="700" fontFamily="Outfit, sans-serif" letterSpacing="4">INTERNATIONAL</text>
             </g>
 
             {/* Medical Cross Accent */}

@@ -64,7 +64,7 @@
 }
 
 .cf__accent {
-    background: linear-gradient(90deg, #0056b3 0%, #17a2b8 100%);
+    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-teal) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -84,7 +84,7 @@
     border-radius: 50%;
     background: white;
     border: 2px solid rgba(0, 86, 179, 0.15);
-    color: #0056b3;
+    color: var(--primary-blue);
     font-size: 1.6rem;
     line-height: 1;
     cursor: pointer;
@@ -98,7 +98,7 @@
 
 .cf__arrow:hover {
     color: white;
-    border-color: #0056b3;
+    border-color: var(--primary-blue);
 }
 
 /* ── Cards track ── */
@@ -130,7 +130,7 @@
 }
 
 .cf__card:hover {
-    border-color: var(--cf-color, #0056b3);
+    border-color: var(--cf-color, var(--primary-blue));
 }
 
 /* Logo container */
@@ -139,6 +139,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 1;
     transition: transform 0.35s ease;
 }
 
@@ -148,14 +150,18 @@
 
 /* Text */
 .cf__card-name {
-    font-size: 0.9rem;
+    position: relative;
+    z-index: 2;
+    font-size: 0.95rem;
     font-weight: 800;
     color: var(--text-main);
     text-align: center;
 }
 
 .cf__card-sub {
-    font-size: 0.72rem;
+    position: relative;
+    z-index: 2;
+    font-size: 0.75rem;
     color: var(--text-muted);
     text-align: center;
     line-height: 1.4;
@@ -168,7 +174,7 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--cf-color, #0056b3);
+    background: var(--cf-color, var(--primary-blue));
     border-radius: 0 0 16px 16px;
     transform: scaleX(0);
     transform-origin: left;
@@ -201,7 +207,7 @@
 .cf__dot--active {
     width: 24px;
     border-radius: 4px;
-    background: #0056b3;
+    background: var(--primary-blue);
 }
 
 /* ── Responsive ── */

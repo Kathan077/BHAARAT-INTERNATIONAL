@@ -31,7 +31,6 @@ const AboutStory = () => {
                 alt="Medical Precision" 
                 className="main-story-img"
               />
-              <div className="image-accent-border" />
               <div className="experience-badge">
                 <span className="years">Reliable</span>
                 <span className="text">Global Supply</span>

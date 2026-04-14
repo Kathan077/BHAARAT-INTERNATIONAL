@@ -18,10 +18,10 @@
     position: absolute;
     inset: 0;
     z-index: 0;
-    /* Animated gradient fallback when video isn't available */
-    background: linear-gradient(135deg, #001d4d 0%, #003580 40%, #005bb5 70%, #0077cc 100%);
-    background-size: 300% 300%;
-    animation: hero-bg-shift 10s ease infinite;
+    /* Deeper, more sophisticated corporate gradient */
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #1e40af 100%);
+    background-size: 200% 200%;
+    animation: hero-bg-shift 15s ease infinite alternate;
 }
 
 @keyframes hero-bg-shift {
@@ -52,12 +52,12 @@
     inset: 0;
 }
 
-/* Diagonal gradient overlay — navy + teal */
+/* Diagonal gradient overlay — deep navy + subtle blue */
 .hero__overlay--grad {
     background: linear-gradient(125deg,
-            rgba(0, 29, 77, 0.82) 0%,
-            rgba(0, 86, 179, 0.55) 50%,
-            rgba(0, 170, 255, 0.25) 100%);
+            rgba(15, 23, 42, 0.9) 0%,
+            rgba(30, 58, 138, 0.6) 50%,
+            rgba(37, 99, 235, 0.3) 100%);
     z-index: 1;
 }
 
@@ -172,15 +172,16 @@
     text-decoration: none;
 }
 
-/* Primary — solid gradient */
+/* Primary — solid corporate blue */
 .hero__btn--primary {
-    background: linear-gradient(135deg, #0056b3 0%, #0ea5e9 100%);
+    background: var(--primary-blue);
     color: #ffffff;
     border: none;
-    box-shadow: 0 8px 24px -6px rgba(0, 86, 179, 0.55);
+    box-shadow: var(--shadow-pro);
 }
 
 .hero__btn--primary:hover {
+    color: #ffffff;
     box-shadow: 0 14px 32px -6px rgba(0, 86, 179, 0.65);
 }
 
@@ -196,6 +197,7 @@
 .hero__btn--outline:hover {
     background: rgba(255, 255, 255, 0.18);
     border-color: rgba(255, 255, 255, 0.65);
+    color: #ffffff;
 }
 
 .hero__play-icon {

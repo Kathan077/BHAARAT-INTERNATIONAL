@@ -60,7 +60,7 @@ const AboutProcess = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.15 }}
             >
-              <div className="step-number">{String(index + 1).padStart(2, '0')}</div>
+             
               <div className="step-icon-inner">
                 {step.icon}
               </div>
@@ -68,7 +68,6 @@ const AboutProcess = () => {
                 <h3>{step.title}</h3>
                 <p>{step.desc}</p>
               </div>
-              {index !== steps.length - 1 && <div className="step-connector" />}
             </motion.div>
           ))}
         </div>

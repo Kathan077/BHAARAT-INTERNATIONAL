@@ -34,7 +34,7 @@ const Quality = () => {
             initial={{ opacity:0, y:12 }}
             animate={inView ? { opacity:1, y:0 } : {}}
             transition={{ duration:0.5 }}>
-            <span className="ql__eyebrow-line" />ISO 9001 : 2015
+     
           </motion.span>
 
           <motion.h2 className="ql__heading"
@@ -48,8 +48,7 @@ const Quality = () => {
             initial={{ opacity:0, y:12 }}
             animate={inView ? { opacity:1, y:0 } : {}}
             transition={{ delay:0.22, duration:0.5 }}>
-            Our operations follow the 7 pillars of ISO quality management —
-            ensuring every product meets the highest international standards.
+ 
           </motion.p>
         </div>
 
@@ -172,7 +171,6 @@ const Quality = () => {
               whileHover={{ y:-5, transition:{ duration:0.2 } }}>
               <span className="ql__card-icon" style={{ background: p.bg }}>{p.icon}</span>
               <span className="ql__card-label">{p.label.replace('\n', ' ')}</span>
-              <div className="ql__card-bar" style={{ background: p.bg }} />
             </motion.div>
           ))}
         </div>

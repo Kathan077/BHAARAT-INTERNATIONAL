@@ -47,8 +47,8 @@ const AboutLogistics = () => {
           <motion.div className="opt-headline-block" variants={itemVariants}>
             <span className="opt-eyebrow">Enterprise Logistics</span>
             <h2 className="opt-title">
-              Precision Moving at <br />
-              <span className="gradient-text">Global Scale</span>
+              Precision Moving at  
+              <span className="gradient-text"> Global Scale</span>
             </h2>
 
           </motion.div>

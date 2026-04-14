@@ -4,8 +4,8 @@
 
 .sk {
     position: relative;
-    padding: 110px 0 100px;
-    background: #f8fafc;
+    padding: 120px 0;
+    background: var(--bg-light);
     overflow: hidden;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .sk__watermark-letter:hover {
-    color: #0056b3 !important;
+    color: var(--primary-blue) !important;
     /* Skill blue */
     transform: translateY(-12px) scale(1.15) rotate(-4deg);
     text-shadow: 0 15px 40px rgba(0, 86, 179, 0.3);
@@ -77,13 +77,6 @@
     margin-bottom: 0.9rem;
 }
 
-.sk__eyebrow-line {
-    width: 28px;
-    height: 2px;
-    background: #f97316;
-    border-radius: 2px;
-    flex-shrink: 0;
-}
 
 /* Heading */
 .sk__heading {
@@ -96,7 +89,7 @@
 }
 
 .sk__heading-accent {
-    background: linear-gradient(90deg, #0056b3 0%, #17a2b8 100%);
+    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-teal) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -111,57 +104,84 @@
     max-width: 480px;
 }
 
-/* ── Bars ── */
-.sk__bars {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
+/* ── Cards Grid ── */
+.sk__cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 1rem;
 }
 
-.sk__bar-wrap {
+.sk__card {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.sk__bar-header {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-}
-
-.sk__bar-label {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--text-main);
-    letter-spacing: 0.01em;
-}
-
-.sk__bar-pct {
-    font-size: 0.88rem;
-    font-weight: 800;
-    letter-spacing: 0.02em;
-    min-width: 40px;
-    text-align: right;
-}
-
-/* Track */
-.sk__track {
+    gap: 1.5rem;
+    background: var(--bg-white);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-subtle);
+    transition: var(--transition-smooth);
     position: relative;
-    height: 8px;
-    background: rgba(0, 86, 179, 0.09);
-    border-radius: 100px;
-    overflow: visible;
+    overflow: hidden;
 }
 
-/* Animated fill bar */
-.sk__fill {
+.sk__card:hover {
+    box-shadow: var(--shadow-pro);
+    border-color: var(--accent-blue);
+    transform: translateY(-5px);
+}
+
+.sk__card-icon-wrap {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: var(--bg-light);
+    color: var(--icon-color);
+    position: relative;
+    flex-shrink: 0;
+    transition: var(--transition-smooth);
+}
+
+.sk__card:hover .sk__card-icon-wrap {
+    background: var(--icon-color);
+    color: white;
+}
+
+.sk__card-icon {
+    position: relative;
+    z-index: 2;
+}
+
+.sk__card-glow {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    border-radius: 100px;
+    inset: 0;
+    background: var(--icon-color);
+    opacity: 0;
+    filter: blur(15px);
+    transition: var(--transition-smooth);
+    border-radius: 50%;
+}
+
+.sk__card:hover .sk__card-glow {
+    opacity: 0.2;
+}
+
+.sk__card-label {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 0.4rem;
+}
+
+.sk__card-description {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--text-body);
+    margin: 0;
 }
 
 /* Glowing moving dot at tip */
@@ -197,7 +217,7 @@
 .sk__img {
     width: 100%;
     height: 500px;
-   
+
     border-radius: 24px;
     display: block;
     box-shadow: 0 30px 70px -15px rgba(0, 44, 95, 0.22);
@@ -224,22 +244,32 @@
     min-width: 200px;
 }
 
-/* Animated ring / gauge visual */
-.sk__float-ring {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: conic-gradient(#0056b3 0% 99%, #e2e8f0 99%);
-    flex-shrink: 0;
-    position: relative;
+/* Floating info card */
+.sk__float-card {
+    position: absolute;
+    bottom: -22px;
+    left: -28px;
+    background: white;
+    border-radius: 18px;
+    padding: 1rem 1.4rem;
+    box-shadow: var(--shadow-mega);
+    border: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 180px;
 }
 
-.sk__float-ring::after {
-    content: '';
-    position: absolute;
-    inset: 5px;
+.sk__float-icon {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: white;
+    background: #059669;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 .sk__float-content {
@@ -249,11 +279,12 @@
 }
 
 .sk__float-val {
-    font-size: 1.5rem;
-    font-weight: 900;
+    font-size: 1.1rem;
+    font-weight: 800;
     color: var(--text-main);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.01em;
     line-height: 1;
+    margin-bottom: 2px;
 }
 
 .sk__float-label {

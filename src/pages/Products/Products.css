@@ -4,8 +4,6 @@
    Font Stack: Playfair Display (display) + DM Sans (body)
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
-
 /* ── CSS Variables ─────────────────────────────────────────── */
 :root {
     --ink: #0a0a0f;
@@ -42,7 +40,6 @@
 }
 
 body {
-    font-family: 'DM Sans', sans-serif;
     background: var(--surface);
     color: var(--ink);
     -webkit-font-smoothing: antialiased;
@@ -129,19 +126,7 @@ body {
     z-index: 1;
 }
 
-/* Gold accent line above title */
-.products-hero-pro::before {
-    content: '';
-    display: block;
-    width: 48px;
-    height: 3px;
-    background: var(--accent);
-    margin: 0 auto 2rem;
-    border-radius: 2px;
-}
-
 .hero-title-pro {
-    font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(2.8rem, 7vw, 6.5rem);
     font-weight: 900;
     line-height: 1.08;
@@ -178,14 +163,6 @@ body {
     }
 }
 
-.hero-divider {
-    height: 2px;
-    width: 80px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-cool));
-    margin: 2rem auto 2.5rem;
-    border-radius: 2px;
-    opacity: 0.7;
-}
 
 .hero-subtitle-pro {
     font-size: clamp(1rem, 1.5vw, 1.2rem);
@@ -200,18 +177,6 @@ body {
     color: var(--ink);
     font-weight: 600;
     position: relative;
-}
-
-.highlight-text::after {
-    content: '';
-    position: absolute;
-    bottom: 1px;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    background: var(--accent-glow);
-    border-radius: 3px;
-    z-index: -1;
 }
 
 /* ╔══════════════════════════════════════════════════════════╗
@@ -340,10 +305,9 @@ body {
 }
 
 .cat-card-glass h3 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
     line-height: 1.1;
     color: #fff;
 }
@@ -367,23 +331,6 @@ body {
     gap: 0.85rem;
 }
 
-/* Gold border on hover — top edge accent */
-.cat-selection-card-pro::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 10%;
-    width: 80%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    opacity: 0;
-    transition: opacity var(--transition-base);
-    z-index: 5;
-}
-
-.cat-selection-card-pro:hover::before {
-    opacity: 1;
-}
 
 /* ╔══════════════════════════════════════════════════════════╗
    ║  LIST VIEW (when category selected)                      ║
@@ -427,7 +374,6 @@ body {
     border: none;
     padding: 0.75rem 1.4rem;
     border-radius: 50px;
-    font-family: 'DM Sans', sans-serif;
     font-weight: 700;
     font-size: 0.72rem;
     letter-spacing: 0.1em;
@@ -465,8 +411,7 @@ body {
 }
 
 .header-text-pro h1 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
     font-weight: 900;
     color: var(--ink);
     letter-spacing: -0.04em;
@@ -586,7 +531,6 @@ body {
 }
 
 .item-content-pro h3 {
-    font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(1.25rem, 2.5vw, 1.6rem);
     font-weight: 700;
     color: var(--ink);
@@ -611,7 +555,6 @@ body {
     color: var(--ink);
     border: 1px solid var(--surface-3);
     border-radius: 14px;
-    font-family: 'DM Sans', sans-serif;
     font-weight: 700;
     font-size: 0.88rem;
     letter-spacing: 0.02em;
@@ -804,7 +747,7 @@ img {
 }
 
 .catalogue-card {
-    background: linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%);
+    background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
     border-radius: 28px;
     padding: clamp(2rem, 4vw, 3.5rem);
     display: flex;
@@ -812,11 +755,11 @@ img {
     gap: clamp(1.5rem, 3vw, 3rem);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 30px 80px rgba(10, 10, 15, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 20px 60px rgba(0, 86, 179, 0.08);
+    border: 1px solid var(--border-light);
 }
 
-/* Decorative gold shimmer top-right */
+/* Decorative blue shimmer top-right */
 .catalogue-card::before {
     content: '';
     position: absolute;
@@ -824,7 +767,7 @@ img {
     right: -60px;
     width: 260px;
     height: 260px;
-    background: radial-gradient(circle, rgba(200, 169, 110, 0.18) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
 }
@@ -833,13 +776,13 @@ img {
     flex-shrink: 0;
     width: 72px;
     height: 72px;
-    background: rgba(200, 169, 110, 0.12);
-    border: 1px solid rgba(200, 169, 110, 0.25);
+    background: rgba(30, 58, 138, 0.08);
+    border: 1px solid rgba(30, 58, 138, 0.15);
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--accent);
+    color: var(--primary-blue);
 }
 
 .catalogue-text {
@@ -847,17 +790,16 @@ img {
 }
 
 .catalogue-text h2 {
-    font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(1.3rem, 2.5vw, 2rem);
     font-weight: 700;
-    color: #fff;
+    color: var(--text-main);
     margin-bottom: 0.5rem;
     line-height: 1.2;
 }
 
 .catalogue-text p {
     font-size: clamp(0.88rem, 1.1vw, 1rem);
-    color: rgba(255, 255, 255, 0.55);
+    color: var(--text-body);
     line-height: 1.65;
     max-width: 520px;
 }
@@ -867,12 +809,11 @@ img {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
-    color: var(--ink);
+    background: var(--primary-blue);
+    color: #ffffff;
     border: none;
     padding: 1rem 2rem;
     border-radius: 14px;
-    font-family: 'DM Sans', sans-serif;
     font-weight: 800;
     font-size: 0.9rem;
     letter-spacing: 0.03em;
@@ -882,13 +823,14 @@ img {
         box-shadow var(--transition-fast),
         filter var(--transition-fast);
     white-space: nowrap;
-    box-shadow: 0 8px 30px rgba(200, 169, 110, 0.35);
+    box-shadow: 0 8px 30px rgba(30, 58, 138, 0.3);
 }
 
 .catalogue-download-btn:hover {
     transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 16px 40px rgba(200, 169, 110, 0.45);
-    filter: brightness(1.08);
+    box-shadow: 0 16px 40px rgba(30, 58, 138, 0.4);
+    filter: brightness(1.1);
+    color: #ffffff;
 }
 
 .catalogue-download-btn:active {

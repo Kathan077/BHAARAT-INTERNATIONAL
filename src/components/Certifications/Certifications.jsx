@@ -8,21 +8,21 @@ const certs = [
     name: 'Udyog Aadhaar',
     sub: 'MSME Registration Certificate',
     color: '#FF9933',
-    logo: <img src="https://www.cajiteshtelisara.com/wp-content/uploads/2023/04/udyog-aadhar.jpg" alt="Udyog Aadhaar" style={{ height: '110%', width: '100%', objectFit: 'contain' }} />,
+    logo: <img src="https://www.cajiteshtelisara.com/wp-content/uploads/2023/04/udyog-aadhar.jpg" alt="Udyog Aadhaar" style={{ height: '85%', width: '90%', objectFit: 'contain' }} />,
   },
   {
     id: 2,
     name: 'Make in India',
     sub: 'Global Manufacturing Hub',
     color: '#000000',
-    logo: <img src="https://images.seeklogo.com/logo-png/37/1/make-in-india-logo-png_seeklogo-379725.png" alt="Make in India" style={{ height: '150%', width: '100%', objectFit: 'contain' }} />,
+    logo: <img src="https://images.seeklogo.com/logo-png/37/1/make-in-india-logo-png_seeklogo-379725.png" alt="Make in India" style={{ height: '85%', width: '90%', objectFit: 'contain' }} />,
   },
   {
     id: 3,
     name: 'MSME',
     sub: 'Micro, Small & Medium Enterprises',
     color: '#8B4513',
-    logo: <img src="https://msmedinagpur.gov.in/assets/emblem-dark-CWvnlyPE.png" alt="MSME Logo" style={{ height: '120%', width: '100%', objectFit: 'contain' }} />,
+    logo: <img src="https://msmedinagpur.gov.in/assets/emblem-dark-CWvnlyPE.png" alt="MSME Logo" style={{ height: '85%', width: '90%', objectFit: 'contain' }} />,
   }
 ];
 
@@ -114,7 +114,7 @@ const Certifications = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.4 }}
-              whileHover={{ scale: 1.12, backgroundColor: '#0056b3', color: '#fff' }}
+              whileHover={{ scale: 1.12, backgroundColor: 'var(--primary-blue)', color: '#fff' }}
               whileTap={{ scale: 0.92 }}
               aria-label="Previous"
             >
@@ -186,7 +186,7 @@ const Certifications = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.4 }}
-              whileHover={{ scale: 1.12, backgroundColor: '#0056b3', color: '#fff' }}
+              whileHover={{ scale: 1.12, backgroundColor: 'var(--primary-blue)', color: '#fff' }}
               whileTap={{ scale: 0.92 }}
               aria-label="Next"
             >

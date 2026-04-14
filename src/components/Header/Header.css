@@ -365,7 +365,7 @@
     border-radius: 10px;
     font-weight: 700;
     letter-spacing: 0.02em;
-    background: linear-gradient(135deg, #0056b3 0%, #0070e0 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #0070e0 100%);
     box-shadow: 0 4px 14px -4px rgba(0, 86, 179, 0.4);
     transition: all 0.25s ease;
 }

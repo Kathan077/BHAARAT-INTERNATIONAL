@@ -4,30 +4,29 @@
    Font: Playfair Display (headings) + DM Sans (body)
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
-
 /* ── CSS Variables ─────────────────────────────────────────── */
 :root {
-  --q-ink:          #09090f;
-  --q-ink-2:        #1e1e2e;
-  --q-ink-muted:    #5a5a78;
-  --q-surface:      #ffffff;
-  --q-surface-2:    #f5f5fa;
-  --q-surface-3:    #eaeaf4;
-  --q-border:       #e4e4ee;
-  --q-accent:       #c8a96e;          /* warm gold */
-  --q-accent-glow:  rgba(200,169,110,.15);
-  --q-blue:         #1e40af;
-  --q-blue-light:   #3b63d4;
-  --q-blue-glow:    rgba(30,64,175,.12);
-  --q-green:        #16a34a;
-  --q-radius-lg:    32px;
-  --q-radius-md:    18px;
-  --q-radius-sm:    12px;
-  --q-shadow-sm:    0 2px 8px rgba(9,9,15,.04), 0 8px 24px rgba(9,9,15,.06);
-  --q-shadow-md:    0 4px 16px rgba(9,9,15,.06), 0 20px 50px rgba(9,9,15,.1);
-  --q-shadow-lg:    0 8px 32px rgba(9,9,15,.08), 0 40px 80px rgba(9,9,15,.12);
-  --q-ease:         cubic-bezier(0.22, 1, 0.36, 1);
+  --q-ink: #09090f;
+  --q-ink-2: #1e1e2e;
+  --q-ink-muted: #5a5a78;
+  --q-surface: #ffffff;
+  --q-surface-2: #f5f5fa;
+  --q-surface-3: #eaeaf4;
+  --q-border: #e4e4ee;
+  --q-accent: #1e3a8a;
+  /* primary blue */
+  --q-accent-glow: rgba(30, 58, 138, .1);
+  --q-blue: #1e40af;
+  --q-blue-light: #3b63d4;
+  --q-blue-glow: rgba(30, 64, 175, .12);
+  --q-green: #16a34a;
+  --q-radius-lg: 32px;
+  --q-radius-md: 18px;
+  --q-radius-sm: 12px;
+  --q-shadow-sm: 0 2px 8px rgba(9, 9, 15, .04), 0 8px 24px rgba(9, 9, 15, .06);
+  --q-shadow-md: 0 4px 16px rgba(9, 9, 15, .06), 0 20px 50px rgba(9, 9, 15, .1);
+  --q-shadow-lg: 0 8px 32px rgba(9, 9, 15, .08), 0 40px 80px rgba(9, 9, 15, .12);
+  --q-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* ╔══════════════════════════════════════════════════════════╗
@@ -39,7 +38,6 @@
   background: var(--q-surface-2);
   position: relative;
   overflow: hidden;
-  font-family: 'DM Sans', sans-serif;
 }
 
 /* Ambient blob — top right */
@@ -71,8 +69,13 @@
 }
 
 @keyframes q-blob-drift {
-  from { transform: translate(0, 0) scale(1); }
-  to   { transform: translate(40px, 60px) scale(1.12); }
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(40px, 60px) scale(1.12);
+  }
 }
 
 /* ── Container ─────────────────────────────────────────────── */
@@ -109,7 +112,7 @@
   padding: 6px 16px;
   background: var(--q-surface);
   color: var(--q-accent);
-  border: 1px solid rgba(200,169,110,.3);
+  border: 1px solid rgba(30, 58, 138, .2);
   border-radius: 100px;
   font-size: 0.7rem;
   font-weight: 700;
@@ -131,7 +134,6 @@
 
 /* ── Heading ───────────────────────────────────────────────── */
 .quote-info h2 {
-  font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 900;
   color: var(--q-ink);
@@ -162,7 +164,7 @@
 }
 
 /* ── Body Copy ─────────────────────────────────────────────── */
-.quote-info > p {
+.quote-info>p {
   font-size: clamp(0.95rem, 1.4vw, 1.1rem);
   color: var(--q-ink-muted);
   margin-bottom: 2.5rem;
@@ -188,14 +190,14 @@
   border-radius: var(--q-radius-md);
   box-shadow: var(--q-shadow-sm);
   transition: box-shadow 0.3s var(--q-ease),
-              transform   0.3s var(--q-ease),
-              border-color 0.3s ease;
+    transform 0.3s var(--q-ease),
+    border-color 0.3s ease;
 }
 
 .contact-item-pro:hover {
   box-shadow: var(--q-shadow-md);
   transform: translateX(4px);
-  border-color: rgba(200,169,110,.3);
+  border-color: rgba(30, 58, 138, .2);
 }
 
 .contact-item-pro .icon-box {
@@ -298,7 +300,7 @@
   left: 12%;
   width: 76%;
   height: 3px;
-  background: linear-gradient(90deg, transparent, var(--q-accent), transparent);
+  background: linear-gradient(90deg, transparent, var(--q-blue), transparent);
   border-radius: 0 0 4px 4px;
 }
 
@@ -321,7 +323,6 @@
 }
 
 .form-header h3 {
-  font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 700;
   color: var(--q-ink);
@@ -368,13 +369,12 @@
   border: 1.5px solid var(--q-border);
   border-radius: var(--q-radius-sm);
   font-size: 0.95rem;
-  font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   color: var(--q-ink);
   background: var(--q-surface-2);
   transition: border-color 0.25s ease,
-              background   0.25s ease,
-              box-shadow   0.25s ease;
+    background 0.25s ease,
+    box-shadow 0.25s ease;
   appearance: none;
   -webkit-appearance: none;
 }
@@ -403,7 +403,7 @@
 .input-group input:hover:not(:focus),
 .input-group select:hover:not(:focus),
 .input-group textarea:hover:not(:focus) {
-  border-color: #c8cce0;
+  border-color: var(--q-blue-glow);
 }
 
 textarea.input-group,
@@ -421,7 +421,6 @@ textarea.input-group,
   color: #fff;
   border: none;
   border-radius: var(--q-radius-md);
-  font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -433,7 +432,7 @@ textarea.input-group,
   position: relative;
   overflow: hidden;
   transition: transform 0.35s var(--q-ease),
-              box-shadow 0.35s var(--q-ease);
+    box-shadow 0.35s var(--q-ease);
 }
 
 /* Gold shimmer fill on hover */
@@ -448,7 +447,7 @@ textarea.input-group,
 
 .submit-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 36px rgba(30,64,175,.28);
+  box-shadow: 0 12px 36px rgba(30, 64, 175, .28);
 }
 
 .submit-btn:hover::before {
@@ -483,9 +482,27 @@ textarea.input-group,
   animation: fade-up 0.5s var(--q-ease) both;
 }
 
+.GETtouch {
+  font-size: 25px;
+  font-weight: 700;
+  color: #000;
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .success-icon {
@@ -498,12 +515,11 @@ textarea.input-group,
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.75rem;
-  border: 2px solid rgba(22,163,74,.15);
-  box-shadow: 0 8px 30px rgba(22,163,74,.15);
+  border: 2px solid rgba(22, 163, 74, .15);
+  box-shadow: 0 8px 30px rgba(22, 163, 74, .15);
 }
 
 .success-state h3 {
-  font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(1.5rem, 2.5vw, 2rem);
   color: var(--q-ink);
   margin-bottom: 0.75rem;

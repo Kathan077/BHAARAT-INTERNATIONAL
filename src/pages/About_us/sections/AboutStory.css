@@ -37,28 +37,16 @@
     width: 100%;
     height: 850px;
     object-fit: cover;
-    border-radius: 30px;
-    box-shadow: 0 40px 80px -20px rgba(0, 44, 95, 0.2);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-mega);
 }
 
-.image-accent-border {
-    position: absolute;
-    top: 20px;
-    right: -20px;
-    bottom: -20px;
-    left: 20px;
-    border: 2px solid rgba(0, 86, 179, 0.1);
-    border-radius: 24px;
-    z-index: -1;
-    margin-top: -110px;
-    /* User preferred offset */
-}
 
 .experience-badge {
     position: absolute;
     top: 40px;
     left: -30px;
-    background: #0056b3;
+    background: var(--primary-blue);
     color: white;
     padding: 20px 28px;
     border-radius: 18px;
@@ -102,7 +90,7 @@
 }
 
 .m-feature svg {
-    color: #0056b3;
+    color: var(--primary-blue);
 }
 
 .m-feature span {
@@ -116,7 +104,7 @@
     display: block;
     font-size: 0.85rem;
     font-weight: 800;
-    color: #0056b3;
+    color: var(--primary-blue);
     letter-spacing: 0.2em;
     margin-bottom: 16px;
     text-transform: uppercase;
@@ -131,13 +119,13 @@
 }
 
 .story-title .highlight {
-    color: #0056b3;
+    color: var(--primary-blue);
 }
 
 .story-description-large p {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: #475569;
+    color: var(--text-body);
     margin-bottom: 24px;
 }
 
@@ -152,9 +140,9 @@
     gap: 24px;
     margin: 40px 0;
     padding: 32px;
-    background: rgba(0, 86, 179, 0.03);
-    border-radius: 20px;
-    border: 1px solid rgba(0, 86, 179, 0.06);
+    background: var(--primary-blue-light);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-light);
 }
 
 .h-item {
@@ -166,7 +154,7 @@
     width: 44px;
     height: 44px;
     background: #ffffff;
-    color: #0056b3;
+    color: var(--primary-blue);
     display: flex;
     align-items: center;
     justify-content: center;

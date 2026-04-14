@@ -21,25 +21,30 @@ function App() {
 
   return (
     <div className="App">
-      {/* Global overlays */}
-      <ScrollToTop />
-      <WhatsAppButton />
-      <CustomCursor />
-      <ScrollProgress />
-      <BackToTop />
+      {/* Preloader Overlay */}
       {!preloaderDone && <Preloader onFinish={onFinish} />}
 
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/Support" element={<Support />} />
-          <Route path="/quote" element={<Quote />} />
-        </Routes>
-      </main>
-      <Footer />
+      {/* Main Content - Only visible after preloader finishes */}
+      {preloaderDone && (
+        <>
+          <ScrollToTop />
+          <WhatsAppButton />
+          <CustomCursor />
+          <ScrollProgress />
+          <BackToTop />
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/Support" element={<Support />} />
+              <Route path="/quote" element={<Quote />} />
+            </Routes>
+          </main>
+          <Footer />
+        </>
+      )}
     </div>
   );
 }

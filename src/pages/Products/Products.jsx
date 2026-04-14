@@ -17,16 +17,27 @@ import {
 import './Products.css';
 import cataloguePdf from '../../assets/Bhaarat [Recovered] (2).pdf';
 
+// Import local images
+import faceMaskImg from './img/face mask.png';
+import disposableFaceMaskImg from './img/disposable-face-mask (1).jpg';
+import headCapImg from './img/head cap.jpeg';
+import shoesGlovesImg from './img/shoes and gloves.png';
+import apronImg from './img/disposable apron.jpeg';
+import sheetImg from './img/plain and bed sheet.png';
+import hygieneImg from './img/prep pazor.png';
+import salonImg from './img/salon and sap.png';
+
+
 // --- DATA ---
 const productCategories = [
-  { id: 'ply-face-mask',        title: 'Ply Face Mask',                       icon: Shield,      color: '#3498db', image: 'https://m.media-amazon.com/images/I/71ghGvZ7H4S.jpg' },
-  { id: 'disposable-face-mask', title: 'Disposable Face Mask',                icon: ShieldCheck, color: 'var(--accent-teal)', image: 'https://cdn.moglix.com/p/yPKkv6OtIxmAR-xxlarge.jpg' },
-  { id: 'head-cap',             title: 'Head Cap',                            icon: User,        color: 'var(--primary-blue)',image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR6I4D-nDiToUYKSooISt_1F6aKoUqcK2jQClq_nEGOUopp6xTKkpQ05bp4APx0Qwh6ehwvg0j8SyfLQ4b2uT7tGn25M4s7' },
-  { id: 'shoe-cover-gloves',    title: 'Shoe Cover & Gloves',                 icon: Footprints,  color: '#0ea5e9',image: 'https://5.imimg.com/data5/SELLER/Default/2023/8/334215433/AL/KU/TX/4255008/plastic-shoe-cover-500x500.jpg' },
-  { id: 'disposable-apron',     title: 'Disposable Apron',                    icon: Layers,      color: '#0284c7', image: 'https://m.media-amazon.com/images/I/51qMoaxK5gL.jpg' },
-  { id: 'disposable-plain-sheet',title: 'Disposable Plain Sheet / Bed Sheet', icon: Activity,    color: '#0369a1',image: 'https://tiimg.tistatic.com/fp/1/006/490/highly-reliable-disposable-bed-833.jpg'},
-  { id: 'health-hygine',        title: 'Health & Hygiene',                     icon: HeartPulse,  color: '#0c4a6e',  image: 'https://assets.medpagetoday.net/media/images/107xxx/107053.jpg' },
-  { id: 'salon-spa',            title: 'Salon & Spa',                         icon: Sparkles,    color: '#075985',image: 'https://m.media-amazon.com/images/I/61mJbGIANsL._AC_UY1100_.jpg'},
+  { id: 'ply-face-mask',        title: 'Ply Face Mask',                       icon: Shield,      color: '#3498db', image: faceMaskImg },
+  { id: 'disposable-face-mask', title: 'Disposable Face Mask',                icon: ShieldCheck, color: 'var(--accent-teal)', image: disposableFaceMaskImg },
+  { id: 'head-cap',             title: 'Head Cap',                            icon: User,        color: 'var(--primary-blue)', image: headCapImg },
+  { id: 'shoe-cover-gloves',    title: 'Shoe Cover & Gloves',                 icon: Footprints,  color: '#0ea5e9', image: shoesGlovesImg },
+  { id: 'disposable-apron',     title: 'Disposable Apron',                    icon: Layers,      color: '#0284c7', image: apronImg },
+  { id: 'disposable-plain-sheet',title: 'Disposable Plain Sheet / Bed Sheet', icon: Activity,    color: '#0369a1', image: sheetImg },
+  { id: 'health-hygine',        title: 'Health & Hygiene',                     icon: HeartPulse,  color: '#0c4a6e', image: hygieneImg },
+  { id: 'salon-spa',            title: 'Salon & Spa',                         icon: Sparkles,    color: '#075985', image: salonImg },
 ];
 
 // --- COMPONENTS ---

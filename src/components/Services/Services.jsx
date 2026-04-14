@@ -3,6 +3,12 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowLeft, Stethoscope, Bone, BedDouble, Activity } from 'lucide-react';
 import './Services.css';
 
+// Import local images
+import faceMaskImg from '../../pages/Products/img/face mask.png';
+import headCapImg from '../../pages/Products/img/head cap.jpeg';
+import shoesGlovesImg from '../../pages/Products/img/shoes and gloves.png';
+import apronImg from '../../pages/Products/img/disposable apron.jpeg';
+
 const services = [
   {
     id: 1,
@@ -11,7 +17,7 @@ const services = [
     title: 'Ply Face Mask',
     description:
       'Single-use face masks ensuring hygiene, protection, and ease of use.',
-    image: 'https://m.media-amazon.com/images/I/61GL9PjUwpS._AC_UY1100_.jpg',
+    image: faceMaskImg,
     color: '#0ea5e9',
   },
   {
@@ -21,7 +27,7 @@ const services = [
     title: 'Head Cap',
     description:
       'Comfortable disposable caps for effective hygiene and contamination control.',
-    image: 'https://m.media-amazon.com/images/I/51T5LxBX9FL._AC_UF1000,1000_QL80_.jpg',
+    image: headCapImg,
     color: '#34d399',
   },
   {
@@ -31,7 +37,7 @@ const services = [
     title: 'Shoe Cover & Gloves',
     description:
       'Protective wear designed to maintain cleanliness and prevent contamination.',
-    image: 'https://media.istockphoto.com/id/1402945947/photo/surgeon-putting-on-shoe-cover-before-operation.jpg?s=612x612&w=0&k=20&c=UJb5QslL_VPat3jzF5Siitpx9sRi0n4EIP-p5G__wn4=',
+    image: shoesGlovesImg,
     color: '#f59e0b',
   },
   {
@@ -41,7 +47,7 @@ const services = [
     title: 'Disposable Apron',
     description:
       'Reliable disposable aprons for safe and hygienic work environments.',
-    image: 'https://tiimg.tistatic.com/fp/1/007/345/disposable-tie-on-blue-free-size-plastic-ldpe-maternity-apron-for-hospitals-828.jpg',
+    image: apronImg,
     color: '#a78bfa',
   },
 ];

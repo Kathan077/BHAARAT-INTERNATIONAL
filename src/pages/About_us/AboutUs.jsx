@@ -5,6 +5,7 @@ import AboutStory from './sections/AboutStory';
 import AboutLogistics from './sections/AboutLogistics';
 import AboutProcess from './sections/AboutProcess';
 import AboutMission from './sections/AboutMission';
+import SEO from '../../components/SEO/SEO';
 
 import './AboutUs.css';
 
@@ -21,6 +22,11 @@ const AboutUs = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
+      <SEO 
+        title="About Us"
+        description="Learn about Bhaarat International's mission, advanced logistics, professional processes, and our journey to excellence in global premium supply."
+        url="https://bhaaratinternational.org/about"
+      />
       <AboutHero />
       <AboutStory />
       <AboutLogistics />

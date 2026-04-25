@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, ArrowRight, CheckCircle2 } from 'lucide-react';
+import SEO from '../../components/SEO/SEO';
 import './Quote.css';
 
 const Quote = () => {
@@ -37,6 +38,11 @@ const Quote = () => {
 
   return (
     <section className="quote-section" id="quote">
+      <SEO 
+        title="Request a Quote"
+        description="Request a personalized quote or technical consultation for premium medical supplies and logistics from Bhaarat International."
+        url="https://bhaaratinternational.org/quote"
+      />
       <div className="quote-container">
         <div className="quote-grid">
           {/* Left Side: Info */}

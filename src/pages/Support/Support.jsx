@@ -12,6 +12,7 @@ import {
   ShieldCheck,
   MapPin
 } from 'lucide-react';
+import SEO from '../../components/SEO/SEO';
 import './Support.css';
 
 const Support = () => {
@@ -64,6 +65,11 @@ const Support = () => {
 
   return (
     <div className="support-page-pro">
+      <SEO 
+        title="Support & Help Center"
+        description="Contact Bhaarat International for expert assistance on clinical and industrial medical supply needs."
+        url="https://bhaaratinternational.org/Support"
+      />
       {/* Hero Section */}
       <section className="support-hero">
         <div className="container">

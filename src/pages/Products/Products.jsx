@@ -13,9 +13,12 @@ import {
   FileText
 } from 'lucide-react';
 
+import SEO from '../../components/SEO/SEO';
 
 import './Products.css';
 import cataloguePdf from '../../assets/Bhaarat [Recovered] (2).pdf';
+// ... rest remains same ...
+// Use replace range very carefully. Since the file is 171 lines I will just replace around the component definition.
 
 // Import local images
 import faceMaskImg from './img/face mask.png';
@@ -88,6 +91,12 @@ const CategoryCard = ({ cat, idx }) => {
 const Products = () => {
   return (
     <div className="products-page-pro">
+      <SEO 
+        title="Our Products"
+        description="Explore Bhaarat International's high-quality medical supplies, face masks, protective gear, and salon hygiene products globally."
+        keywords="medical supplies, disposable face mask, head cap, surgical mask, Bhaarat International products"
+        url="https://bhaaratinternational.org/products"
+      />
       <div className="pro-bg-blobs">
         <div className="blob blob-1"></div>
         <div className="blob blob-2"></div>

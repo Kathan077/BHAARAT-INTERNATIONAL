@@ -271,7 +271,7 @@
         display: block !important;
         /* Disable flex centering to foolproof top padding */
         height: auto !important;
-        min-height: 100vh !important;
+        min-height: 150vh !important;
         padding-top: 100px !important;
         /* Massive buffer for the header */
         padding-bottom: 60px !important;

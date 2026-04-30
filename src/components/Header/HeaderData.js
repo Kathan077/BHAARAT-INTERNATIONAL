@@ -69,5 +69,5 @@ export const navLinks = [
     isMega: true,
     categories: productCategories
   },
-  { name: 'Support', path: '/Support' },
+  { name: 'Support', path: '/support' },
 ];

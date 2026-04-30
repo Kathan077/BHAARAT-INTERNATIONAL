@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Hero.css';
+
+const MotionLink = motion(Link);
 
 const Hero = () => {
   return (
@@ -50,7 +53,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
- We are engaged in the import and export of high-quality surgical and medical products, delivering reliable solutions to global markets.
+  We are engaged in the import and export of high-quality surgical and medical products, delivering reliable solutions to global markets.
         </motion.p>
 
         {/* Two CTAs */}
@@ -60,24 +63,24 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.65 }}
         >
-          <motion.a
-            href="/products"
+          <MotionLink
+            to="/products"
             className="hero__btn hero__btn--primary"
             whileHover={{ y: -3, scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
           >
             Explore Products <ArrowRight size={18} />
-          </motion.a>
+          </MotionLink>
 
-          <motion.a
-            href="/Quote"
+          <MotionLink
+            to="/quote"
             className="hero__btn hero__btn--outline"
             whileHover={{ y: -3, scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
           >
           
             Get a Quote
-          </motion.a>
+          </MotionLink>
         </motion.div>
 
       </div>

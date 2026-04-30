@@ -68,7 +68,7 @@ const Support = () => {
       <SEO 
         title="Support & Help Center"
         description="Contact Bhaarat International for expert assistance on clinical and industrial medical supply needs."
-        url="https://bhaaratinternational.org/Support"
+        url="https://bhaaratinternational.org/support"
       />
       {/* Hero Section */}
       <section className="support-hero">

@@ -195,9 +195,7 @@ const Skills = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.18, duration: 0.5 }}
           >
-            Over two decades of expertise in precision medical manufacturing,
-            global exports, and quality assurance delivering
-            healthcare solutions that professionals trust.
+           Over two decades of expertise in precision medical solutions and pharmaceutical supply, with global exports of surgical products and rigorous quality assurance delivering healthcare solutions trusted by professionals worldwide
           </motion.p>
 
           {/* Skill cards grid */}

@@ -197,7 +197,7 @@ body {
 
 /* ── Category Selection Card ───────────────────────────────── */
 .cat-selection-card-pro {
-    height: clamp(380px, 42vw, 520px);
+    height: clamp(260px, 30vw, 380px);
     border-radius: var(--radius-card);
     position: relative;
     cursor: pointer;
@@ -237,34 +237,35 @@ body {
 .cat-card-image {
     position: absolute;
     inset: 0;
-    background-size: cover;
+    /* Removed cover to prevent cutting */
+    background-size: 100% 100%;
     background-position: center;
+    background-repeat: no-repeat;
     transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
         filter 0.6s ease;
     will-change: transform;
 }
 
 .cat-selection-card-pro:hover .cat-card-image {
-    transform: scale(1.07);
-    filter: brightness(0.55) saturate(0.8);
+    transform: scale(1.02);
+    filter: brightness(0.8) saturate(0.9);
 }
 
-/* Dark gradient at bottom always visible */
+/* Removed dark gradient to make product images clearer */
 .cat-card-image::after {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(to top,
-            rgba(10, 10, 15, 0.92) 0%,
-            rgba(10, 10, 15, 0.45) 45%,
-            transparent 75%);
+            rgba(10, 10, 15, 0.6) 0%,
+            transparent 60%);
 }
 
 /* ── Card Overlay & Glass Pill ─────────────────────────────── */
 .cat-card-overlay-pro {
     position: absolute;
     inset: 0;
-    padding: clamp(1.2rem, 2.5vw, 2rem);
+    padding: clamp(1rem, 2vw, 1.4rem);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -277,7 +278,7 @@ body {
     -webkit-backdrop-filter: blur(24px) saturate(160%);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 22px;
-    padding: clamp(1.5rem, 3vw, 2.5rem);
+    padding: clamp(1.2rem, 2.2vw, 1.8rem);
     color: white;
     transform: translateY(14px);
     opacity: 0.92;
@@ -294,20 +295,20 @@ body {
 }
 
 .cat-card-icon-pro {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .cat-card-glass h3 {
-    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
     font-weight: 700;
-    margin-bottom: 0.85rem;
+    margin-bottom: 0.4rem;
     line-height: 1.1;
     color: #fff;
 }

@@ -73,13 +73,10 @@ const CategoryCard = ({ cat, idx }) => {
     >
       <div
         className="cat-card-image"
-        style={{ backgroundImage: `url("${cat.image}")`, transform: 'translateZ(-20px) scale(1.1)' }}
+        style={{ backgroundImage: `url("${cat.image}")`, transform: 'translateZ(-20px)' }}
       />
       <div className="cat-card-overlay-pro" style={{ transform: 'translateZ(50px)' }}>
         <div className="cat-card-glass">
-          <div className="cat-card-icon-pro" style={{ background: cat.color }}>
-            <cat.icon size={22} color="white" />
-          </div>
           <h3>{cat.title}</h3>
         </div>
       </div>

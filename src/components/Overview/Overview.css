@@ -91,11 +91,12 @@
 .overview__img {
     width: 100%;
     height: 440px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 20px;
     display: block;
     box-shadow: 0 25px 60px -15px rgba(0, 44, 95, 0.18);
     transition: box-shadow 0.4s ease;
+    background: rgba(0, 0, 0, 0.02);
 }
 
 .overview__tilt-frame--hovered .overview__img {

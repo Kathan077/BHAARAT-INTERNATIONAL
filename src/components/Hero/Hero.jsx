@@ -38,8 +38,8 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35 }}
         >
-     Disposable Surgicals Products and <br />
-          <span className="hero__heading-accent">Medical </span> Consumables for a <br />
+          Disposable Surgicals Products 
+          <span className="hero__heading-accent"> and Medical </span> Consumables for a 
           Healthier World
         </motion.h1>
 

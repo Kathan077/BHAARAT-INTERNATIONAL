@@ -86,9 +86,9 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .whatsapp-float-btn {
-        bottom: 100px;
-        /* Adjusted for mobile */
-        right: 30px;
+        bottom: 30px;
+        /* Moved down to avoid overlapping buttons */
+        right: 20px;
         width: 54px;
         height: 54px;
     }

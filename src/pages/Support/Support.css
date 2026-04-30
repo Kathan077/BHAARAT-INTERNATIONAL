@@ -346,15 +346,17 @@
 
 @media (max-width: 425px) {
     .support-hero {
-        padding: 140px 0 60px;
+        padding: 180px 0 60px;
     }
 
     .support-hero h1 {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
     }
 
     .support-hero p {
-        font-size: 1rem;
+        font-size: 0.95rem;
         padding: 0 1rem;
     }
 
@@ -394,8 +396,12 @@
 }
 
 @media (max-width: 375px) {
+    .support-hero {
+        padding-top: 170px;
+    }
+
     .support-hero h1 {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 
     .support-badge {
@@ -413,12 +419,12 @@
 }
 
 @media (max-width: 320px) {
-    .support-hero h1 {
-        font-size: 1.75rem;
+    .support-hero {
+        padding: 150px 0 50px;
     }
 
-    .support-hero {
-        padding: 120px 0 50px;
+    .support-hero h1 {
+        font-size: 1.4rem;
     }
 
     .card-value {

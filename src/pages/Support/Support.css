@@ -343,3 +343,95 @@
         padding: 2rem;
     }
 }
+
+@media (max-width: 425px) {
+    .support-hero {
+        padding: 140px 0 60px;
+    }
+
+    .support-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .support-hero p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .support-channels,
+    .faq-simple-section,
+    .location-map,
+    .support-trust {
+        padding: 60px 0;
+    }
+
+    .channels-grid {
+        gap: 1.5rem;
+    }
+
+    .channel-card {
+        padding: 2rem 1.5rem;
+        border-radius: 24px;
+    }
+
+    .form-card-minimal {
+        padding: 1.5rem;
+        border-radius: 24px;
+    }
+
+    .form-card-minimal h3 {
+        font-size: 1.5rem;
+    }
+
+    .map-wrapper {
+        border-width: 6px;
+        border-radius: 24px;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .support-hero h1 {
+        font-size: 2rem;
+    }
+
+    .support-badge {
+        padding: 0.4rem 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .faq-item-simple {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .faq-q-title {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .support-hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .support-hero {
+        padding: 120px 0 50px;
+    }
+
+    .card-value {
+        font-size: 1rem;
+    }
+
+    .minimal-support-form input,
+    .minimal-support-form textarea {
+        padding: 1rem;
+    }
+
+    .minimal-support-form button {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+}

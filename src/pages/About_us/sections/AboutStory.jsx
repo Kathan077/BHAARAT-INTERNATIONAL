@@ -61,7 +61,8 @@ const AboutStory = () => {
             >
               <span className="story-eyebrow">COMPANY OVERVIEW</span>
               <h2 className="story-title">
-Medical consumables <span className="highlight">Instruments</span> for a Healthier World</h2>
+
+Disposable Surgicals Products and <span className="highlight">Medical</span> Consumables for a Healthier World</h2>
             </motion.div>
 
             <motion.div 

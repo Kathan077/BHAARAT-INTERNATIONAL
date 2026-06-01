@@ -1,7 +1,7 @@
 import React, { useRef, useState, useCallback } from 'react';
 import { motion, useInView, useSpring, animate } from 'framer-motion';
 import { ShieldCheck, Globe, Award, Users, ArrowRight, CheckCircle2 } from 'lucide-react';
-import overviewImg from '../../assets/WhatsApp Image 2026-04-10 at 2.40.55 PM.jpeg';
+import overviewImg from '../../assets/WhatsApp Image 2026-06-01 at 17.52.21.jpeg';
 import './Overview.css';
 
 /* ── Animated counter ── */

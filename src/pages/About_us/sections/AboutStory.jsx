@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Globe, Truck, Users } from 'lucide-react';
+import storyImg from '../../../assets/WhatsApp Image 2026-06-01 at 17.52.2.jpeg';
 import './AboutStory.css';
 
 const AboutStory = () => {
@@ -27,7 +28,7 @@ const AboutStory = () => {
           >
             <div className="main-image-container">
               <img 
-                src="https://www.entrepreneurindia.co/blogs/wp-content/uploads/2025/03/159.png" 
+                src={storyImg} 
                 alt="Medical Precision" 
                 className="main-story-img"
               />

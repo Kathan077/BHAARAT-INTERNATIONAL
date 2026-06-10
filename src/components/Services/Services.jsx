@@ -13,7 +13,7 @@ const services = [
   {
     id: 1,
     icon: Stethoscope,
-   
+
     title: 'Ply Face Mask',
     description:
       'Single-use face masks ensuring hygiene, protection, and ease of use.',
@@ -23,7 +23,7 @@ const services = [
   {
     id: 2,
     icon: Bone,
-  
+
     title: 'Head Cap',
     description:
       'Comfortable disposable caps for effective hygiene and contamination control.',
@@ -43,7 +43,7 @@ const services = [
   {
     id: 4,
     icon: Activity,
-   
+
     title: 'Disposable Apron',
     description:
       'Reliable disposable aprons for safe and hygienic work environments.',
@@ -70,7 +70,7 @@ const Services = () => {
   const canNext = start + VISIBLE < services.length;
 
   const prev = () => { if (canPrev) { setDir(-1); setStart(s => s - 1); } };
-  const next = () => { if (canNext) { setDir(1);  setStart(s => s + 1); } };
+  const next = () => { if (canNext) { setDir(1); setStart(s => s + 1); } };
 
   const visible = services.slice(start, start + VISIBLE);
 
@@ -80,8 +80,8 @@ const Services = () => {
       {/* Big watermark */}
       <div className="srv__watermark" aria-hidden="true">
         {"Services".split("").map((letter, index) => (
-          <span 
-            key={index} 
+          <span
+            key={index}
             className="srv__watermark-letter"
           >
             {letter}
@@ -182,7 +182,7 @@ const Services = () => {
           </AnimatePresence>
         </div>
 
-     
+
       </div>
     </section>
   );

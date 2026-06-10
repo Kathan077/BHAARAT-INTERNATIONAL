@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import logo from '../../assets/BHAARAT_International_Logo_No_BG.png';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
-import { 
-  Mail, 
-  Phone, 
-  ChevronDown, 
-  Menu, 
-  X, 
-  Globe, 
-  ShieldCheck, 
+import {
+  Mail,
+  Phone,
+  ChevronDown,
+  Menu,
+  X,
+  Globe,
+  ShieldCheck,
   Search,
   ArrowRight,
   Instagram,
@@ -52,15 +52,15 @@ const Header = () => {
 
   const sidebarVariants = {
     closed: { x: '100%' },
-    open: { 
-      x: 0, 
-      transition: { 
-        type: 'spring', 
-        stiffness: 300, 
+    open: {
+      x: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 300,
         damping: 30,
         staggerChildren: 0.1,
         delayChildren: 0.1
-      } 
+      }
     }
   };
 
@@ -73,7 +73,7 @@ const Header = () => {
 
   const navContainerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
@@ -85,7 +85,7 @@ const Header = () => {
   return (
     <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
       {/* Top Bar - Desktop Only */}
-      <motion.div 
+      <motion.div
         className="top-bar desktop-only"
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -114,7 +114,7 @@ const Header = () => {
       {/* Main Navigation */}
       <nav className="main-nav">
         <div className="container nav-content">
-          <motion.div 
+          <motion.div
             className="logo-wrapper"
             variants={itemVariants}
             initial="hidden"
@@ -126,27 +126,29 @@ const Header = () => {
           </motion.div>
 
           {/* Desktop Menu */}
-          <motion.ul 
+          <motion.ul
             className="nav-menu desktop-only"
             variants={navContainerVariants}
             initial="hidden"
             animate="visible"
           >
             {navLinks.map((link, index) => (
-              <motion.li 
+              <motion.li
                 key={link.name}
                 variants={itemVariants}
+                onMouseEnter={() => setActiveDropdown(index)}
+                onMouseLeave={() => setActiveDropdown(null)}
               >
                 <Link to={link.path} className={window.location.pathname === link.path ? 'active' : ''}>
-                  {link.name} 
+                  {link.name}
                 </Link>
-                
+
 
 
                 {link.dropdown && (
                   <AnimatePresence>
                     {activeDropdown === index && (
-                      <motion.div 
+                      <motion.div
                         className="dropdown-menu"
                         initial={{ opacity: 0, y: 20, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -166,18 +168,52 @@ const Header = () => {
                     )}
                   </AnimatePresence>
                 )}
-                </motion.li>
-              ))}
-            </motion.ul>
 
-          <motion.div 
+                {link.isMega && (
+                  <AnimatePresence>
+                    {activeDropdown === index && (
+                      <motion.div
+                        className="mega-menu"
+                        initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 15, scale: 0.98 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                      >
+                        <div className="mega-menu-grid">
+                          {link.categories.map((cat, catIdx) => (
+                            <Link
+                              key={catIdx}
+                              to={`/products#${cat.id}`}
+                              className="mega-column-link"
+                              onClick={() => setActiveDropdown(null)}
+                            >
+                              <div className="mega-column">
+                                <div className="mega-category-header">
+                                  <div className="mega-icon-wrapper">
+                                    <cat.icon size={20} strokeWidth={2.5} />
+                                  </div>
+                                  <h4 className="mega-title">{cat.title}</h4>
+                                </div>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                )}
+              </motion.li>
+            ))}
+          </motion.ul>
+
+          <motion.div
             className="nav-actions"
             variants={itemVariants}
             initial="hidden"
             animate="visible"
           >
-            <button 
-              className="search-btn desktop-only" 
+            <button
+              className="search-btn desktop-only"
               aria-label="Search"
               onClick={() => setIsSearchOpen(true)}
             >
@@ -186,8 +222,8 @@ const Header = () => {
             <Link to="/quote" className="btn btn-primary btn-pro desktop-only">
               Contact Us
             </Link>
-            <button 
-              className="mobile-toggle-btn" 
+            <button
+              className="mobile-toggle-btn"
               onClick={() => setIsMobileMenuOpen(true)}
               aria-label="Open Menu"
             >
@@ -201,15 +237,15 @@ const Header = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <div className="mobile-overlay-wrapper">
-            <motion.div 
+            <motion.div
               className="mobile-backdrop"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
             />
-            
-            <motion.aside 
+
+            <motion.aside
               className="mobile-drawer"
               variants={sidebarVariants}
               initial="closed"
@@ -234,7 +270,7 @@ const Header = () => {
                           {link.name}
                         </Link>
                         {link.dropdown && (
-                          <button 
+                          <button
                             className={`expand-btn ${mobileExpanded === i ? 'active' : ''}`}
                             onClick={() => toggleMobileSub(i)}
                           >
@@ -242,7 +278,7 @@ const Header = () => {
                           </button>
                         )}
                         {link.isMega && (
-                          <button 
+                          <button
                             className={`expand-btn ${mobileExpanded === i ? 'active' : ''}`}
                             onClick={() => toggleMobileSub(i)}
                           >
@@ -250,11 +286,11 @@ const Header = () => {
                           </button>
                         )}
                       </div>
-                      
+
                       {link.dropdown && (
                         <AnimatePresence>
                           {mobileExpanded === i && (
-                            <motion.div 
+                            <motion.div
                               className="mobile-submenu"
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: 'auto', opacity: 1 }}
@@ -273,15 +309,15 @@ const Header = () => {
                       {link.isMega && (
                         <AnimatePresence>
                           {mobileExpanded === i && (
-                            <motion.div 
+                            <motion.div
                               className="mobile-mega-menu"
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: 'auto', opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
                             >
                               {link.categories.map((cat, catIdx) => (
-                                <Link 
-                                  key={catIdx} 
+                                <Link
+                                  key={catIdx}
                                   to={`/products#${cat.id}`}
                                   className="mobile-cat-group-link"
                                   onClick={() => setIsMobileMenuOpen(false)}
@@ -310,7 +346,7 @@ const Header = () => {
                     <Mail size={18} /> <span>bhaaratinternational@zohomail.in</span>
                   </div>
                 </div>
-                
+
                 <div className="drawer-socials">
                   <a href="#"><Linkedin size={22} /></a>
                   <a href="#"><Instagram size={22} /></a>
@@ -328,7 +364,7 @@ const Header = () => {
       {/* Search Overlay */}
       <AnimatePresence>
         {isSearchOpen && (
-          <motion.div 
+          <motion.div
             className="search-overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -338,9 +374,9 @@ const Header = () => {
               <div className="search-header">
                 <div className="search-input-wrapper">
                   <Search size={24} className="search-input-icon" />
-                  <input 
-                    type="text" 
-                    placeholder="Search products, materials, and more..." 
+                  <input
+                    type="text"
+                    placeholder="Search products, materials, and more..."
                     className="search-input"
                     autoFocus
                     value={searchQuery}
@@ -358,45 +394,46 @@ const Header = () => {
               <div className="search-results">
                 {searchQuery.length > 1 && (
                   <div className="results-grid">
-                    {productCategories.flatMap(cat => 
+                    {productCategories.flatMap(cat =>
                       cat.items.map(item => ({
                         name: typeof item === 'string' ? item : item.name,
                         categoryId: cat.id,
                         categoryTitle: cat.title
                       }))
                     )
-                    .filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()))
-                    .map((product, idx) => (
-                      <motion.div
-                        key={idx}
-                        className="search-result-item"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.05 }}
-                        onClick={() => {
-                          navigate(`/products#${product.categoryId}`);
-                          setIsSearchOpen(false);
-                          setSearchQuery('');
-                        }}
-                      >
-                        <div className="result-info">
-                          <span className="result-name">{product.name}</span>
-                          <span className="result-category">in {product.categoryTitle}</span>
-                        </div>
-                        <ArrowRight size={16} />
-                      </motion.div>
-                    ))}
-                    {productCategories.flatMap(cat => 
+                      .filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                      .map((product, idx) => (
+                        <motion.div
+                          key={idx}
+                          className="search-result-item"
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: idx * 0.05 }}
+                          onClick={() => {
+                            const urlSafeProduct = encodeURIComponent(product.name);
+                            navigate(`/products#${product.categoryId}/${urlSafeProduct}`);
+                            setIsSearchOpen(false);
+                            setSearchQuery('');
+                          }}
+                        >
+                          <div className="result-info">
+                            <span className="result-name">{product.name}</span>
+                            <span className="result-category">in {product.categoryTitle}</span>
+                          </div>
+                          <ArrowRight size={16} />
+                        </motion.div>
+                      ))}
+                    {productCategories.flatMap(cat =>
                       cat.items.map(item => ({
                         name: typeof item === 'string' ? item : item.name,
                         categoryId: cat.id,
                         categoryTitle: cat.title
                       }))
                     ).filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase())).length === 0 && (
-                      <div className="no-results">
-                        No products found matching "{searchQuery}"
-                      </div>
-                    )}
+                        <div className="no-results">
+                          No products found matching "{searchQuery}"
+                        </div>
+                      )}
                   </div>
                 )}
                 {searchQuery.length <= 1 && (
@@ -404,8 +441,8 @@ const Header = () => {
                     <h5>SUGGESTED CATEGORIES</h5>
                     <div className="suggested-grid">
                       {productCategories.slice(0, 4).map(cat => (
-                        <button 
-                          key={cat.id} 
+                        <button
+                          key={cat.id}
                           className="suggested-item"
                           onClick={() => {
                             navigate(`/products#${cat.id}`);

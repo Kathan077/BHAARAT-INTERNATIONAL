@@ -5,7 +5,7 @@
 .cf {
     position: relative;
     padding: 100px 0 80px;
-    background: #ffffff;
+    background: #f8fafc;
     overflow: hidden;
 }
 
@@ -17,7 +17,7 @@
     transform: translateX(-50%);
     font-size: clamp(5rem, 14vw, 9rem);
     font-weight: 900;
-    color: rgba(0, 86, 179, 0.05);
+    color: rgba(0, 86, 179, 0.035);
     letter-spacing: -0.04em;
     user-select: none;
     pointer-events: none;
@@ -34,7 +34,7 @@
 /* ── Header ── */
 .cf__hdr {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .cf__eyebrow {
@@ -70,223 +70,287 @@
     background-clip: text;
 }
 
-/* ── Slider layout ── */
-.cf__slider-wrap {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
+/* ── Swiper Slider Wrapper & Sizing ── */
+.cf__swiper-outer {
+    position: relative;
+    padding: 0 50px;
+    margin-top: 1rem;
 }
 
-/* ── Arrow buttons ── */
-.cf__arrow {
-    width: 46px;
-    height: 46px;
+.cf__swiper {
+    padding: 1.5rem 0;
+    overflow: visible !important;
+}
+
+.cf__slide {
+    width: 420px !important; /* increased width from 330px to make PDFs readable */
+    height: 600px; /* increased height from 480px to accommodate A4 document ratio */
+    opacity: 0.4;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.cf__slide.swiper-slide-active {
+    opacity: 1;
+}
+
+/* ── Document Card Frame ── */
+.cf__card-preview {
+    position: relative;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1.5px solid rgba(0, 86, 179, 0.08);
+    box-shadow: 0 15px 35px -10px rgba(0, 44, 95, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+    background-image: 
+        radial-gradient(var(--cf-color-light) 1.5px, transparent 1.5px),
+        radial-gradient(var(--cf-color-light) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    background-position: 0 0, 12px 12px;
+}
+
+.cf__slide:hover .cf__card-preview {
+    box-shadow: 0 25px 50px -15px var(--cf-color-light), 0 0 0 2px var(--cf-color);
+}
+
+/* ── Card Header ── */
+.cf__card-hdr {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 86, 179, 0.06);
+    z-index: 10;
+}
+
+.cf__card-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    color: white;
+    font-size: 0.82rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.15);
+}
+
+.cf__card-title-group {
+    min-width: 0;
+    flex: 1;
+}
+
+.cf__card-name {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cf__card-sub {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    margin: 2px 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ── Body (Document Rendering Canvas) ── */
+.cf__card-body {
+    flex: 1;
+    position: relative;
+    padding: 0.65rem; /* padding surrounding the document preview inside the card */
+    background: rgba(248, 250, 252, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.cf__preview-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 
+        0 6px 20px -5px rgba(0, 0, 0, 0.06), 
+        0 0 0 1px rgba(0, 0, 0, 0.03),
+        inset 0 0 0 3px #ffffff,
+        inset 0 0 0 4px rgba(0, 86, 179, 0.08);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cf__preview-canvas {
+    width: 100%;
+    height: 100% !important;
+    object-fit: contain; /* ensures full document page is visible without cropping sides/edges */
+    background: #ffffff;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.cf__preview-canvas--loaded {
+    opacity: 1;
+}
+
+/* ── Spinner / Loader ── */
+.cf__preview-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.cf__spinner {
+    width: 36px;
+    height: 36px;
+    border: 3.5px solid rgba(0, 86, 179, 0.08);
+    border-top-color: var(--primary-blue);
+    border-radius: 50%;
+    animation: cf-spin 0.8s cubic-bezier(0.5, 0.1, 0.4, 0.9) infinite;
+}
+
+@keyframes cf-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Error Previews ── */
+.cf__preview-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.78rem;
+    color: #ef4444;
+}
+
+.cf__preview-error-icon {
+    font-size: 2rem;
+}
+
+.cf__preview-error-btn {
+    padding: 7px 14px;
+    background: #ef4444;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    transition: background-color 0.2s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.25);
+}
+
+.cf__preview-error-btn:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+/* ── Slider Arrows ── */
+.cf__swiper-outer .cf__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: white;
-    border: 2px solid rgba(0, 86, 179, 0.15);
+    border: 1.5px solid rgba(0, 86, 179, 0.1);
     color: var(--primary-blue);
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     line-height: 1;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    box-shadow: 0 4px 14px -4px rgba(0, 86, 179, 0.15);
-    transition: color 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 4px 16px -4px rgba(0, 86, 179, 0.15);
+    transition: all 0.25s ease;
+    z-index: 100;
+    user-select: none;
 }
 
-.cf__arrow:hover {
+.cf__swiper-outer .cf__arrow:hover {
+    background: var(--primary-blue);
     color: white;
     border-color: var(--primary-blue);
+    box-shadow: 0 6px 20px -4px rgba(0, 86, 179, 0.3);
 }
 
-/* ── Cards track ── */
-.cf__track {
-    flex: 1;
-    display: grid;
-    /* card count controlled by JS via --cf-visible */
-    grid-template-columns: repeat(var(--cf-visible, 4), 1fr);
-    gap: 1rem;
-    overflow: hidden;
-    min-width: 0;
+.cf__swiper-outer .cf__arrow:active {
+    transform: translateY(-50%) scale(0.95);
 }
 
-/* ── Single cert card ── */
-.cf__card {
-    position: relative;
-    background: #ffffff;
-    border-radius: 16px;
-    border: 1.5px solid rgba(0, 86, 179, 0.1);
-    box-shadow: 0 4px 18px -6px rgba(0, 44, 95, 0.1);
-    padding: 2rem 1rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-    overflow: hidden;
-    cursor: default;
-    transition: border-color 0.3s ease;
-    height: 100%;
+.cf__swiper-button-prev {
+    left: -10px;
 }
 
-.cf__card:hover {
-    border-color: var(--cf-color, var(--primary-blue));
+.cf__swiper-button-next {
+    right: -10px;
 }
 
-/* Logo container */
-.cf__card-logo {
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
+.cf__swiper-outer .cf__arrow.swiper-button-disabled {
+    opacity: 0.3;
+    pointer-events: none;
 }
 
-.cf__card-logo svg {
-    color: var(--cf-color, var(--primary-blue));
-    background: var(--cf-color-light, rgba(0, 86, 179, 0.06));
-    padding: 1rem;
-    border-radius: 50%;
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    display: block;
-}
-
-.cf__card:hover .cf__card-logo svg {
-    background: var(--cf-color, var(--primary-blue));
-    color: #ffffff !important;
-    transform: scale(1.08) rotate(3deg);
-    box-shadow: 0 8px 20px -4px var(--cf-color, rgba(0, 86, 179, 0.3));
-}
-
-.cf__card-logo img {
-    transition: transform 0.35s ease;
-}
-
-.cf__card:hover .cf__card-logo img {
-    transform: scale(1.08);
-}
-
-/* Actions container */
-.cf__card-actions {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: auto;
-    width: 100%;
-    padding-top: 0.75rem;
-    z-index: 2;
-}
-
-.cf__btn {
-    flex: 1;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 0.5rem 0.25rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: all 0.25s ease;
-    cursor: pointer;
-}
-
-.cf__btn--view {
-    background: var(--cf-color-light, rgba(0, 86, 179, 0.05));
-    color: var(--cf-color, var(--primary-blue));
-    border: 1.5px solid var(--cf-color-light, rgba(0, 86, 179, 0.15));
-}
-
-.cf__btn--view:hover {
-    background: var(--cf-color, var(--primary-blue));
-    color: white !important;
-    border-color: var(--cf-color, var(--primary-blue));
-    box-shadow: 0 4px 12px var(--cf-color-light, rgba(0, 86, 179, 0.2));
-}
-
-.cf__btn--download {
-    background: var(--cf-color, var(--primary-blue));
-    color: white;
-    border: 1.5px solid var(--cf-color, var(--primary-blue));
-}
-
-.cf__btn--download:hover {
-    filter: brightness(0.9);
-    box-shadow: 0 4px 12px var(--cf-color-light, rgba(0, 86, 179, 0.25));
-}
-
-/* Text */
-.cf__card-name {
-    position: relative;
-    z-index: 2;
-    font-size: 0.95rem;
-    font-weight: 800;
-    color: var(--text-main);
-    text-align: center;
-}
-
-.cf__card-sub {
-    position: relative;
-    z-index: 2;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    text-align: center;
-    line-height: 1.4;
-}
-
-/* Bottom colour bar (fills on hover) */
-.cf__card-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--cf-color, var(--primary-blue));
-    border-radius: 0 0 16px 16px;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
-}
-
-.cf__card:hover .cf__card-bar {
-    transform: scaleX(1);
-}
-
-/* ── Dots ── */
-.cf__dots {
+/* ── Pagination Dots ── */
+.cf__dots.cf__swiper-pagination {
+    position: static;
+    margin-top: 2.25rem;
     display: flex;
     justify-content: center;
-    gap: 0.55rem;
-    margin-top: 2rem;
+    gap: 0.6rem;
 }
 
-.cf__dot {
+.cf__swiper-pagination .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background: rgba(0, 86, 179, 0.15);
-    border: none;
+    opacity: 1;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0 !important;
     cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 0;
 }
 
-.cf__dot--active {
-    width: 24px;
+.cf__swiper-pagination .swiper-pagination-bullet-active {
+    width: 26px;
     border-radius: 4px;
     background: var(--primary-blue);
 }
 
-/* ── Responsive ── */
+/* ── Responsive Overrides ── */
 @media (max-width: 1024px) {
-    .cf__arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 1.4rem;
+    .cf {
+        padding: 80px 0 60px;
+    }
+
+    .cf__slide {
+        width: 360px !important;
+        height: 520px;
     }
 }
 
@@ -295,26 +359,26 @@
         padding: 60px 0 50px;
     }
 
-    .cf__slider-wrap {
-        gap: 0.75rem;
+    .cf__swiper-outer {
+        padding: 0 10px;
+    }
+    
+    .cf__slide {
+        width: 310px !important;
+        height: 450px;
     }
 
-    .cf__arrow {
-        width: 36px;
-        height: 36px;
-        font-size: 1.3rem;
-    }
-
-    .cf__heading {
-        font-size: 1.5rem;
-    }
-
-    .cf__card {
-        padding: 1.25rem 0.75rem 1rem;
+    .cf__swiper-button-prev,
+    .cf__swiper-button-next {
+        display: none !important; /* Hide arrows on touch screens */
     }
 
     .cf__card-name {
-        font-size: 0.82rem;
+        font-size: 0.9rem;
+    }
+
+    .cf__card-sub {
+        font-size: 0.7rem;
     }
 }
 
@@ -322,123 +386,9 @@
     .cf {
         padding: 50px 0 40px;
     }
-
-    .cf__slider-wrap {
-        gap: 0.5rem;
-    }
-
-    .cf__arrow {
-        width: 32px;
-        height: 32px;
-        font-size: 1.2rem;
-    }
-
-    .cf__card {
-        padding: 1.5rem 1rem;
-    }
-
-    .cf__card-logo svg,
-    .cf__card-logo img {
-        transform: scale(0.85);
-    }
-}
-
-/* ── Modal PDF Viewer ── */
-.cf__modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(10, 37, 64, 0.65);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-}
-
-.cf__modal-content {
-    background: #ffffff;
-    width: 100%;
-    max-width: 950px;
-    height: 85vh;
-    border-radius: 20px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.cf__modal-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 1.75rem;
-    border-bottom: 1px solid rgba(0, 86, 179, 0.08);
-    background: #fafbfe;
-}
-
-.cf__modal-header h3 {
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: var(--text-main);
-    margin: 0;
-}
-
-.cf__modal-close {
-    background: rgba(0, 86, 179, 0.05);
-    border: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.25s ease;
-}
-
-.cf__modal-close:hover {
-    background: rgba(239, 68, 68, 0.1);
-    color: #ef4444;
-    transform: rotate(90deg);
-}
-
-.cf__modal-body {
-    flex: 1;
-    position: relative;
-    background: #f1f3f7;
-    padding: 0.5rem;
-}
-
-.cf__modal-body iframe {
-    width: 100%;
-    height: 100%;
-    background: #ffffff;
-}
-
-.cf__btn {
-    border: none;
-    font-family: inherit;
-}
-
-@media (max-width: 768px) {
-    .cf__modal-overlay {
-        padding: 0.75rem;
-    }
     
-    .cf__modal-content {
-        height: 90vh;
-        border-radius: 16px;
-    }
-    
-    .cf__modal-header {
-        padding: 1rem;
+    .cf__slide {
+        width: 270px !important;
+        height: 400px;
     }
 }

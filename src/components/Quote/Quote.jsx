@@ -143,7 +143,7 @@ const Quote = () => {
                 >
                   {formState === 'loading' ? 'Processing...' : (
                     <>
-                      Request Quote Now <Send size={18} />
+                      <span>Request Quote Now</span> <Send size={18} />
                     </>
                   )}
                 </button>

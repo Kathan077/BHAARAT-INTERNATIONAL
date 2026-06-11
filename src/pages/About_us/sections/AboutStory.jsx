@@ -75,17 +75,11 @@ Disposable Surgicals Products and <span className="highlight">Medical</span> Con
               variants={fadeUp}
             >
               <p>
-                <strong>Bhaarat International</strong> is a growing and reliable company engaged in the import and export 
-                of high quality surgical and medical products, serving clients across domestic and international markets. 
-                Our focus is on delivering products that meet strict quality, safety, and hygiene standards required in 
-                modern healthcare environments.
-              </p>
-              
-              <p>
-                We offer a wide range of products including face masks, disposable medical supplies, protective wear, 
-                surgical accessories, and hygiene essentials. Each product is carefully sourced and supplied to ensure 
-                consistency, durability, and performance, making them suitable for hospitals, clinics, laboratories, 
-                and healthcare professionals.
+                <strong>Bhaarat International</strong> is a dedicated exporter of high-quality disposable surgical products, 
+                diagnostic kits, and non-woven protective apparel, committed to supporting healthcare systems and industries 
+                worldwide with reliable, safe, and cost-effective solutions. With a strong focus on hygiene, durability, 
+                and international standards, our product portfolio includes disposable surgical masks, gowns, caps, 
+                shoe covers, drapes, diagnostic test kits, and a wide range of non-woven protective products.
               </p>
 
               <div className="story-highlights">
@@ -106,16 +100,18 @@ Disposable Surgicals Products and <span className="highlight">Medical</span> Con
               </div>
 
               <p>
-                With a strong understanding of global trade and logistics, we manage the complete supply process 
-                efficiently from sourcing and quality checks to packaging and timely delivery. Our streamlined 
-                operations help us fulfill bulk orders while maintaining reliability and cost-effectiveness.
+                Every product is carefully sourced and manufactured to meet stringent quality and safety requirements, 
+                ensuring optimal protection and accurate healthcare support for medical professionals and end users. 
+                Our operations are driven by consistency, timely delivery, and customer satisfaction. We collaborate with 
+                trusted manufacturers and maintain strict quality control processes at every stage—from procurement to 
+                packaging and export—so that our clients receive only the best.
               </p>
               
               <p>
-                At Bhaarat International, we believe in building long-term business relationships by providing 
-                dependable products, transparent communication, and responsive customer support. Our commitment is 
-                to deliver value, trust, and satisfaction to every client we work with, making us a preferred partner 
-                in the surgical and medical supply industry.
+                Backed by industry expertise and a global outlook, we aim to build long-term partnerships by offering 
+                dependable products, competitive pricing, and responsive service. Whether serving hospitals, laboratories, 
+                distributors, healthcare institutions, or government agencies, we are committed to delivering excellence 
+                in every shipment.
               </p>
             </motion.div>
           </div>

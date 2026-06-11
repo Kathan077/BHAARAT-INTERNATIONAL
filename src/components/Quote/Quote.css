@@ -192,6 +192,7 @@
     background: var(--primary-blue);
     transform: translateY(-3px);
     box-shadow: 0 15px 30px rgba(0, 86, 179, 0.25);
+    color: white !important;
 }
 
 .submit-btn:disabled {

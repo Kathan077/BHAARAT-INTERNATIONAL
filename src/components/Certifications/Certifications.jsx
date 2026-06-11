@@ -1,28 +1,96 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { Eye, Award, FileText, Globe, ShieldCheck, Anchor } from 'lucide-react';
 import './Certifications.css';
 
 const certs = [
   {
     id: 1,
-    name: 'Udyog Aadhaar',
-    sub: 'MSME Registration Certificate',
-    color: '#FF9933',
-    logo: <img src="https://www.cajiteshtelisara.com/wp-content/uploads/2023/04/udyog-aadhar.jpg" alt="Udyog Aadhaar" style={{ height: '85%', width: '90%', objectFit: 'contain' }} />,
+    name: 'GST Registration',
+    sub: 'Goods and Services Tax Certificate',
+    color: '#008080',
+    file: '/certificates/BHAARAT INTERNATIONAL GST.pdf',
+    fileName: 'Bhaarat_International_GST_Registration.pdf',
+    logo: <FileText size={48} strokeWidth={1.5} />,
   },
   {
     id: 2,
-    name: 'Make in India',
-    sub: 'Global Manufacturing Hub',
-    color: '#000000',
-    logo: <img src="https://images.seeklogo.com/logo-png/37/1/make-in-india-logo-png_seeklogo-379725.png" alt="Make in India" style={{ height: '85%', width: '90%', objectFit: 'contain' }} />,
+    name: 'Import Export Code (IEC)',
+    sub: 'DGFT, Ministry of Commerce & Industry',
+    color: '#0A2540',
+    file: '/certificates/BHARAAT INTERNATIONAL IEC.pdf',
+    fileName: 'Bhaarat_International_IEC_Certificate.pdf',
+    logo: <Globe size={48} strokeWidth={1.5} />,
   },
   {
     id: 3,
-    name: 'MSME',
-    sub: 'Micro, Small & Medium Enterprises',
-    color: '#8B4513',
+    name: 'RCMC Certificate',
+    sub: 'Registration Cum Membership Certificate',
+    color: '#D4AF37',
+    file: '/certificates/RCMC.pdf',
+    fileName: 'Bhaarat_International_RCMC_Certificate.pdf',
+    logo: <Award size={48} strokeWidth={1.5} />,
+  },
+  {
+    id: 4,
+    name: 'Udyam Registration',
+    sub: 'MSME Registration Certificate',
+    color: '#FF9933',
+    file: '/certificates/UDYAM CERTIFICATE BHAARAT INTERNATIONAL.pdf',
+    fileName: 'Bhaarat_International_Udyam_Certificate.pdf',
     logo: <img src="https://msmedinagpur.gov.in/assets/emblem-dark-CWvnlyPE.png" alt="MSME Logo" style={{ height: '85%', width: '90%', objectFit: 'contain' }} />,
+  },
+  {
+    id: 5,
+    name: 'Udyam Annexure',
+    sub: 'MSME Registration Annexure',
+    color: '#E65100',
+    file: '/certificates/UDYAM REGISTRATION CERTIFICATE ANNXURE BHAARAT INTERNATIONAL.pdf',
+    fileName: 'Bhaarat_International_Udyam_Annexure.pdf',
+    logo: <img src="https://msmedinagpur.gov.in/assets/emblem-dark-CWvnlyPE.png" alt="MSME Logo" style={{ height: '85%', width: '90%', objectFit: 'contain' }} />,
+  },
+  {
+    id: 6,
+    name: 'Drug License (20B)',
+    sub: 'Wholesale License for General Drugs',
+    color: '#10B981',
+    file: '/certificates/BHAARAT INTERNATIONAL 20B DRUG LICENCE.pdf',
+    fileName: 'Bhaarat_International_Drug_License_20B.pdf',
+    logo: <ShieldCheck size={48} strokeWidth={1.5} />,
+  },
+  {
+    id: 7,
+    name: 'Drug License (21B)',
+    sub: 'Wholesale License for Specified Drugs',
+    color: '#059669',
+    file: '/certificates/BHAARAT INTERNATIONAL 21B DRUG LICENCE.pdf',
+    fileName: 'Bhaarat_International_Drug_License_21B.pdf',
+    logo: <ShieldCheck size={48} strokeWidth={1.5} />,
+  },
+  {
+    id: 8,
+    name: 'Drug License (FL)',
+    sub: 'Form FL Drug & Food License',
+    color: '#84CC16',
+    file: '/certificates/BHAARAT INTERNATIONAL FL DRUG LICENCE.pdf',
+    fileName: 'Bhaarat_International_Drug_License_FL.pdf',
+    logo: <ShieldCheck size={48} strokeWidth={1.5} />,
+  },
+  {
+    id: 9,
+    name: 'AD Code Registration',
+    sub: 'Authorized Dealer Code (Customs)',
+    color: '#3B82F6',
+    file: '/certificates/AD CODE BHAARAT INTERNATIONAL.pdf',
+    fileName: 'Bhaarat_International_AD_Code.pdf',
+    logo: <Anchor size={48} strokeWidth={1.5} />,
+  },
+  {
+    id: 10,
+    name: 'Make in India',
+    sub: 'Global Manufacturing Hub Affiliate',
+    color: '#000000',
+    logo: <img src="https://images.seeklogo.com/logo-png/37/1/make-in-india-logo-png_seeklogo-379725.png" alt="Make in India" style={{ height: '85%', width: '90%', objectFit: 'contain' }} />,
   }
 ];
 
@@ -45,6 +113,8 @@ function useVisible() {
 }
 
 const Certifications = () => {
+  const [activePdf, setActivePdf] = useState(null);
+  const [activePdfTitle, setActivePdfTitle] = useState('');
   const ref     = useRef(null);
   const inView  = useInView(ref, { once: true, margin: '-80px' });
   const visible = useVisible();
@@ -149,11 +219,26 @@ const Certifications = () => {
                     exit="exit"
                     transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1], delay: i * 0.04 }}
                     whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                    style={{ '--cf-color': c.color, width: '100%', maxWidth: '300px' }}
+                    style={{ '--cf-color': c.color, '--cf-color-light': `${c.color}15`, width: '100%', maxWidth: '300px' }}
                   >
                     <div className="cf__card-logo">{c.logo}</div>
                     <div className="cf__card-name">{c.name}</div>
                     <div className="cf__card-sub">{c.sub}</div>
+                    {c.file && (
+                      <div className="cf__card-actions">
+                        <button 
+                          onClick={() => {
+                            setActivePdf(c.file);
+                            setActivePdfTitle(c.name);
+                          }}
+                          className="cf__btn cf__btn--view"
+                          title="View Certificate"
+                        >
+                          <Eye size={14} />
+                          <span>View Certificate</span>
+                        </button>
+                      </div>
+                    )}
                     <div className="cf__card-bar" />
                   </motion.div>
                 ))}
@@ -167,11 +252,26 @@ const Certifications = () => {
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.2 + i * 0.1, duration: 0.5 }}
                   whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                  style={{ '--cf-color': c.color, width: '100%', maxWidth: '300px' }}
+                  style={{ '--cf-color': c.color, '--cf-color-light': `${c.color}15`, width: '100%', maxWidth: '300px' }}
                 >
                   <div className="cf__card-logo">{c.logo}</div>
                   <div className="cf__card-name">{c.name}</div>
                   <div className="cf__card-sub">{c.sub}</div>
+                  {c.file && (
+                    <div className="cf__card-actions">
+                      <button 
+                        onClick={() => {
+                          setActivePdf(c.file);
+                          setActivePdfTitle(c.name);
+                        }}
+                        className="cf__btn cf__btn--view"
+                        title="View Certificate"
+                      >
+                        <Eye size={14} />
+                        <span>View Certificate</span>
+                      </button>
+                    </div>
+                  )}
                   <div className="cf__card-bar" />
                 </motion.div>
               ))
@@ -214,6 +314,44 @@ const Certifications = () => {
           </motion.div>
         )}
       </div>
+
+      {/* ── Modal PDF Viewer (Disabled toolbar to prevent download) ── */}
+      <AnimatePresence>
+        {activePdf && (
+          <motion.div 
+            className="cf__modal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setActivePdf(null)}
+          >
+            <motion.div 
+              className="cf__modal-content"
+              initial={{ scale: 0.9, y: 20, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.9, y: 20, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 250 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="cf__modal-header">
+                <h3>{activePdfTitle}</h3>
+                <button className="cf__modal-close" onClick={() => setActivePdf(null)} aria-label="Close modal">
+                  ✕
+                </button>
+              </div>
+              <div className="cf__modal-body" onContextMenu={(e) => e.preventDefault()}>
+                <iframe 
+                  src={`${activePdf}#toolbar=0&navpanes=0`} 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 'none', borderRadius: '8px' }}
+                  title={activePdfTitle}
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

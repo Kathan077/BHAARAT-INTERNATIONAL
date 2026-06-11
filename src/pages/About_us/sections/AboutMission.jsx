@@ -53,21 +53,21 @@ const AboutMission = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
     }
   };
 
   return (
     <section className="about-mission-pro-v3">
       <div className="mesh-gradient-bg" />
-      
+
       <div className="container">
         {/* ── North Star Hero Segment ── */}
         <div className="mission-hero-segment">
-          <motion.div 
+          <motion.div
             className="mission-box"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -78,15 +78,13 @@ const AboutMission = () => {
             <span className="box-eyebrow">Our Mission</span>
             <h2>Bridging the <span className="highlight">Global Gap</span> in Healthcare</h2>
             <p>
-             To deliver the highest quality pharmaceutical and healthcare products to
-the global market with integrity, precision, and compassion. We are
-committed to making India's exceptional healthcare manufacturing
-accessible to every corner of the world, improving lives through reliable
-supply chains and unwavering quality standards.
+              To provide high-quality disposable surgical products and non-woven apparel that ensure safety, hygiene, and comfort for health-
+              care professionals and end users worldwide. We are committed to maintaining strict quality standards, delivering products on
+              time, and building long-term relationships through reliability, transparency, and customer-focused service.
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="vision-box"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -97,28 +95,26 @@ supply chains and unwavering quality standards.
             <span className="box-eyebrow">Our Vision</span>
             <h2>Leading Global<span className="highlight-alt">Trade with</span>Trusted Quality</h2>
             <p>
-To be the most trusted Indian export company in the global pharmaceutical
-and healthcare trade  recognized worldwide for our commitment to
-quality, compliance, and customer-first service. We envision Bhaarat
-International as the gold standard for Indian healthcare exports,
-establishing benchmarks that raise the bar for the entire industry
+              To become a globally trusted exporter of disposable healthcare and non-woven protective products, recognized for quality,
+              consistency, and innovation, while contributing to safer healthcare environments and improved hygiene standards across
+              international markets.
             </p>
           </motion.div>
         </div>
 
         {/* ── Core Values Segment ── */}
         <div className="values-grid-segment">
-          <motion.div 
+          <motion.div
             className="values-header"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-           
+
             <h2>Our Core Values</h2>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="values-grid-wrapper"
             variants={containerVariants}
             initial="hidden"

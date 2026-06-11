@@ -448,6 +448,7 @@ textarea.input-group,
 .submit-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 36px rgba(30, 64, 175, .28);
+  color: #ffffff !important;
 }
 
 .submit-btn:hover::before {

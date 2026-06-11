@@ -1,13 +1,12 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, Shield, Layers, Activity } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import './Services.css';
 
 const services = [
   {
     id: 1,
-    icon: Shield,
     title: 'Medical Disposables',
     description: 'Medical-grade protective wear, including 3-ply and respiratory face masks, head caps, shoe covers, gloves, plain sheets, and salon disposables.',
     image: '/svc-hospital.png',
@@ -17,7 +16,6 @@ const services = [
   },
   {
     id: 2,
-    icon: Layers,
     title: 'Surgical Gowns & Packs',
     description: 'AAMI Level 3 & 4 certified sterile surgical gowns and customized drape packs for Orthopaedic, Cardiology, Gynecology, Urology, and general surgeries.',
     image: '/svc-surgical.png',
@@ -27,7 +25,6 @@ const services = [
   },
   {
     id: 3,
-    icon: Activity,
     title: 'Diagnostics & ELISA Kits',
     description: 'Advanced rapid antigen/antibody test devices and ELISA kits for screening Dengue, Malaria, Typhoid, HIV, Hepatitis, Troponin, and other infections.',
     image: '/svc-diagnostic.png',
@@ -84,7 +81,6 @@ const Services = () => {
         {/* ── Cards row ── */}
         <div className="srv__cards-wrap">
           {services.map((svc, idx) => {
-            const Icon = svc.icon;
             return (
               <motion.div
                 key={svc.id}
@@ -103,11 +99,6 @@ const Services = () => {
 
                   {/* Tag pill over image */}
                   <span className="srv__card-tag">{svc.tag}</span>
-
-                  {/* Icon circle */}
-                  <div className="srv__card-icon-wrap">
-                    <Icon size={22} />
-                  </div>
                 </div>
 
                 {/* Body */}
@@ -128,4 +119,5 @@ const Services = () => {
 };
 
 export default Services;
+
 

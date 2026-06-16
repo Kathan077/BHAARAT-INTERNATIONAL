@@ -233,39 +233,96 @@
     to { transform: rotate(360deg); }
 }
 
-/* ── Error Previews ── */
-.cf__preview-error {
+/* ── Fallback Previews (Secure View-only / Low Network) ── */
+.cf__preview-fallback {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
-    padding: 1.5rem;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 2.5rem 1.5rem 2rem;
     text-align: center;
-    font-size: 0.78rem;
-    color: #ef4444;
+    background: #ffffff;
+    position: relative;
 }
 
-.cf__preview-error-icon {
-    font-size: 2rem;
+.cf__fallback-decoration {
+    position: absolute;
+    top: 15px;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    border: 2px double rgba(0, 86, 179, 0.15);
+    border-radius: 8px;
+    pointer-events: none;
 }
 
-.cf__preview-error-btn {
-    padding: 7px 14px;
-    background: #ef4444;
-    color: white !important;
-    text-decoration: none;
-    border-radius: 6px;
+.cf__fallback-seal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: rgba(0, 86, 179, 0.04);
+    border: 1px dashed var(--cert-color, var(--primary-blue));
+    padding: 10px;
+    margin-bottom: 0.5rem;
+    opacity: 0.85;
+    transition: transform 0.3s ease;
+}
+
+.cf__fallback-seal img {
+    max-height: 80%;
+    max-width: 80%;
+    object-fit: contain;
+}
+
+.cf__preview-fallback:hover .cf__fallback-seal {
+    transform: scale(1.05) rotate(5deg);
+}
+
+.cf__fallback-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin: 0.5rem 0 0.25rem;
+    line-height: 1.3;
+}
+
+.cf__fallback-subtitle {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    max-width: 80%;
+    margin-bottom: auto;
+}
+
+.cf__fallback-badge {
+    margin-top: 1.5rem;
+    padding: 6px 16px;
+    background: rgba(10, 37, 64, 0.05);
+    border: 1px solid rgba(10, 37, 64, 0.1);
+    color: #475569;
+    border-radius: 20px;
     font-weight: 700;
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
-    transition: background-color 0.2s, transform 0.2s;
-    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.25);
+    letter-spacing: 0.08em;
+    user-select: none;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
 }
 
-.cf__preview-error-btn:hover {
-    background: #dc2626;
-    transform: translateY(-1px);
+.cf__fallback-footer {
+    margin-top: 1rem;
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    opacity: 0.6;
+    text-transform: uppercase;
 }
 
 /* ── Slider Arrows ── */

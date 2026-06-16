@@ -31,6 +31,175 @@ import sheetImg from './img/plain and bed sheet.png';
 import hygieneImg from './img/prep pazor.png';
 import salonImg from './img/salon and sap.png';
 
+// 44 premium product images from public/Product_img folder
+const productImagesList = [
+  '/Product_img/wraparound_surgical_gown_level_3_and_set.jpg',
+  '/Product_img/elastic_mask.jpg',
+  '/Product_img/n95_ear_loop.jpg',
+  '/Product_img/bouffant_cap.jpg',
+  '/Product_img/non_woven_shoe_covers.jpg',
+  '/Product_img/latex_gloves.jpg',
+  '/Product_img/sterile_non_woven_apron.jpg',
+  '/Product_img/non_sterile_non_woven_apron.jpg',
+  '/Product_img/non_woven_bed_sheet.jpg',
+  '/Product_img/lab_coat.jpg',
+  '/Product_img/underpads.jpg',
+  '/Product_img/salon_apron.jpg',
+  '/Product_img/wraparound_surgical_gown.jpg',
+  '/Product_img/hip_u_drape.jpg',
+  '/Product_img/angiography_drape.jpg',
+  '/Product_img/full_gynec_drape.jpg',
+  '/Product_img/turp_drape.jpg',
+  '/Product_img/eye_drape.jpg',
+  '/Product_img/plain_drape_sheet.jpg',
+  '/Product_img/dengue_ns1_rapid_antigen_test_device.jpg',
+  '/Product_img/hiv_elisa.jpg',
+];
+
+const productImageMap = {
+  'Wraparound Surgical Gown Level 3 & Set': '/Product_img/wraparound_surgical_gown_level_3_and_set.jpg',
+  'Reinforced Level 3 & 4 Surgical Gown & Set': '/Product_img/reinforced_level_3_and_4_surgical_gown_and_set.jpg',
+  'Breathable Viral Barrier BVB Surgical Gown & Set': '/Product_img/breathable_viral_barrier_bvb_surgical_gown_and_set.jpg',
+  'Eco Viral Barrier Gown & Set': '/Product_img/eco_viral_barrier_gown_and_set.jpg',
+  'SSMMS + Poly Coated Breathable Gown & Set': '/Product_img/ssmms_+_poly_coated_breathable_gown_and_set.jpg',
+  'Non Woven + Poly Coated Breathable Gown & Set': '/Product_img/non_woven_+_poly_coated_breathable_gown_and_set.jpg',
+  'Basic SMS Surgical Gown & Set': '/Product_img/basic_sms_surgical_gown_and_set.jpg',
+  'Elastic Mask': '/Product_img/elastic_mask.jpg',
+  'B/W Mask': '/Product_img/b_w_mask.jpg',
+  'IIR Mask': '/Product_img/iir_mask.jpg',
+  'Pull Out Mask': '/Product_img/pull_out_mask.jpg',
+  'Tie-On Mask': '/Product_img/tie_on_mask.jpg',
+  'Kids Mask': '/Product_img/kids_mask.jpg',
+  'N95 Ear Loop': '/Product_img/n95_ear_loop.jpg',
+  'N95 Head Loop': '/Product_img/n95_head_loop.jpg',
+  'KF 94 Mask': '/Product_img/kf_94_mask.jpg',
+  'Cup Mask': '/Product_img/cup_mask.jpg',
+  'Kids N95 Mask': '/Product_img/kids_n95_mask.jpg',
+  'Dusk Mask': '/Product_img/dusk_mask.jpg',
+  'Bouffant Cap': '/Product_img/bouffant_cap.jpg',
+  'Surgeon Cap': '/Product_img/surgeon_cap.jpg',
+  'Beard Cap': '/Product_img/beard_cap.jpg',
+  'Shower Cap': '/Product_img/shower_cap.jpg',
+  'Hood Cap': '/Product_img/hood_cap.jpg',
+  'Chef Cap': '/Product_img/chef_cap.jpg',
+  'Ear Cap': '/Product_img/ear_cap.jpg',
+  'Customize Cap': '/Product_img/customize_cap.jpg',
+  'Nylon Cap': '/Product_img/nylon_cap.jpg',
+  'Non-Woven Shoe Covers': '/Product_img/non_woven_shoe_covers.jpg',
+  'Plastic Shoe Covers': '/Product_img/plastic_shoe_covers.jpg',
+  'Knee-Length Shoe Covers': '/Product_img/knee_length_shoe_covers.jpg',
+  'Latex Gloves': '/Product_img/latex_gloves.jpg',
+  'Nitrile Gloves': '/Product_img/nitrile_gloves.jpg',
+  'Surgical Gloves': '/Product_img/surgical_gloves.jpg',
+  'Hand Sleeves': '/Product_img/hand_sleeves.jpg',
+  'Veterinary Gloves': '/Product_img/veterinary_gloves.jpg',
+  'Plastic Gloves': '/Product_img/plastic_gloves.jpg',
+  'Sterile Non-Woven Apron': '/Product_img/sterile_non_woven_apron.jpg',
+  'Non-Sterile Non-Woven Apron': '/Product_img/non_sterile_non_woven_apron.jpg',
+  'Sterile PE Apron': '/Product_img/sterile_pe_apron.jpg',
+  'Non-Sterile PE Apron': '/Product_img/non_sterile_pe_apron.jpg',
+  'Non-Woven Bed Sheet': '/Product_img/non_woven_bed_sheet.jpg',
+  'Plastic Bed Sheet': '/Product_img/plastic_bed_sheet.jpg',
+  'Bed Roll': '/Product_img/bed_roll.jpg',
+  'Lab Coat': '/Product_img/lab_coat.jpg',
+  'Coverall': '/Product_img/coverall.jpg',
+  'Scrub Suit': '/Product_img/scrub_suit.jpg',
+  'Shorts': '/Product_img/shorts.jpg',
+  'Protective Gown': '/Product_img/protective_gown.jpg',
+  'Dead Body Cover': '/Product_img/dead_body_cover.jpg',
+  'Underpads': '/Product_img/underpads.jpg',
+  'Sweat Pads': '/Product_img/sweat_pads.jpg',
+  'Cooling Gel Sheet': '/Product_img/cooling_gel_sheet.jpg',
+  'Prep Razor': '/Product_img/prep_razor.jpg',
+  'Salon Apron': '/Product_img/salon_apron.jpg',
+  'Spa Gown': '/Product_img/spa_gown.jpg',
+  'Wax Strips': '/Product_img/wax_strips.jpg',
+  'Bed Sheet': '/Product_img/bed_sheet.jpg',
+  'Wrap': '/Product_img/wrap.jpg',
+  'Non-Woven Brief': '/Product_img/non_woven_brief.jpg',
+  'Spun Lace Brief': '/Product_img/spun_lace_brief.jpg',
+  'Disposable Napkin': '/Product_img/disposable_napkin.jpg',
+  'Disposable Towel': '/Product_img/disposable_towel.jpg',
+  'Head Bands': '/Product_img/head_bands.jpg',
+  'Wraparound Surgical Gown': '/Product_img/wraparound_surgical_gown.jpg',
+  'Reinforced Surgical Gown': '/Product_img/reinforced_surgical_gown.jpg',
+  'Breathable Viral Barrier Gown': '/Product_img/breathable_viral_barrier_gown.jpg',
+  'Isolation Gown': '/Product_img/isolation_gown.jpg',
+  'Basic Surgical Gown': '/Product_img/basic_surgical_gown.jpg',
+  'Cathlab Surgical Gown': '/Product_img/cathlab_surgical_gown.jpg',
+  'Patient Gown': '/Product_img/patient_gown.jpg',
+  'Full Gown Set (HIV Kit)': '/Product_img/full_gown_set_(hiv_kit).jpg',
+  'Hip U Drape': '/Product_img/hip_u_drape.jpg',
+  'Knee O Drape': '/Product_img/knee_o_drape.jpg',
+  'Bilateral Knee O Drape': '/Product_img/bilateral_knee_o_drape.jpg',
+  'Spinal Drape': '/Product_img/spinal_drape.jpg',
+  'Elbow O Drape': '/Product_img/elbow_o_drape.jpg',
+  'Shoulder U': '/Product_img/shoulder_u.jpg',
+  'Knee Arthroscopy Drape': '/Product_img/knee_arthroscopy_drape.jpg',
+  'Orthopaedic Kits & Packs': '/Product_img/orthopaedic_kits_and_packs.jpg',
+  'Angiography Drape': '/Product_img/angiography_drape.jpg',
+  'Angioplasty Drape': '/Product_img/angioplasty_drape.jpg',
+  'Cardiothoracic Drape': '/Product_img/cardiothoracic_drape.jpg',
+  'Cardiology Kits & Packs': '/Product_img/cardiology_kits_and_packs.jpg',
+  'Full Gynec Drape': '/Product_img/full_gynec_drape.jpg',
+  'Caesarean Drape': '/Product_img/caesarean_drape.jpg',
+  'Laparoscopy Drape': '/Product_img/laparoscopy_drape.jpg',
+  'O Hole Drape': '/Product_img/o_hole_drape.jpg',
+  'Gynecology Kits & Packs': '/Product_img/gynecology_kits_and_packs.jpg',
+  'Turp Drape': '/Product_img/turp_drape.jpg',
+  'Pcnl Drape': '/Product_img/pcnl_drape.jpg',
+  'Major Drape': '/Product_img/major_drape.jpg',
+  'O Hole Drape (Urology)': '/Product_img/o_hole_drape_(urology).jpg',
+  'Urology Kits & Packs': '/Product_img/urology_kits_and_packs.jpg',
+  'Eye Drape': '/Product_img/eye_drape.jpg',
+  'Eye Drape Premium': '/Product_img/eye_drape_premium.jpg',
+  'Poly Eye Drape': '/Product_img/poly_eye_drape.jpg',
+  'Ophthalmic Kits & Packs': '/Product_img/ophthalmic_kits_and_packs.jpg',
+  'Plain Drape Sheet': '/Product_img/plain_drape_sheet.jpg',
+  'Adhesive Drape Sheet': '/Product_img/adhesive_drape_sheet.jpg',
+  'Steri Wrap Sheet': '/Product_img/steri_wrap_sheet.jpg',
+  'Video Camera / Cable Drape': '/Product_img/video_camera_cable_drape.jpg',
+  'Mayo Trolley Cover': '/Product_img/mayo_trolley_cover.jpg',
+  'Protective Goggles': '/Product_img/protective_goggles.jpg',
+  'Face Shield': '/Product_img/face_shield.jpg',
+  'Dengue NS1 Rapid Antigen Test Device': '/Product_img/dengue_ns1_rapid_antigen_test_device.jpg',
+  'Dengue IgG/IgM Rapid Test Device': '/Product_img/dengue_igg_igm_rapid_test_device.jpg',
+  'Malaria Pf/Pv Rapid Diagnostic Test Device': '/Product_img/malaria_pf_pv_rapid_diagnostic_test_device.jpg',
+  'Malaria Pf/Pan Antigen Rapid Test Device': '/Product_img/malaria_pf_pan_antigen_rapid_test_device.jpg',
+  'Typhi IgG/IgM Rapid Test Device': '/Product_img/typhi_igg_igm_rapid_test_device.jpg',
+  'Leptospira IgG/IgM Rapid Test Device': '/Product_img/leptospira_igg_igm_rapid_test_device.jpg',
+  'HIV 1/2 Antibody Detection Rapid Test Device': '/Product_img/hiv_1_2_antibody_detection_rapid_test_device.jpg',
+  'HCV Antibody Detection Test Device': '/Product_img/hcv_antibody_detection_test_device.jpg',
+  'Troponin I Test Device': '/Product_img/troponin_i_test_device.jpg',
+  'Syphilis Antibody Detection Test Device': '/Product_img/syphilis_antibody_detection_test_device.jpg',
+  'HBV Antigen Detection Test Device': '/Product_img/hbv_antigen_detection_test_device.jpg',
+  'HIV ELISA': '/Product_img/hiv_elisa.jpg',
+  'HBV ELISA': '/Product_img/hbv_elisa.jpg',
+  'HCV ELISA': '/Product_img/hcv_elisa.jpg',
+  'Dengue NS1 ELISA': '/Product_img/dengue_ns1_elisa.jpg',
+  'HIV Tridot': '/Product_img/hiv_tridot.jpg',
+};
+
+// Helper to retrieve category and product-level images
+const getProductImage = (catId, productName) => {
+  if (productName && productImageMap[productName]) {
+    return productImageMap[productName];
+  }
+
+  const catIdx = productCategories.findIndex(c => c.id === catId);
+  if (catIdx === -1) return productImagesList[0];
+
+  if (!productName) {
+    // Return primary category image
+    return productImagesList[catIdx % productImagesList.length];
+  }
+
+  // Generate a distinct index for sub-products using category index and product name index
+  const itemIdx = productCategories[catIdx].items.indexOf(productName);
+  const imgIdx = (catIdx + Math.max(0, itemIdx)) % productImagesList.length;
+  return productImagesList[imgIdx];
+};
+
 // --- TECHNICAL SPECS FROM BROCHURE ---
 const productDetails = {
   // Gown Set Contents
@@ -1338,7 +1507,7 @@ const productCategories = [
     title: 'Gown Set Contents', 
     icon: Layers, 
     color: '#1e3a8a', 
-    image: apronImg,
+    image: productImagesList[0],
     items: [
       'Wraparound Surgical Gown Level 3 & Set',
       'Reinforced Level 3 & 4 Surgical Gown & Set',
@@ -1355,7 +1524,7 @@ const productCategories = [
     title: 'DISPOSABLE 3 PLY FACE MASK', 
     icon: Shield, 
     color: '#1e3a8a', 
-    image: faceMaskImg,
+    image: productImagesList[1],
     items: ['Elastic Mask', 'B/W Mask', 'IIR Mask', 'Kids Mask', 'Tie-On Mask', 'Pull Out Mask'],
     description: 'High-filtration medical and protective 3-ply face masks with comfortable loops.'
   },
@@ -1364,7 +1533,7 @@ const productCategories = [
     title: 'RESPIRATORY DISPOSABLE FACE MASK', 
     icon: ShieldCheck, 
     color: '#1e3a8a', 
-    image: disposableFaceMaskImg,
+    image: productImagesList[2],
     items: ['N95 Ear Loop', 'N95 Head Loop', 'KF 94 Mask', 'Dusk Mask', 'Kids N95 Mask', 'Cup Mask'],
     description: 'Certified respirator masks offering premium filtration against particulate matter.'
   },
@@ -1373,7 +1542,7 @@ const productCategories = [
     title: 'DISPOSABLE HEAD CAP', 
     icon: User, 
     color: '#1e3a8a', 
-    image: headCapImg,
+    image: productImagesList[3],
     items: ['Bouffant Cap', 'Surgeon Cap', 'Beard Cap', 'Chef Cap', 'Hood Cap', 'Shower Cap', 'Ear Cap', 'Customize Cap', 'Nylon Cap'],
     description: 'Sanitary protective head caps and covers for cleanrooms and clinical use.'
   },
@@ -1382,7 +1551,7 @@ const productCategories = [
     title: 'DISPOSABLE SHOE COVER', 
     icon: Footprints, 
     color: '#1e3a8a', 
-    image: shoesGlovesImg,
+    image: productImagesList[4],
     items: ['Non-Woven Shoe Covers', 'Plastic Shoe Covers', 'Knee-Length Shoe Covers'],
     description: 'Fluid-resistant shoe covers protecting sterile environments from floor contamination.'
   },
@@ -1391,7 +1560,7 @@ const productCategories = [
     title: 'DISPOSABLE HAND GLOVES / SLEEVE', 
     icon: Footprints, 
     color: '#1e3a8a', 
-    image: shoesGlovesImg,
+    image: productImagesList[5],
     items: ['Latex Gloves', 'Nitrile Gloves', 'Surgical Gloves', 'Plastic Gloves', 'Veterinary Gloves', 'Hand Sleeves'],
     description: 'High-barrier medical and surgical gloves, sleeve protectors, and hand covers.'
   },
@@ -1400,7 +1569,7 @@ const productCategories = [
     title: 'DISPOSABLE APRON (STERILE)', 
     icon: Layers, 
     color: '#1e3a8a', 
-    image: apronImg,
+    image: productImagesList[6],
     items: ['Sterile Non-Woven Apron', 'Sterile PE Apron'],
     description: 'Ethylene Oxide sterilized body protective aprons for sterile clinical procedures.'
   },
@@ -1409,7 +1578,7 @@ const productCategories = [
     title: 'DISPOSABLE APRON (NON-STERILE)', 
     icon: Layers, 
     color: '#1e3a8a', 
-    image: apronImg,
+    image: productImagesList[7],
     items: ['Non-Sterile Non-Woven Apron', 'Non-Sterile PE Apron'],
     description: 'General protective non-sterile aprons for laboratories, testing, and cleaning.'
   },
@@ -1418,7 +1587,7 @@ const productCategories = [
     title: 'DISPOSABLE PLAIN SHEET / BED SHEET', 
     icon: Activity, 
     color: '#1e3a8a', 
-    image: sheetImg,
+    image: productImagesList[8],
     items: ['Non-Woven Bed Sheet', 'Plastic Bed Sheet', 'Bed Roll'],
     description: 'Absorbent, sanitary plain sheets and bed covers for hospital beds and tables.'
   },
@@ -1427,7 +1596,7 @@ const productCategories = [
     title: 'DISPOSABLE APPAREL', 
     icon: User, 
     color: '#1e3a8a', 
-    image: sheetImg,
+    image: productImagesList[9],
     items: ['Lab Coat', 'Coverall', 'Scrub Suit', 'Shorts', 'Protective Gown', 'Dead Body Cover'],
     description: 'Full body protective apparel including disposable lab coats, coveralls, and scrubs.'
   },
@@ -1436,7 +1605,7 @@ const productCategories = [
     title: 'HEALTH & HYGIENE PRODUCTS', 
     icon: HeartPulse, 
     color: '#1e3a8a', 
-    image: hygieneImg,
+    image: productImagesList[10],
     items: ['Underpads', 'Sweat Pads', 'Cooling Gel Sheet', 'Prep Razor'],
     description: 'High-absorbency underpads and general health hygiene products.'
   },
@@ -1445,7 +1614,7 @@ const productCategories = [
     title: 'SALON AND SPA DISPOSABLE PRODUCTS', 
     icon: Sparkles, 
     color: '#1e3a8a', 
-    image: salonImg,
+    image: productImagesList[11],
     items: ['Salon Apron', 'Spa Gown', 'Wax Strips', 'Bed Sheet', 'Wrap', 'Non-Woven Brief', 'Spun Lace Brief', 'Disposable Napkin', 'Disposable Towel', 'Head Bands'],
     description: 'Premium soft and hygienic salon towels, robes, briefs, wraps, and waxing strips.'
   },
@@ -1454,7 +1623,7 @@ const productCategories = [
     title: 'SURGICAL GOWNS', 
     icon: Layers, 
     color: '#1e3a8a', 
-    image: apronImg,
+    image: productImagesList[12],
     items: [
       'Wraparound Surgical Gown',
       'Reinforced Surgical Gown',
@@ -1472,7 +1641,7 @@ const productCategories = [
     title: 'ORTHOPAEDIC', 
     icon: Activity, 
     color: '#1e3a8a', 
-    image: hygieneImg,
+    image: productImagesList[13],
     items: [
       'Hip U Drape',
       'Knee O Drape',
@@ -1490,7 +1659,7 @@ const productCategories = [
     title: 'CARDIOLOGY', 
     icon: HeartPulse, 
     color: '#1e3a8a', 
-    image: hygieneImg,
+    image: productImagesList[14],
     items: [
       'Angiography Drape',
       'Angioplasty Drape',
@@ -1504,7 +1673,7 @@ const productCategories = [
     title: 'GYNECOLOGY', 
     icon: Layers, 
     color: '#1e3a8a', 
-    image: hygieneImg,
+    image: productImagesList[15],
     items: [
       'Full Gynec Drape',
       'Caesarean Drape',
@@ -1519,7 +1688,7 @@ const productCategories = [
     title: 'UROLOGY', 
     icon: Activity, 
     color: '#1e3a8a', 
-    image: hygieneImg,
+    image: productImagesList[16],
     items: [
       'Turp Drape',
       'Pcnl Drape',
@@ -1534,7 +1703,7 @@ const productCategories = [
     title: 'OPHTHALMOLOGY', 
     icon: Sparkles, 
     color: '#1e3a8a', 
-    image: hygieneImg,
+    image: productImagesList[17],
     items: [
       'Eye Drape',
       'Eye Drape Premium',
@@ -1548,7 +1717,7 @@ const productCategories = [
     title: 'ACCESSORIES AND OTHER PROTECTIVES', 
     icon: Shield, 
     color: '#1e3a8a', 
-    image: sheetImg,
+    image: productImagesList[18],
     items: [
       'Plain Drape Sheet',
       'Adhesive Drape Sheet',
@@ -1566,7 +1735,7 @@ const productCategories = [
     title: 'DIAGNOSTIC KITS', 
     icon: Activity, 
     color: '#1e3a8a', 
-    image: hygieneImg,
+    image: productImagesList[19],
     items: [
       'Dengue NS1 Rapid Antigen Test Device',
       'Dengue IgG/IgM Rapid Test Device',
@@ -1587,7 +1756,7 @@ const productCategories = [
     title: 'ELISA KITS', 
     icon: Sparkles, 
     color: '#1e3a8a', 
-    image: hygieneImg,
+    image: productImagesList[20],
     items: [
       'HIV ELISA',
       'HBV ELISA',
@@ -1883,7 +2052,6 @@ const Products = () => {
             <div className="container items-grid-container-pro">
               <div className="items-grid-pro">
                 {selectedCategory.items.map((item, idx) => {
-                  const IconComponent = selectedCategory.icon;
                   return (
                     <motion.div
                       key={idx}
@@ -1893,8 +2061,15 @@ const Products = () => {
                       transition={{ duration: 0.5, delay: idx * 0.05 }}
                       onClick={() => handleProductCardClick(item)}
                     >
-                      <div className="item-visual-pro">
-                        {/* Elegant display number background */}
+                      <div className="item-visual-pro item-visual-img">
+                        {/* Product Image */}
+                        <img
+                          src={getProductImage(selectedCategory.id, item)}
+                          alt={item}
+                          className="item-product-img"
+                        />
+
+                        {/* Elegant display number badge */}
                         <div className="item-number-back">
                           {String(idx + 1).padStart(2, '0')}
                         </div>
@@ -1903,16 +2078,6 @@ const Products = () => {
                         <span className="item-premium-badge">
                           {idx % 2 === 0 ? 'Certified Quality' : 'Global Grade'}
                         </span>
-
-                        <div className="item-aura" style={{ background: selectedCategory.color }} />
-
-                        {/* Elegant interactive floating wireframes */}
-                        <div className="item-geometric-circle" style={{ borderColor: `${selectedCategory.color}25` }} />
-                        <div className="item-geometric-square" style={{ borderColor: `${selectedCategory.color}15` }} />
-
-                        <div className="item-icon-bg" style={{ color: selectedCategory.color }}>
-                          <IconComponent size={56} strokeWidth={1.25} />
-                        </div>
                       </div>
 
                       <div className="item-content-pro">
@@ -1925,7 +2090,7 @@ const Products = () => {
                           className="item-action-btn-pro"
                           style={{ '--accent-hover': selectedCategory.color }}
                           onClick={(e) => {
-                            e.stopPropagation(); // Avoid triggering card drill-down click
+                            e.stopPropagation();
                             handleProductCardClick(item);
                           }}
                         >
@@ -1944,7 +2109,6 @@ const Products = () => {
           // ==========================================
           (() => {
             const details = getProductDetails(selectedProductName);
-            const IconComponent = selectedCategory.icon;
 
             // Find if there is any color specification
             const colorSpecKey = Object.keys(details.specs).find(k => 
@@ -1974,18 +2138,13 @@ const Products = () => {
                   </div>
 
                   <div className="detail-grid-pro">
-                    {/* Left Side: Dynamic Visual Shield */}
-                    <div className="detail-visual-panel">
-                      <div className="detail-aura-bg" style={{ background: selectedCategory.color }} />
-                      <div className="detail-decor-grid" />
-
-                      {/* Floating geometry rings */}
-                      <div className="item-geometric-circle" style={{ width: '180px', height: '180px', borderColor: `${selectedCategory.color}15` }} />
-                      <div className="item-geometric-square" style={{ width: '130px', height: '130px', borderColor: `${selectedCategory.color}10` }} />
-
-                      <div className="detail-floating-icon" style={{ color: selectedCategory.color }}>
-                        <IconComponent size={80} strokeWidth={1} />
-                      </div>
+                    {/* Left Side: Product Image Panel */}
+                    <div className="detail-visual-panel detail-visual-img-panel">
+                      <img
+                        src={getProductImage(selectedCategory.id, selectedProductName)}
+                        alt={selectedProductName}
+                        className="detail-product-img"
+                      />
 
                       <div className="detail-badge-row">
                         <span className="premium-tag">PREMIUM MEDICAL DEVICE</span>

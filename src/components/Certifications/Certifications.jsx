@@ -109,7 +109,7 @@ const loadPdfJs = () => {
 };
 
 // PDF Preview component using HTML5 Canvas rendering
-const PdfPreview = ({ fileUrl }) => {
+const PdfPreview = ({ fileUrl, certName, certSub, certColor, certLogo }) => {
   const canvasRef = useRef(null);
   const [status, setStatus] = useState('loading'); // 'loading', 'success', 'error'
   const renderTaskRef = useRef(null);
@@ -117,23 +117,46 @@ const PdfPreview = ({ fileUrl }) => {
   useEffect(() => {
     let isCancelled = false;
 
+    // Set a timeout to fallback to secure view-only mode under low network
+    const timeoutId = setTimeout(() => {
+      if (status === 'loading') {
+        isCancelled = true;
+        if (renderTaskRef.current) {
+          renderTaskRef.current.cancel();
+        }
+        setStatus('error');
+      }
+    }, 8000); // 8 seconds timeout for low network
+
     const renderPdf = async () => {
       try {
         setStatus('loading');
         const pdfjsLib = await loadPdfJs();
-        if (isCancelled) return;
+        if (isCancelled) {
+          clearTimeout(timeoutId);
+          return;
+        }
 
         const loadingTask = pdfjsLib.getDocument(fileUrl);
         const pdf = await loadingTask.promise;
-        if (isCancelled) return;
+        if (isCancelled) {
+          clearTimeout(timeoutId);
+          return;
+        }
 
         const page = await pdf.getPage(1);
-        if (isCancelled) return;
+        if (isCancelled) {
+          clearTimeout(timeoutId);
+          return;
+        }
 
         // Render page 1 at high resolution (2.0 scale) for ultra-sharp previews in larger frames
         const viewport = page.getViewport({ scale: 2.0 });
         const canvas = canvasRef.current;
-        if (!canvas) return;
+        if (!canvas) {
+          clearTimeout(timeoutId);
+          return;
+        }
 
         const context = canvas.getContext('2d');
         canvas.height = viewport.height;
@@ -153,10 +176,12 @@ const PdfPreview = ({ fileUrl }) => {
         renderTaskRef.current = renderTask;
 
         await renderTask.promise;
+        clearTimeout(timeoutId);
         if (!isCancelled) {
           setStatus('success');
         }
       } catch (err) {
+        clearTimeout(timeoutId);
         if (err.name === 'RenderingCancelledException' || err.message?.includes('cancelled')) {
           return;
         }
@@ -171,6 +196,7 @@ const PdfPreview = ({ fileUrl }) => {
 
     return () => {
       isCancelled = true;
+      clearTimeout(timeoutId);
       if (renderTaskRef.current) {
         renderTaskRef.current.cancel();
       }
@@ -182,16 +208,19 @@ const PdfPreview = ({ fileUrl }) => {
       {status === 'loading' && (
         <div className="cf__preview-loader">
           <div className="cf__spinner"></div>
-          <span>Loading Certificate Preview...</span>
+          <span>Loading Secure Preview...</span>
         </div>
       )}
       {status === 'error' && (
-        <div className="cf__preview-error">
-          <div className="cf__preview-error-icon">⚠️</div>
-          <span>Failed to load preview</span>
-          <a href={fileUrl} target="_blank" rel="noopener noreferrer" className="cf__preview-error-btn">
-            Open PDF
-          </a>
+        <div className="cf__preview-fallback" style={{ '--cert-color': certColor }}>
+          <div className="cf__fallback-decoration"></div>
+          <div className="cf__fallback-seal" style={{ color: certColor }}>
+            {certLogo}
+          </div>
+          <div className="cf__fallback-title">{certName}</div>
+          <div className="cf__fallback-subtitle">{certSub}</div>
+          <div className="cf__fallback-badge">SECURE VIEW ONLY</div>
+          <div className="cf__fallback-footer">BHAARAT INTERNATIONAL</div>
         </div>
       )}
       <canvas
@@ -298,7 +327,13 @@ const Certifications = () => {
 
                   {/* Document Body containing the Live PDF Canvas Preview */}
                   <div className="cf__card-body">
-                    <PdfPreview fileUrl={c.file} />
+                    <PdfPreview 
+                      fileUrl={c.file} 
+                      certName={c.name} 
+                      certSub={c.sub} 
+                      certColor={c.color} 
+                      certLogo={c.logo} 
+                    />
                   </div>
                 </div>
               </SwiperSlide>

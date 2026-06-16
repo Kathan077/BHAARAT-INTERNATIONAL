@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Images Viewer</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
+    img {
+      width: 100%;
+      height: 240px;
+      object-fit: contain;
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .info {
+      padding: 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      word-break: break-all;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bhaarat International - Product Images Gallery</h1>
+  <div class="grid" id="gallery"></div>
+
+  <script>
+    const images = [
+      "BASIC SMS SURGICAL GOWN.png",
+      "BAUFFANT CAP.png",
+      "BEARD CAP.png",
+      "BREATHABLE VIRAL BARRIER BVB SURGICAL GOWN.png",
+      "BW MASK.png",
+      "CHEF CAP.png",
+      "CUP MASK.png",
+      "CUSTOMISE CAP.png",
+      "ChatGPT Image May 20, 2026, 06_52_43 PM.png",
+      "ChatGPT Image May 20, 2026, 06_52_48 PM.png",
+      "ChatGPT Image May 20, 2026, 06_52_55 PM.png",
+      "ChatGPT Image May 20, 2026, 06_54_39 PM.png",
+      "ChatGPT Image May 20, 2026, 07_09_41 PM.png",
+      "ChatGPT Image May 20, 2026, 07_09_47 PM.png",
+      "ChatGPT Image May 20, 2026, 07_09_52 PM.png",
+      "ChatGPT Image May 20, 2026, 07_09_59 PM.png",
+      "ChatGPT Image May 20, 2026, 07_10_04 PM.png",
+      "ChatGPT Image May 20, 2026, 07_25_37 PM.png",
+      "ChatGPT Image May 20, 2026, 07_25_43 PM.png",
+      "ChatGPT Image May 20, 2026, 07_25_47 PM.png",
+      "ChatGPT Image May 20, 2026, 07_25_53 PM.png",
+      "ChatGPT Image May 20, 2026, 07_26_00 PM.png",
+      "ChatGPT Image May 20, 2026, 07_29_24 PM.png",
+      "ChatGPT Image May 20, 2026, 07_29_31 PM.png",
+      "ChatGPT Image May 20, 2026, 07_32_03 PM.png",
+      "ChatGPT Image May 20, 2026, 07_32_11 PM.png",
+      "ChatGPT Image May 20, 2026, 07_33_13 PM.png",
+      "ChatGPT Image May 20, 2026, 07_35_33 PM.png",
+      "ChatGPT Image May 20, 2026, 07_37_19 PM(1).png",
+      "ChatGPT Image May 20, 2026, 07_37_19 PM.png",
+      "ChatGPT Image May 20, 2026, 07_39_31 PM(1).png",
+      "ChatGPT Image May 20, 2026, 07_39_31 PM.png",
+      "ChatGPT Image May 20, 2026, 07_41_36 PM.png",
+      "ChatGPT Image May 20, 2026, 07_46_51 PM(1).png",
+      "ChatGPT Image May 20, 2026, 07_46_51 PM.png",
+      "ChatGPT Image May 20, 2026, 07_46_57 PM(1).png",
+      "ChatGPT Image May 20, 2026, 07_46_57 PM.png",
+      "ChatGPT Image May 20, 2026, 07_47_25 PM(1).png",
+      "ChatGPT Image May 20, 2026, 07_47_25 PM.png",
+      "ChatGPT Image May 20, 2026, 07_49_27 PM.png",
+      "ChatGPT Image May 20, 2026, 07_50_46 PM.png",
+      "ChatGPT Image May 20, 2026, 07_52_00 PM.png",
+      "ChatGPT Image May 20, 2026, 07_53_19 PM.png",
+      "ChatGPT Image May 20, 2026, 07_55_15 PM.png",
+      "ChatGPT Image May 20, 2026, 08_02_45 PM.png",
+      "ChatGPT Image May 21, 2026, 10_43_47 AM(1).png",
+      "ChatGPT Image May 21, 2026, 10_43_47 AM.png",
+      "ChatGPT Image May 21, 2026, 10_44_56 AM.png",
+      "ChatGPT Image May 21, 2026, 10_47_22 AM.png",
+      "ChatGPT Image May 22, 2026, 06_54_13 PM.png",
+      "ChatGPT Image May 22, 2026, 06_54_45 PM.png",
+      "ChatGPT Image May 22, 2026, 06_55_00 PM.png",
+      "ChatGPT Image May 22, 2026, 06_55_07 PM.png",
+      "ChatGPT Image May 22, 2026, 06_55_13 PM.png",
+      "ChatGPT Image May 22, 2026, 06_55_21 PM.png",
+      "ChatGPT Image May 22, 2026, 06_55_53 PM.png",
+      "ChatGPT Image May 22, 2026, 06_55_59 PM.png",
+      "ChatGPT Image May 22, 2026, 06_56_05 PM.png",
+      "ChatGPT Image May 22, 2026, 06_56_10 PM.png",
+      "ChatGPT Image May 22, 2026, 06_56_16 PM.png",
+      "ChatGPT Image May 22, 2026, 06_56_22 PM.png",
+      "ChatGPT Image May 22, 2026, 06_56_27 PM.png",
+      "ChatGPT Image May 22, 2026, 06_56_40 PM.png",
+      "ChatGPT Image May 22, 2026, 06_56_45 PM.png",
+      "ChatGPT Image May 22, 2026, 06_56_51 PM.png",
+      "ChatGPT Image May 22, 2026, 06_56_57 PM.png",
+      "ChatGPT Image May 22, 2026, 06_57_03 PM.png",
+      "ChatGPT Image May 22, 2026, 06_57_09 PM.png",
+      "ChatGPT Image May 22, 2026, 06_57_15 PM.png",
+      "ChatGPT Image May 22, 2026, 06_57_21 PM.png",
+      "ChatGPT Image May 22, 2026, 06_57_28 PM.png",
+      "ChatGPT Image May 22, 2026, 06_57_35 PM.png",
+      "ChatGPT Image May 22, 2026, 06_57_43 PM.png",
+      "ChatGPT Image May 26, 2026, 03_15_55 PM.png",
+      "ChatGPT Image May 26, 2026, 03_16_05 PM.png",
+      "ChatGPT Image May 26, 2026, 03_16_08 PM.png",
+      "ChatGPT Image May 26, 2026, 03_16_11 PM.png",
+      "ChatGPT Image May 26, 2026, 03_16_14 PM.png",
+      "ChatGPT Image May 26, 2026, 03_16_37 PM.png",
+      "DISPOSABLE 3 PLY FACE MASK.png",
+      "DISPOSABLE HEAD CAP.png",
+      "DUSK MASK.png",
+      "EAR CAP.png",
+      "ECO VIRAL BARRIER GOWN.png",
+      "ELASTIC MASK.png",
+      "HOOD CAP.png",
+      "IIR MASK.png",
+      "KF 94 MASK.png",
+      "KIDS MASK.png",
+      "KIDS N95 MASK.png",
+      "N95 EAR LOOP.jpg",
+      "N95 HEAD LOOP.png",
+      "NON WOVEN + POLY COATED BREATHABLE  GOWN.png",
+      "NYLON CAP.png",
+      "PULL OUT MASK.png",
+      "REINFORCED LEVEL 3 & 4 SURGICAL GOWN.png",
+      "RESPIRATORY DISPOSABLE FACE MASK.png",
+      "SHOWER CAP.png",
+      "SSMMS + POLY COATED BREATHABLE  GOWN.png",
+      "SURGEON CAP.png",
+      "TIE-ON MASK.png",
+      "ULTRASONIC SEAM SEALED AND SET.png",
+      "WRAPAROUND SURGICAL GOWN.png",
+      "adhesive_drape_sheet.jpg",
+      "angiography_drape.jpg",
+      "angioplasty_drape.jpg",
+      "b_w_mask.jpg",
+      "basic_sms_surgical_gown_and_set.jpg",
+      "basic_surgical_gown.jpg",
+      "beard_cap.jpg",
+      "bed_roll.jpg",
+      "bed_sheet.jpg",
+      "bilateral_knee_o_drape.jpg",
+      "bouffant_cap.jpg",
+      "breathable_viral_barrier_bvb_surgical_gown_and_set.jpg",
+      "breathable_viral_barrier_gown.jpg",
+      "caesarean_drape.jpg",
+      "cardiology_kits_and_packs.jpg",
+      "cardiothoracic_drape.jpg",
+      "cathlab_surgical_gown.jpg",
+      "chef_cap.jpg",
+      "cooling_gel_sheet.jpg",
+      "coverall.jpg",
+      "cup_mask.jpg",
+      "customize_cap.jpg",
+      "dead_body_cover.jpg",
+      "dengue_igg_igm_rapid_test_device.jpg",
+      "dengue_ns1_elisa.jpg",
+      "dengue_ns1_rapid_antigen_test_device.jpg",
+      "disposable_napkin.jpg",
+      "disposable_towel.jpg",
+      "dusk_mask.jpg",
+      "ear_cap.jpg",
+      "eco_viral_barrier_gown_and_set.jpg",
+      "elastic_mask.jpg",
+      "elbow_o_drape.jpg",
+      "eye_drape.jpg",
+      "eye_drape_premium.jpg",
+      "face_shield.jpg",
+      "full_gown_set_(hiv_kit).jpg",
+      "full_gynec_drape.jpg",
+      "gynecology_kits_and_packs.jpg",
+      "hand_sleeves.jpg",
+      "hbv_antigen_detection_test_device.jpg",
+      "hbv_elisa.jpg",
+      "hcv_antibody_detection_test_device.jpg",
+      "hcv_elisa.jpg",
+      "head_bands.jpg",
+      "hip_u_drape.jpg",
+      "hiv_1_2_antibody_detection_rapid_test_device.jpg",
+      "hiv_elisa.jpg",
+      "hiv_tridot.jpg",
+      "hood_cap.jpg",
+      "iir_mask.jpg",
+      "isolation_gown.jpg",
+      "kf_94_mask.jpg",
+      "kids_mask.jpg",
+      "kids_n95_mask.jpg",
+      "knee_arthroscopy_drape.jpg",
+      "knee_length_shoe_covers.jpg",
+      "knee_o_drape.jpg",
+      "lab_coat.jpg",
+      "laparoscopy_drape.jpg",
+      "latex_gloves.jpg",
+      "leptospira_igg_igm_rapid_test_device.jpg",
+      "major_drape.jpg",
+      "malaria_pf_pan_antigen_rapid_test_device.jpg",
+      "malaria_pf_pv_rapid_diagnostic_test_device.jpg",
+      "mayo_trolley_cover.jpg",
+      "n95_ear_loop.jpg",
+      "n95_head_loop.jpg",
+      "nitrile_gloves.jpg",
+      "non_sterile_non_woven_apron.jpg",
+      "non_sterile_pe_apron.jpg",
+      "non_woven_+_poly_coated_breathable_gown_and_set.jpg",
+      "non_woven_bed_sheet.jpg",
+      "non_woven_brief.jpg",
+      "non_woven_shoe_covers.jpg",
+      "nylon_cap.jpg",
+      "o_hole_drape.jpg",
+      "o_hole_drape_(urology).jpg",
+      "ophthalmic_kits_and_packs.jpg",
+      "orthopaedic_kits_and_packs.jpg",
+      "patient_gown.jpg",
+      "pcnl_drape.jpg",
+      "plain_drape_sheet.jpg",
+      "plastic_bed_sheet.jpg",
+      "plastic_gloves.jpg",
+      "plastic_shoe_covers.jpg",
+      "poly_eye_drape.jpg",
+      "prep_razor.jpg",
+      "protective_goggles.jpg",
+      "protective_gown.jpg",
+      "pull_out_mask.jpg",
+      "reinforced_level_3_and_4_surgical_gown_and_set.jpg",
+      "reinforced_surgical_gown.jpg",
+      "salon_apron.jpg",
+      "scrub_suit.jpg",
+      "shorts.jpg",
+      "shoulder_u.jpg",
+      "shower_cap.jpg",
+      "spa_gown.jpg",
+      "spinal_drape.jpg",
+      "spun_lace_brief.jpg",
+      "ssmms_+_poly_coated_breathable_gown_and_set.jpg",
+      "steri_wrap_sheet.jpg",
+      "sterile_non_woven_apron.jpg",
+      "sterile_pe_apron.jpg",
+      "surgeon_cap.jpg",
+      "surgical_gloves.jpg",
+      "sweat_pads.jpg",
+      "syphilis_antibody_detection_test_device.jpg",
+      "tie_on_mask.jpg",
+      "troponin_i_test_device.jpg",
+      "turp_drape.jpg",
+      "typhi_igg_igm_rapid_test_device.jpg",
+      "underpads.jpg",
+      "urology_kits_and_packs.jpg",
+      "veterinary_gloves.jpg",
+      "video_camera_cable_drape.jpg",
+      "wax_strips.jpg",
+      "wrap.jpg",
+      "wraparound_surgical_gown.jpg",
+      "wraparound_surgical_gown_level_3_and_set.jpg"
+    ];
+
+    const gallery = document.getElementById('gallery');
+    images.forEach(img => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      
+      const imageEl = document.createElement('img');
+      imageEl.src = '/Product_img/' + encodeURIComponent(img);
+      imageEl.alt = img;
+      
+      const infoEl = document.createElement('div');
+      infoEl.className = 'info';
+      infoEl.textContent = img;
+      
+      card.appendChild(imageEl);
+      card.appendChild(infoEl);
+      gallery.appendChild(card);
+    });
+  </script>
+</body>
+</html>

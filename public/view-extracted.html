@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extracted Brochure Images Viewer</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #1e293b;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #334155;
+    }
+    img {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      background: #0f172a;
+      border-bottom: 1px solid #334155;
+    }
+    .info {
+      padding: 0.75rem;
+      font-size: 0.8rem;
+      word-break: break-all;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Extracted Brochure Images</h1>
+  <div class="grid" id="gallery"></div>
+
+  <script>
+    // List of extracted images
+    const images = [
+      "Bhaarat Broucher Design_page_1_img_1.jp2",
+      "Bhaarat Broucher Design_page_1_img_2.jpg",
+      "Bhaarat Broucher Design_page_1_img_3.jpg",
+      "Bhaarat Broucher Design_page_1_img_4.jpg",
+      "Bhaarat Broucher Design_page_1_img_5.jpg",
+      "Bhaarat Broucher Design_page_1_img_6.jpg",
+      "Bhaarat Broucher Design_page_1_img_7.png",
+      "Bhaarat Broucher Design_page_2_img_1.jp2",
+      "Bhaarat Broucher Design_page_3_img_1.jpg",
+      "Bhaarat Broucher Design_page_4_img_1.jpg",
+      "Bhaarat Broucher Design_page_5_img_1.jpg",
+      "Bhaarat Broucher Design_page_6_img_1.jpg",
+      "Bhaarat Broucher Design_page_7_img_1.jpg",
+      "Bhaarat Broucher Design_page_8_img_1.jpg",
+      "Bhaarat Broucher Design_page_9_img_1.jpg",
+      "Bhaarat Broucher Design_page_10_img_1.jpg",
+      "Bhaarat Broucher Design_page_10_img_2.jpg",
+      "Bhaarat Broucher Design_page_10_img_3.jpg",
+      "Bhaarat Broucher Design_page_10_img_4.jpg",
+      "Bhaarat Broucher Design_page_10_img_5.jpg",
+      "Bhaarat Broucher Design_page_10_img_6.jpg",
+      "Bhaarat Broucher Design_page_11_img_1.jpg",
+      "Bhaarat Broucher Design_page_11_img_2.jpg",
+      "Bhaarat Broucher Design_page_11_img_3.jpg",
+      "Bhaarat Broucher Design_page_11_img_4.jpg",
+      "Bhaarat Broucher Design_page_11_img_5.jpg",
+      "Bhaarat Broucher Design_page_11_img_6.jpg",
+      "Bhaarat Broucher Design_page_12_img_1.jpg",
+      "Bhaarat Broucher Design_page_12_img_2.jpg",
+      "Bhaarat Broucher Design_page_12_img_3.jpg",
+      "Bhaarat Broucher Design_page_12_img_4.jpg",
+      "Bhaarat Broucher Design_page_12_img_5.jpg",
+      "Bhaarat Broucher Design_page_12_img_6.jpg",
+      "Bhaarat Broucher Design_page_13_img_1.jpg",
+      "Bhaarat Broucher Design_page_13_img_2.jpg",
+      "Bhaarat Broucher Design_page_13_img_3.jpg",
+      "Bhaarat Broucher Design_page_14_img_1.jpg",
+      "Bhaarat Broucher Design_page_14_img_2.jpg",
+      "Bhaarat Broucher Design_page_14_img_3.jpg",
+      "Bhaarat Broucher Design_page_15_img_1.jpg",
+      "Bhaarat Broucher Design_page_15_img_2.jpg",
+      "Bhaarat Broucher Design_page_15_img_3.jpg",
+      "Bhaarat Broucher Design_page_15_img_4.jpg",
+      "Bhaarat Broucher Design_page_15_img_5.jpg",
+      "Bhaarat Broucher Design_page_15_img_6.jpg",
+      "Bhaarat Broucher Design_page_16_img_1.jpg",
+      "Bhaarat Broucher Design_page_16_img_2.jpg",
+      "Bhaarat Broucher Design_page_17_img_1.jpg",
+      "Bhaarat Broucher Design_page_17_img_2.jpg",
+      "Bhaarat Broucher Design_page_17_img_3.jpg",
+      "Bhaarat Broucher Design_page_18_img_1.jpg",
+      "Bhaarat Broucher Design_page_18_img_2.jpg",
+      "Bhaarat Broucher Design_page_18_img_3.jpg",
+      "Bhaarat Broucher Design_page_18_img_4.jpg",
+      "Bhaarat Broucher Design_page_18_img_5.jpg",
+      "Bhaarat Broucher Design_page_18_img_6.jpg",
+      "Bhaarat Broucher Design_page_19_img_1.jpg",
+      "Bhaarat Broucher Design_page_19_img_2.jpg",
+      "Bhaarat Broucher Design_page_19_img_3.jpg",
+      "Bhaarat Broucher Design_page_19_img_4.jpg",
+      "Bhaarat Broucher Design_page_20_img_1.jpg",
+      "Bhaarat Broucher Design_page_20_img_2.jpg",
+      "Bhaarat Broucher Design_page_20_img_3.jpg",
+      "Bhaarat Broucher Design_page_20_img_4.jpg",
+      "Bhaarat Broucher Design_page_20_img_5.jpg",
+      "Bhaarat Broucher Design_page_20_img_6.jpg",
+      "Bhaarat Broucher Design_page_21_img_1.jpg",
+      "Bhaarat Broucher Design_page_21_img_2.jpg",
+      "Bhaarat Broucher Design_page_21_img_3.jpg",
+      "Bhaarat Broucher Design_page_21_img_4.jpg",
+      "Bhaarat Broucher Design_page_23_img_1.jpg",
+      "Bhaarat Broucher Design_page_23_img_2.jpg",
+      "Bhaarat Broucher Design_page_23_img_3.jpg",
+      "Bhaarat Broucher Design_page_23_img_4.jpg",
+      "Bhaarat Broucher Design_page_23_img_5.jpg",
+      "Bhaarat Broucher Design_page_23_img_6.jpg",
+      "Bhaarat Broucher Design_page_23_img_7.jpg",
+      "Bhaarat Broucher Design_page_24_img_1.jpg",
+      "Bhaarat Broucher Design_page_24_img_2.jpg",
+      "Bhaarat Broucher Design_page_24_img_3.jpg",
+      "Bhaarat Broucher Design_page_25_img_1.jpg",
+      "Bhaarat Broucher Design_page_25_img_2.jpg",
+      "Bhaarat Broucher Design_page_25_img_3.jpg",
+      "Bhaarat Broucher Design_page_25_img_4.jpg",
+      "Bhaarat Broucher Design_page_25_img_5.jpg",
+      "Bhaarat Broucher Design_page_26_img_1.jpg",
+      "Bhaarat Broucher Design_page_26_img_2.jpg",
+      "Bhaarat Broucher Design_page_26_img_3.jpg",
+      "Bhaarat Broucher Design_page_26_img_4.jpg",
+      "Bhaarat Broucher Design_page_29_img_1.png",
+      
+      "Dengue Broucher - 1_page_1_img_1.jpg",
+      "Dengue Broucher - 1_page_1_img_2.jp2",
+      "Dengue Broucher - 1_page_1_img_3.jpg",
+      "Dengue Broucher - 1_page_1_img_4.jpg",
+      "Dengue Broucher - 1_page_1_img_5.jpg",
+      "Dengue Broucher - 1_page_1_img_6.jpg",
+      "Dengue Broucher - 1_page_1_img_7.jpg",
+      "Dengue Broucher - 1_page_3_img_1.jp2",
+      "Dengue Broucher - 1_page_3_img_2.jpg",
+      "Dengue Broucher - 1_page_3_img_3.png",
+      "Dengue Broucher - 1_page_4_img_1.jp2",
+      "Dengue Broucher - 1_page_4_img_2.jpg",
+      "Dengue Broucher - 1_page_4_img_3.png",
+      "Dengue Broucher - 1_page_4_img_4.png",
+      "Dengue Broucher - 1_page_5_img_1.jpg",
+      "Dengue Broucher - 1_page_5_img_2.png",
+      "Dengue Broucher - 1_page_5_img_3.png",
+      "Dengue Broucher - 1_page_6_img_1.jpg",
+      "Dengue Broucher - 1_page_6_img_2.png",
+      "Dengue Broucher - 1_page_7_img_1.jpg",
+      "Dengue Broucher - 1_page_7_img_2.png",
+      "Dengue Broucher - 1_page_7_img_3.png",
+      "Dengue Broucher - 1_page_8_img_1.jpg",
+      "Dengue Broucher - 1_page_8_img_2.png",
+      "Dengue Broucher - 1_page_8_img_3.png",
+      "Dengue Broucher - 1_page_8_img_4.png",
+      "Dengue Broucher - 1_page_9_img_1.jpg",
+      "Dengue Broucher - 1_page_9_img_2.png",
+      "Dengue Broucher - 1_page_9_img_3.png",
+      "Dengue Broucher - 1_page_9_img_4.png",
+      "Dengue Broucher - 1_page_9_img_5.png",
+      "Dengue Broucher - 1_page_10_img_1.jpg",
+      "Dengue Broucher - 1_page_10_img_2.png",
+      "Dengue Broucher - 1_page_10_img_3.png",
+      "Dengue Broucher - 1_page_10_img_4.png",
+      "Dengue Broucher - 1_page_11_img_1.jpg",
+      "Dengue Broucher - 1_page_11_img_2.png",
+      "Dengue Broucher - 1_page_11_img_3.png",
+      "Dengue Broucher - 1_page_12_img_1.jpg",
+      "Dengue Broucher - 1_page_12_img_2.png",
+      "Dengue Broucher - 1_page_12_img_3.png",
+      "Dengue Broucher - 1_page_12_img_4.png",
+      "Dengue Broucher - 1_page_13_img_1.jpg",
+      "Dengue Broucher - 1_page_13_img_2.png",
+      "Dengue Broucher - 1_page_13_img_3.png",
+      "Dengue Broucher - 1_page_13_img_4.png",
+      "Dengue Broucher - 1_page_14_img_1.jpg",
+      "Dengue Broucher - 1_page_15_img_1.jpg",
+      "Dengue Broucher - 1_page_16_img_1.jpg",
+      "Dengue Broucher - 1_page_17_img_1.jpg",
+      "Dengue Broucher - 1_page_18_img_1.jpg",
+      "Dengue Broucher - 1_page_19_img_1.jp2"
+    ];
+
+    const gallery = document.getElementById('gallery');
+    images.forEach(img => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      
+      const imageEl = document.createElement('img');
+      imageEl.src = '/Product_img_extracted/' + encodeURIComponent(img);
+      imageEl.alt = img;
+      
+      const infoEl = document.createElement('div');
+      infoEl.className = 'info';
+      infoEl.textContent = img;
+      
+      card.appendChild(imageEl);
+      card.appendChild(infoEl);
+      gallery.appendChild(card);
+    });
+  </script>
+</body>
+</html>

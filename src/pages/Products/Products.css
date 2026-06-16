@@ -909,3 +909,114 @@
 .color-swatch-label {
     color: var(--ink-light);
 }
+
+/* ╔══════════════════════════════════════════════════════════╗
+   ║  PRODUCT IMAGE STYLES                                    ║
+   ╚══════════════════════════════════════════════════════════╝ */
+
+/* Level 2: Sub-category product card image area */
+.item-visual-pro.item-visual-img {
+    background: var(--surface-3);
+    padding: 0;
+    overflow: hidden;
+}
+
+.item-product-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform var(--transition-premium);
+    z-index: 0;
+}
+
+.item-card-pro:hover .item-product-img {
+    transform: scale(1.06);
+}
+
+/* Subtle gradient overlay on image for badge readability */
+.item-visual-pro.item-visual-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.15) 0%,
+        rgba(15, 23, 42, 0.0) 60%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+.item-visual-pro.item-visual-img .item-premium-badge {
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.item-number-back {
+    position: absolute;
+    bottom: 10px;
+    right: 14px;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1;
+    z-index: 2;
+    letter-spacing: -0.04em;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Level 3: Product detail image panel */
+.detail-visual-panel.detail-visual-img-panel {
+    background: var(--surface-3);
+    padding: 0;
+    overflow: hidden;
+    height: clamp(280px, 40vh, 440px);
+}
+
+.detail-product-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform var(--transition-premium);
+    z-index: 0;
+}
+
+.detail-visual-img-panel:hover .detail-product-img {
+    transform: scale(1.04);
+}
+
+/* Gradient overlay for badge readability on detail image */
+.detail-visual-img-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(15, 23, 42, 0.45) 0%,
+        rgba(15, 23, 42, 0.0) 55%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+.detail-visual-img-panel .detail-badge-row {
+    z-index: 2;
+}
+
+.detail-visual-img-panel .premium-tag {
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+.detail-visual-img-panel .hsn-tag {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
+}

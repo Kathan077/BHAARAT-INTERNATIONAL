@@ -916,7 +916,7 @@
 
 /* Level 2: Sub-category product card image area */
 .item-visual-pro.item-visual-img {
-    background: var(--surface-3);
+    background: #ffffff;
     padding: 0;
     overflow: hidden;
 }
@@ -926,8 +926,10 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
+    background-color: transparent;
+    padding: 0.5rem;
     transition: transform var(--transition-premium);
     z-index: 0;
 }
@@ -972,7 +974,7 @@
 
 /* Level 3: Product detail image panel */
 .detail-visual-panel.detail-visual-img-panel {
-    background: var(--surface-3);
+    background: #ffffff;
     padding: 0;
     overflow: hidden;
     height: clamp(280px, 40vh, 440px);
@@ -983,8 +985,10 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
+    background-color: transparent;
+    padding: 1rem;
     transition: transform var(--transition-premium);
     z-index: 0;
 }

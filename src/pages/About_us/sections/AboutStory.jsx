@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Globe, Truck, Users } from 'lucide-react';
-import storyImg from '../../../assets/WhatsApp Image 2026-06-01 at 17.52.2.jpeg';
+import storyImg from '../../../assets/disposable_surgicals_overview.png';
 import './AboutStory.css';
 
 const AboutStory = () => {

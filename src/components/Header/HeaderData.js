@@ -12,7 +12,7 @@ import {
 export const productCategories = [
   {
     id: 'gown-set-contents',
-    title: 'Gown Set Contents',
+    title: 'ULTRASONIC SEAM SEALED AND SET',
     icon: Layers,
     items: [
       'Wraparound Surgical Gown Level 3 & Set',

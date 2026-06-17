@@ -1504,10 +1504,10 @@ const productDetails = {
 const productCategories = [
   { 
     id: 'gown-set-contents', 
-    title: 'Gown Set Contents', 
+    title: 'ULTRASONIC SEAM SEALED AND SET', 
     icon: Layers, 
     color: '#1e3a8a', 
-    image: productImagesList[0],
+    image: '/Product_img/ULTRASONIC%20SEAM%20SEALED%20AND%20SET.png',
     items: [
       'Wraparound Surgical Gown Level 3 & Set',
       'Reinforced Level 3 & 4 Surgical Gown & Set',
@@ -1524,7 +1524,7 @@ const productCategories = [
     title: 'DISPOSABLE 3 PLY FACE MASK', 
     icon: Shield, 
     color: '#1e3a8a', 
-    image: productImagesList[1],
+    image: '/Product_img/DISPOSABLE%203%20PLY%20FACE%20MASK.png',
     items: ['Elastic Mask', 'B/W Mask', 'IIR Mask', 'Kids Mask', 'Tie-On Mask', 'Pull Out Mask'],
     description: 'High-filtration medical and protective 3-ply face masks with comfortable loops.'
   },
@@ -1533,7 +1533,7 @@ const productCategories = [
     title: 'RESPIRATORY DISPOSABLE FACE MASK', 
     icon: ShieldCheck, 
     color: '#1e3a8a', 
-    image: productImagesList[2],
+    image: '/Product_img/RESPIRATORY%20DISPOSABLE%20FACE%20MASK.png',
     items: ['N95 Ear Loop', 'N95 Head Loop', 'KF 94 Mask', 'Dusk Mask', 'Kids N95 Mask', 'Cup Mask'],
     description: 'Certified respirator masks offering premium filtration against particulate matter.'
   },
@@ -1542,7 +1542,7 @@ const productCategories = [
     title: 'DISPOSABLE HEAD CAP', 
     icon: User, 
     color: '#1e3a8a', 
-    image: productImagesList[3],
+    image: '/Product_img/DISPOSABLE%20HEAD%20CAP.png',
     items: ['Bouffant Cap', 'Surgeon Cap', 'Beard Cap', 'Chef Cap', 'Hood Cap', 'Shower Cap', 'Ear Cap', 'Customize Cap', 'Nylon Cap'],
     description: 'Sanitary protective head caps and covers for cleanrooms and clinical use.'
   },

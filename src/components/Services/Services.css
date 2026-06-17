@@ -154,7 +154,7 @@
 /* ── Cards wrapper ── */
 .srv__cards-wrap {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     position: relative;
     z-index: 2;
@@ -318,7 +318,7 @@
 }
 
 /* ── Responsive ── */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .srv__cards-wrap {
         grid-template-columns: repeat(2, 1fr);
         min-height: 420px;

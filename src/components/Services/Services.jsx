@@ -7,30 +7,39 @@ import './Services.css';
 const services = [
   {
     id: 1,
-    title: 'Medical Disposables',
-    description: 'Medical-grade protective wear, including 3-ply and respiratory face masks, head caps, shoe covers, gloves, plain sheets, and salon disposables.',
-    image: '/svc-hospital.png',
+    title: 'ULTRASONIC SEAM SEALED AND SET',
+    description: 'ETO sterile, premium surgical gown sets featuring ultrasonic seam sealing for superior fluid barrier protection and clinical safety.',
+    image: '/Product_img/ULTRASONIC%20SEAM%20SEALED%20AND%20SET.png',
     color: '#34d399',
-    tag: 'Protective Wear',
-    link: '/products#disposable-3-ply-face-mask'
+    tag: 'Gown Sets',
+    link: '/products#gown-set-contents'
   },
   {
     id: 2,
-    title: 'Surgical Gowns & Packs',
-    description: 'AAMI Level 3 & 4 certified sterile surgical gowns and customized drape packs for Orthopaedic, Cardiology, Gynecology, Urology, and general surgeries.',
-    image: '/svc-surgical.png',
+    title: 'DISPOSABLE 3 PLY FACE MASK',
+    description: 'High-filtration medical and protective 3-ply face masks with ultra-soft loops, meltblown filter, and fluid-resistant layers.',
+    image: '/Product_img/DISPOSABLE%203%20PLY%20FACE%20MASK.png',
     color: '#0ea5e9',
-    tag: 'Sterile Gowns',
-    link: '/products#surgical-gowns'
+    tag: '3-Ply Masks',
+    link: '/products#disposable-3-ply-face-mask'
   },
   {
     id: 3,
-    title: 'Diagnostics & ELISA Kits',
-    description: 'Advanced rapid antigen/antibody test devices and ELISA kits for screening Dengue, Malaria, Typhoid, HIV, Hepatitis, Troponin, and other infections.',
-    image: '/svc-diagnostic.png',
+    title: 'RESPIRATORY DISPOSABLE FACE MASK',
+    description: 'Certified 5-layer N95 and KF94 respirator masks providing premium multi-layer filtration against airborne particulate matter.',
+    image: '/Product_img/RESPIRATORY%20DISPOSABLE%20FACE%20MASK.png',
     color: '#f59e0b',
-    tag: 'Rapid Tests',
-    link: '/products#diagnostic-kits'
+    tag: 'Respirators',
+    link: '/products#respiratory-disposable-face-mask'
+  },
+  {
+    id: 4,
+    title: 'DISPOSABLE HEAD CAP',
+    description: 'Lightweight, breathable bouffant caps, surgeon caps, chef hats, and customized head covers designed for sterile environments.',
+    image: '/Product_img/DISPOSABLE%20HEAD%20CAP.png',
+    color: '#a855f7',
+    tag: 'Head Caps',
+    link: '/products#disposable-head-cap'
   }
 ];
 

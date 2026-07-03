@@ -28,19 +28,19 @@ export const productCategories = [
     id: 'disposable-3-ply-face-mask',
     title: 'DISPOSABLE 3 PLY FACE MASK',
     icon: Shield,
-    items: ['Elastic Mask', 'B/W Mask', 'IIR Mask', 'Kids Mask', 'Tie-On Mask', 'Pull Out Mask']
+    items: ['Elastic Mask', 'B/W Mask', 'IIR Mask', 'Pull Out Mask', 'Tie-On Mask', 'Kids Mask']
   },
   {
     id: 'respiratory-disposable-face-mask',
     title: 'RESPIRATORY DISPOSABLE FACE MASK',
     icon: ShieldCheck,
-    items: ['N95 Ear Loop', 'N95 Head Loop', 'KF 94 Mask', 'Dusk Mask', 'Kids N95 Mask', 'Cup Mask']
+    items: ['N95 Ear Loop', 'N95 Head Loop', 'KF 94 Mask', 'Cup Mask', 'Kids N95 Mask', 'Dusk Mask']
   },
   {
     id: 'disposable-head-cap',
     title: 'DISPOSABLE HEAD CAP',
     icon: User,
-    items: ['Bouffant Cap', 'Surgeon Cap', 'Beard Cap', 'Chef Cap', 'Hood Cap', 'Shower Cap', 'Ear Cap', 'Customize Cap', 'Nylon Cap']
+    items: ['Bouffant Cap', 'Surgeon Cap', 'Beard Cap', 'Shower Cap', 'Hood Cap', 'Chef Cap', 'Ear Cap', 'Customize Cap', 'Nylon Cap']
   },
   {
     id: 'disposable-shoe-cover',
@@ -52,7 +52,7 @@ export const productCategories = [
     id: 'disposable-hand-gloves-sleeve',
     title: 'DISPOSABLE HAND GLOVES / SLEEVE',
     icon: Footprints,
-    items: ['Latex Gloves', 'Nitrile Gloves', 'Surgical Gloves', 'Plastic Gloves', 'Veterinary Gloves', 'Hand Sleeves']
+    items: ['Latex Gloves', 'Nitrile Gloves', 'Surgical Gloves', 'Hand Sleeves', 'Veterinary Gloves', 'Plastic Gloves']
   },
   {
     id: 'disposable-apron-sterile',
@@ -88,7 +88,7 @@ export const productCategories = [
     id: 'salon-and-spa-disposable-products',
     title: 'SALON AND SPA DISPOSABLE PRODUCTS',
     icon: Sparkles,
-    items: ['Salon Apron', 'Spa Gown', 'Wax Strips', 'Bed Sheet', 'Wrap', 'Non-Woven Brief', 'Spun Lace Brief', 'Disposable Napkin', 'Disposable Towel', 'Head Bands']
+    items: ['Spa Gown', 'Wax Strips', 'Non-Woven Brief', 'Wrap', 'Bed Sheet', 'Salon Apron', 'Disposable Napkin', 'Disposable Towel', 'Head Bands', 'Spun Lace Brief']
   },
   {
     id: 'surgical-gowns',

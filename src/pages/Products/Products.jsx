@@ -31,60 +31,60 @@ import sheetImg from './img/plain and bed sheet.png';
 import hygieneImg from './img/prep pazor.png';
 import salonImg from './img/salon and sap.png';
 
-// 44 premium product images from public/Product_img folder
+// Product images from public/Product_img folder (brochure-extracted JPG images)
 const productImagesList = [
-  '/Product_img/WRAPAROUND%20SURGICAL%20GOWN.png',
-  '/Product_img/ELASTIC%20MASK.png',
-  '/Product_img/N95%20EAR%20LOOP.jpg',
-  '/Product_img/BAUFFANT%20CAP.png',
+  '/Product_img/wraparound_surgical_gown.jpg',
+  '/Product_img/elastic_mask.jpg',
+  '/Product_img/n95_ear_loop.jpg',
+  '/Product_img/bouffant_cap.jpg',
   '/Product_img/non_woven_shoe_covers.jpg',
   '/Product_img/latex_gloves.jpg',
   '/Product_img/sterile_non_woven_apron.jpg',
   '/Product_img/non_sterile_non_woven_apron.jpg',
-  '/Product_img/non_woven_bed_sheet.jpg',
-  '/Product_img/lab_coat.png',
-  '/Product_img/underpads.png',
+  '/Product_img/bed_roll.jpg',
+  '/Product_img/lab_coat.jpg',
+  '/Product_img/underpads.jpg',
   '/Product_img/salon_apron.jpg',
-  '/Product_img/WRAPAROUND%20SURGICAL%20GOWN.png',
+  '/Product_img/wraparound_surgical_gown.jpg',
   '/Product_img/hip_u_drape.jpg',
-  '/Product_img/angiography%20drape.png',
-  '/Product_img/FULL%20GYNEC%20DRAPE.png',
-  '/Product_img/TURP%20DRAPE.png',
-  '/Product_img/eye_drape.jpg',
+  '/Product_img/angiography_drape.jpg',
+  '/Product_img/full_gynec_drape.jpg',
+  '/Product_img/turp_drape.jpg',
+  '/Product_img/poly_eye_drape.jpg',
   '/Product_img/plain_drape_sheet.jpg',
   '/Product_img/dengue_ns1_rapid_antigen_test_device.jpg',
   '/Product_img/hiv_elisa.jpg',
 ];
 
 const productImageMap = {
-  'Wraparound Surgical Gown Level 3 & Set': '/Product_img/WRAPAROUND%20SURGICAL%20GOWN.png',
-  'Reinforced Level 3 & 4 Surgical Gown & Set': '/Product_img/REINFORCED%20LEVEL%203%20&%204%20SURGICAL%20GOWN.png',
-  'Breathable Viral Barrier BVB Surgical Gown & Set': '/Product_img/BREATHABLE%20VIRAL%20BARRIER%20BVB%20SURGICAL%20GOWN.png',
-  'Eco Viral Barrier Gown & Set': '/Product_img/ECO%20VIRAL%20BARRIER%20GOWN.png',
-  'SSMMS + Poly Coated Breathable Gown & Set': '/Product_img/SSMMS%20+%20POLY%20COATED%20BREATHABLE%20%20GOWN.png',
-  'Non Woven + Poly Coated Breathable Gown & Set': '/Product_img/NON%20WOVEN%20+%20POLY%20COATED%20BREATHABLE%20%20GOWN.png',
-  'Basic SMS Surgical Gown & Set': '/Product_img/BASIC%20SMS%20SURGICAL%20GOWN.png',
-  'Elastic Mask': '/Product_img/ELASTIC%20MASK.png',
-  'B/W Mask': '/Product_img/BW%20MASK.png',
-  'IIR Mask': '/Product_img/IIR%20MASK.png',
-  'Pull Out Mask': '/Product_img/PULL%20OUT%20MASK.png',
-  'Tie-On Mask': '/Product_img/TIE-ON%20MASK.png',
-  'Kids Mask': '/Product_img/KIDS%20MASK.png',
-  'N95 Ear Loop': '/Product_img/N95%20EAR%20LOOP.jpg',
-  'N95 Head Loop': '/Product_img/N95%20HEAD%20LOOP.png',
-  'KF 94 Mask': '/Product_img/KF%2094%20MASK.png',
-  'Cup Mask': '/Product_img/CUP%20MASK.png',
-  'Kids N95 Mask': '/Product_img/KIDS%20N95%20MASK.png',
-  'Dusk Mask': '/Product_img/DUSK%20MASK.png',
-  'Bouffant Cap': '/Product_img/BAUFFANT%20CAP.png',
-  'Surgeon Cap': '/Product_img/SURGEON%20CAP.png',
-  'Beard Cap': '/Product_img/BEARD%20CAP.png',
-  'Shower Cap': '/Product_img/SHOWER%20CAP.png',
-  'Hood Cap': '/Product_img/HOOD%20CAP.png',
-  'Chef Cap': '/Product_img/CHEF%20CAP.png',
-  'Ear Cap': '/Product_img/EAR%20CAP.png',
-  'Customize Cap': '/Product_img/CUSTOMISE%20CAP.png',
-  'Nylon Cap': '/Product_img/NYLON%20CAP.png',
+  'Wraparound Surgical Gown Level 3 & Set': '/Product_img/wraparound_surgical_gown_level_3_and_set.jpg',
+  'Reinforced Level 3 & 4 Surgical Gown & Set': '/Product_img/reinforced_level_3_and_4_surgical_gown_and_set.jpg',
+  'Breathable Viral Barrier BVB Surgical Gown & Set': '/Product_img/breathable_viral_barrier_bvb_surgical_gown_and_set.jpg',
+  'Eco Viral Barrier Gown & Set': '/Product_img/eco_viral_barrier_gown_and_set.jpg',
+  'SSMMS + Poly Coated Breathable Gown & Set': '/Product_img/ssmms_+_poly_coated_breathable_gown_and_set.jpg',
+  'Non Woven + Poly Coated Breathable Gown & Set': '/Product_img/non_woven_+_poly_coated_breathable_gown_and_set.jpg',
+  'Basic SMS Surgical Gown & Set': '/Product_img/basic_sms_surgical_gown_and_set.jpg',
+  'Elastic Mask': '/Product_img/elastic_mask.jpg',
+  'B/W Mask': '/Product_img/b_w_mask.jpg',
+  'IIR Mask': '/Product_img/iir_mask.jpg',
+  'Pull Out Mask': '/Product_img/pull_out_mask.jpg',
+  'Tie-On Mask': '/Product_img/tie_on_mask.jpg',
+  'Kids Mask': '/Product_img/kids_mask.jpg',
+  'N95 Ear Loop': '/Product_img/n95_ear_loop.jpg',
+  'N95 Head Loop': '/Product_img/n95_head_loop.jpg',
+  'KF 94 Mask': '/Product_img/kf_94_mask.jpg',
+  'Cup Mask': '/Product_img/cup_mask.jpg',
+  'Kids N95 Mask': '/Product_img/kids_n95_mask.jpg',
+  'Dusk Mask': '/Product_img/dusk_mask.jpg',
+  'Bouffant Cap': '/Product_img/bouffant_cap.jpg',
+  'Surgeon Cap': '/Product_img/surgeon_cap.jpg',
+  'Beard Cap': '/Product_img/beard_cap.jpg',
+  'Shower Cap': '/Product_img/shower_cap.jpg',
+  'Hood Cap': '/Product_img/hood_cap.jpg',
+  'Chef Cap': '/Product_img/chef_cap.jpg',
+  'Ear Cap': '/Product_img/ear_cap.jpg',
+  'Customize Cap': '/Product_img/customize_cap.jpg',
+  'Nylon Cap': '/Product_img/nylon_cap.jpg',
   'Non-Woven Shoe Covers': '/Product_img/non_woven_shoe_covers.jpg',
   'Plastic Shoe Covers': '/Product_img/plastic_shoe_covers.jpg',
   'Knee-Length Shoe Covers': '/Product_img/knee_length_shoe_covers.jpg',
@@ -95,22 +95,21 @@ const productImageMap = {
   'Veterinary Gloves': '/Product_img/veterinary_gloves.jpg',
   'Plastic Gloves': '/Product_img/plastic_gloves.jpg',
   'Sterile Non-Woven Apron': '/Product_img/sterile_non_woven_apron.jpg',
-  'Non-Sterile Non-Woven Apron': '/Product_img/non_sterile_non_woven_apron.jpg',
-  'Sterile PE Apron': '/Product_img/sterile_pe_apron.jpg',
-  'Non-Sterile PE Apron': '/Product_img/non_sterile_pe_apron.jpg',
-  'Non-Woven Bed Sheet': '/Product_img/non_woven_bed_sheet.jpg',
+  'Non-Sterile Non-Woven Apron': '/Product_img_extracted/Asset%201.png',
+  'Non-Sterile PE Apron': '/Product_img_extracted/Asset%201.png',
+  'Non-Woven Bed Sheet': '/Product_img/non_woven.jpg',
   'Plastic Bed Sheet': '/Product_img/plastic_bed_sheet.jpg',
   'Bed Roll': '/Product_img/bed_roll.jpg',
-  'Lab Coat': '/Product_img/lab_coat.png',
-  'Coverall': '/Product_img/cover_all.png',
-  'Scrub Suit': '/Product_img/scrub_suit.png',
-  'Shorts': '/Product_img/shorts.png',
-  'Protective Gown': '/Product_img/protactive_gown.png',
-  'Dead Body Cover': '/Product_img/dead_body_cover.png',
-  'Underpads': '/Product_img/underpads.png',
-  'Sweat Pads': '/Product_img/sweat_pad.png',
-  'Cooling Gel Sheet': '/Product_img/cooling_gel_sheet.png',
-  'Prep Razor': '/Product_img/prep_razor.png',
+  'Lab Coat': '/Product_img/lab_coat.jpg',
+  'Coverall': '/Product_img/coverall.jpg',
+  'Scrub Suit': '/Product_img/scrub_suit.jpg',
+  'Shorts': '/Product_img/non_woven_brief.jpg',
+  'Protective Gown': '/Product_img/protective_gown.jpg',
+  'Dead Body Cover': '/Product_img/dead_body_cover.jpg',
+  'Underpads': '/Product_img/underpads.jpg',
+  'Sweat Pads': '/Product_img/sweat_pads.jpg',
+  'Cooling Gel Sheet': '/Product_img/cooling_gel_sheet.jpg',
+  'Prep Razor': '/Product_img/prep_razor.jpg',
   'Salon Apron': '/Product_img/salon_apron.jpg',
   'Spa Gown': '/Product_img/spa_gown.jpg',
   'Wax Strips': '/Product_img/wax_strips.jpg',
@@ -121,14 +120,14 @@ const productImageMap = {
   'Disposable Napkin': '/Product_img/disposable_napkin.jpg',
   'Disposable Towel': '/Product_img/disposable_towel.jpg',
   'Head Bands': '/Product_img/head_bands.jpg',
-  'Wraparound Surgical Gown': '/Product_img/WRAPAROUND%20SURGICAL%20GOWN.png',
-  'Reinforced Surgical Gown': '/Product_img/REINFORCED%20LEVEL%203%20&%204%20SURGICAL%20GOWN.png',
-  'Breathable Viral Barrier Gown': '/Product_img/BREATHABLE%20VIRAL%20BARRIER%20BVB%20SURGICAL%20GOWN.png',
-  'Isolation Gown': '/Product_img/isolation_gown.jpg',
-  'Basic Surgical Gown': '/Product_img/BASIC%20SMS%20SURGICAL%20GOWN.png',
-  'Cathlab Surgical Gown': '/Product_img/cathlab_surgical_gown.jpg',
-  'Patient Gown': '/Product_img/patient_gown.jpg',
-  'Full Gown Set (HIV Kit)': '/Product_img/full_gown_set_(hiv_kit).jpg',
+  'Wraparound Surgical Gown': '/Product_img_extracted/wraparound%20surgical%20gown.png',
+  'Reinforced Surgical Gown': '/Product_img_extracted/wraparound%20surgical%20gown.png',
+  'Breathable Viral Barrier Gown': '/Product_img_extracted/breathable%20gown.png',
+  'Isolation Gown': '/Product_img_extracted/isolated%20gown.png',
+  'Basic Surgical Gown': '/Product_img_extracted/basic%20surgical%20gown.png',
+  'Cathlab Surgical Gown': '/Product_img_extracted/cathlab%20surgical%20gown.png',
+  'Patient Gown': '/Product_img_extracted/patient%20gown.png',
+  'Full Gown Set (HIV Kit)': null,
   'Hip U Drape': '/Product_img/hip_u_drape.jpg',
   'Knee O Drape': '/Product_img/knee_o_drape.jpg',
   'Bilateral Knee O Drape': '/Product_img/bilateral_knee_o_drape.jpg',
@@ -137,22 +136,22 @@ const productImageMap = {
   'Shoulder U': '/Product_img/shoulder_u.jpg',
   'Knee Arthroscopy Drape': '/Product_img/knee_arthroscopy_drape.jpg',
   'Orthopaedic Kits & Packs': '/Product_img/orthopaedic_kits_and_packs.jpg',
-  'Angiography Drape': '/Product_img/angiography%20drape.png',
-  'Angioplasty Drape': '/Product_img/angioplasty%20drape.png',
-  'Cardiothoracic Drape': '/Product_img/CARDIOTHORACIC%20DRAPE.png',
+  'Angiography Drape': '/Product_img/angiography_drape.jpg',
+  'Angioplasty Drape': '/Product_img/angioplasty_drape.jpg',
+  'Cardiothoracic Drape': '/Product_img/cardiothoracic_drape.jpg',
   'Cardiology Kits & Packs': '/Product_img/cardiology_kits_and_packs.jpg',
-  'Full Gynec Drape': '/Product_img/FULL%20GYNEC%20DRAPE.png',
-  'Caesarean Drape': '/Product_img/CAESAREAN%20DRAPE.png',
-  'Laparoscopy Drape': '/Product_img/LAPAROSCOPY%20DRAPE.png',
-  'O Hole Drape': '/Product_img/O%20HOLE%20DRAPE.png',
+  'Full Gynec Drape': '/Product_img/full_gynec_drape.jpg',
+  'Caesarean Drape': '/Product_img/caesarean_drape.jpg',
+  'Laparoscopy Drape': '/Product_img/laparoscopy_drape.jpg',
+  'O Hole Drape': '/Product_img/o_hole_drape.jpg',
   'Gynecology Kits & Packs': '/Product_img/gynecology_kits_and_packs.jpg',
-  'Turp Drape': '/Product_img/TURP%20DRAPE.png',
-  'Pcnl Drape': '/Product_img/PCNL%20DRAPE.png',
-  'Major Drape': '/Product_img/MAJOR%20DRAPE.png',
-  'O Hole Drape (Urology)': '/Product_img/O%20HOLE%20DRAPE%20(2).png',
+  'Turp Drape': '/Product_img/turp_drape.jpg',
+  'Pcnl Drape': '/Product_img/pcnl_drape.jpg',
+  'Major Drape': '/Product_img/major_drape.jpg',
+  'O Hole Drape (Urology)': '/Product_img/o_hole_drape_(urology).jpg',
   'Urology Kits & Packs': '/Product_img/urology_kits_and_packs.jpg',
-  'Eye Drape': '/Product_img/eye_drape.jpg',
-  'Eye Drape Premium': '/Product_img/eye_drape_premium.jpg',
+  'Eye Drape': '/Product_img/poly_eye_drape.jpg',
+  'Eye Drape Premium': '/Product_img/poly_eye_drape.jpg',
   'Poly Eye Drape': '/Product_img/poly_eye_drape.jpg',
   'Ophthalmic Kits & Packs': '/Product_img/ophthalmic_kits_and_packs.jpg',
   'Plain Drape Sheet': '/Product_img/plain_drape_sheet.jpg',
@@ -182,7 +181,7 @@ const productImageMap = {
 
 // Helper to retrieve category and product-level images
 const getProductImage = (catId, productName) => {
-  if (productName && productImageMap[productName]) {
+  if (productName && productName in productImageMap) {
     return productImageMap[productName];
   }
 
@@ -1507,7 +1506,7 @@ const productCategories = [
     title: 'ULTRASONIC SEAM SEALED AND SET', 
     icon: Layers, 
     color: '#1e3a8a', 
-    image: '/Product_img/ULTRASONIC%20SEAM%20SEALED%20AND%20SET.png',
+    image: '/Product_img/wraparound_surgical_gown_level_3_and_set.jpg',
     items: [
       'Wraparound Surgical Gown Level 3 & Set',
       'Reinforced Level 3 & 4 Surgical Gown & Set',
@@ -1524,7 +1523,7 @@ const productCategories = [
     title: 'DISPOSABLE 3 PLY FACE MASK', 
     icon: Shield, 
     color: '#1e3a8a', 
-    image: '/Product_img/DISPOSABLE%203%20PLY%20FACE%20MASK.png',
+    image: '/Product_img/elastic_mask.jpg',
     items: ['Elastic Mask', 'B/W Mask', 'IIR Mask', 'Pull Out Mask', 'Tie-On Mask', 'Kids Mask'],
     description: 'High-filtration medical and protective 3-ply face masks with comfortable loops.'
   },
@@ -1533,7 +1532,7 @@ const productCategories = [
     title: 'RESPIRATORY DISPOSABLE FACE MASK', 
     icon: ShieldCheck, 
     color: '#1e3a8a', 
-    image: '/Product_img/RESPIRATORY%20DISPOSABLE%20FACE%20MASK.png',
+    image: '/Product_img/n95_ear_loop.jpg',
     items: ['N95 Ear Loop', 'N95 Head Loop', 'KF 94 Mask', 'Cup Mask', 'Kids N95 Mask', 'Dusk Mask'],
     description: 'Certified respirator masks offering premium filtration against particulate matter.'
   },
@@ -1542,7 +1541,7 @@ const productCategories = [
     title: 'DISPOSABLE HEAD CAP', 
     icon: User, 
     color: '#1e3a8a', 
-    image: '/Product_img/DISPOSABLE%20HEAD%20CAP.png',
+    image: '/Product_img/bouffant_cap.jpg',
     items: ['Bouffant Cap', 'Surgeon Cap', 'Beard Cap', 'Shower Cap', 'Hood Cap', 'Chef Cap', 'Ear Cap', 'Customize Cap', 'Nylon Cap'],
     description: 'Sanitary protective head caps and covers for cleanrooms and clinical use.'
   },
@@ -1578,7 +1577,7 @@ const productCategories = [
     title: 'DISPOSABLE APRON (NON-STERILE)', 
     icon: Layers, 
     color: '#1e3a8a', 
-    image: productImagesList[7],
+    image: '/Product_img_extracted/Asset%201.png',
     items: ['Non-Sterile Non-Woven Apron', 'Non-Sterile PE Apron'],
     description: 'General protective non-sterile aprons for laboratories, testing, and cleaning.'
   },
@@ -1623,7 +1622,7 @@ const productCategories = [
     title: 'SURGICAL GOWNS', 
     icon: Layers, 
     color: '#1e3a8a', 
-    image: productImagesList[12],
+    image: '/Product_img_extracted/wraparound%20surgical%20gown.png',
     items: [
       'Wraparound Surgical Gown',
       'Reinforced Surgical Gown',
@@ -2063,11 +2062,13 @@ const Products = () => {
                     >
                       <div className="item-visual-pro item-visual-img">
                         {/* Product Image */}
-                        <img
-                          src={getProductImage(selectedCategory.id, item)}
-                          alt={item}
-                          className="item-product-img"
-                        />
+                        {getProductImage(selectedCategory.id, item) !== null && (
+                          <img
+                            src={getProductImage(selectedCategory.id, item)}
+                            alt={item}
+                            className="item-product-img"
+                          />
+                        )}
 
                         {/* Elegant display number badge */}
                         <div className="item-number-back">
@@ -2140,11 +2141,18 @@ const Products = () => {
                   <div className="detail-grid-pro">
                     {/* Left Side: Product Image Panel */}
                     <div className="detail-visual-panel detail-visual-img-panel">
-                      <img
-                        src={getProductImage(selectedCategory.id, selectedProductName)}
-                        alt={selectedProductName}
-                        className="detail-product-img"
-                      />
+                      {getProductImage(selectedCategory.id, selectedProductName) !== null ? (
+                        <img
+                          src={getProductImage(selectedCategory.id, selectedProductName)}
+                          alt={selectedProductName}
+                          className="detail-product-img"
+                        />
+                      ) : (
+                        <div className="detail-no-image">
+                          <selectedCategory.icon size={80} />
+                          <p>Product illustration not available</p>
+                        </div>
+                      )}
 
                       <div className="detail-badge-row">
                         <span className="premium-tag">PREMIUM MEDICAL DEVICE</span>

@@ -95,6 +95,8 @@ const productImageMap = {
   'Veterinary Gloves': '/Product_img_extracted/Bhaarat%20Broucher%20Design_page_15_img_5.jpg',
   'Plastic Gloves': '/Product_img_extracted/Bhaarat%20Broucher%20Design_page_15_img_2.jpg',
   'Sterile Non-Woven Apron': '/Product_img_extracted/Bhaarat%20Broucher%20Design_page_16_img_1.jpg',
+  'DISPOSABLE APRON (STERILE)': '/Product_img_extracted/Bhaarat%20Broucher%20Design_page_16_img_1.jpg',
+  'DISPOSABLE APRON (NON STERILE)': '/Product_img/disposable_apron_non_sterile.png',
   'Non-Sterile Non-Woven Apron': '/Product_img_extracted/Bhaarat%20Broucher%20Design_page_16_img_1.jpg',
   'Non-Sterile PE Apron': '/Product_img_extracted/Bhaarat%20Broucher%20Design_page_16_img_2.jpg',
   'Sterile PE Apron': '/Product_img_extracted/Bhaarat%20Broucher%20Design_page_16_img_2.jpg',
@@ -109,7 +111,6 @@ const productImageMap = {
   'Dead Body Cover': '/Product_img_extracted/Bhaarat%20Broucher%20Design_page_18_img_4.jpg',
   'Underpads': '/Product_img_extracted/Bhaarat%20Broucher%20Design_page_19_img_1.jpg',
   'Sweat Pads': '/Product_img_extracted/Bhaarat%20Broucher%20Design_page_19_img_2.jpg',
-  'Cooling Gel Sheet': '/Product_img_extracted/Bhaarat%20Broucher%20Design_page_19_img_3.jpg',
   'Prep Razor': '/Product_img_extracted/Bhaarat%20Broucher%20Design_page_19_img_4.jpg',
   'Salon Apron': '/Product_img/salon_apron.jpg',
   'Spa Gown': '/Product_img/spa_gown.jpg',
@@ -570,6 +571,21 @@ const productDetails = {
       Packaging: 'Bulk Pack'
     },
     description: 'Bulk packed water-resistant polyethylene aprons for food hygiene, styling, or industrial tasks.'
+  },
+  'disposable-apron-sterile': {
+    hsn: '62101000',
+    specs: {
+      Material: 'Medical-grade Non-Woven / PE Plastic',
+      Sterility: 'ETO Sterile',
+      GSM: '40 GSM / 75-140 Gauge',
+      Packaging: 'Individual sterile peel pouch'
+    },
+    description: 'Ethylene Oxide sterilized body protective aprons in non-woven or PE plastic for sterile clinical procedures.'
+  },
+  'disposable-apron-non-sterile': {
+    hsn: '',
+    specs: {},
+    description: ''
   },
   // Sheets
   'non-woven-bed-sheet': {
@@ -1570,22 +1586,14 @@ const productCategories = [
   },
   {
     id: 'disposable-apron-sterile',
-    title: 'DISPOSABLE APRON (STERILE)',
+    title: 'DISPOSABLE APRON',
     icon: Layers,
     color: '#1e3a8a',
     image: productImagesList[6],
-    items: ['Sterile Non-Woven Apron', 'Sterile PE Apron'],
-    description: 'Ethylene Oxide sterilized body protective aprons for sterile clinical procedures.'
+    items: ['DISPOSABLE APRON (STERILE)', 'DISPOSABLE APRON (NON STERILE)'],
+    description: 'Disposable aprons in sterile and non-sterile configurations for clinical and general protection.'
   },
-  {
-    id: 'disposable-apron-non-sterile',
-    title: 'DISPOSABLE APRON (NON-STERILE)',
-    icon: Layers,
-    color: '#1e3a8a',
-    image: '/Product_img_extracted/Bhaarat%20Broucher%20Design_page_16_img_1.jpg',
-    items: ['Non-Sterile Non-Woven Apron', 'Non-Sterile PE Apron'],
-    description: 'General protective non-sterile aprons for laboratories, testing, and cleaning.'
-  },
+  
   {
     id: 'disposable-plain-sheet-bed-sheet',
     title: 'DISPOSABLE PLAIN SHEET / BED SHEET',
@@ -1610,7 +1618,7 @@ const productCategories = [
     icon: HeartPulse,
     color: '#1e3a8a',
     image: productImagesList[10],
-    items: ['Underpads', 'Sweat Pads', 'Cooling Gel Sheet', 'Prep Razor'],
+    items: ['Underpads', 'Sweat Pads', 'Prep Razor'],
     description: 'High-absorbency underpads and general health hygiene products.'
   },
   {
@@ -2089,7 +2097,7 @@ const Products = () => {
                           {selectedCategory.title}
                         </span>
                         <h3>{item}</h3>
-                        <p>{getProductDetails(item).description}</p>
+                        {getProductDetails(item).description && <p>{getProductDetails(item).description}</p>}
                         <button
                           className="item-action-btn-pro"
                           style={{ '--accent-hover': selectedCategory.color }}
@@ -2113,8 +2121,129 @@ const Products = () => {
           // ==========================================
           (() => {
             const details = getProductDetails(selectedProductName);
+            const showOnlyQuote = selectedProductName === 'DISPOSABLE APRON (NON STERILE)';
+            const isSterileApronPage = selectedProductName === 'DISPOSABLE APRON (STERILE)';
+
+            if (isSterileApronPage) {
+              const nonWovenDetails = productDetails['sterile-non-woven-apron'] || { hsn: '', specs: {}, description: '' };
+              const peDetails = productDetails['sterile-pe-apron'] || { hsn: '', specs: {}, description: '' };
+
+              return (
+                <motion.div
+                  key="detail-view-sterile-apron"
+                  className="product-detail-view-pro sterile-apron-split-view"
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <div className="container detail-container-pro">
+                    <div className="detail-navigation">
+                      <button className="back-btn-pro" onClick={handleBackToCategory}>
+                        <ArrowLeft size={14} /> Back to {selectedCategory.title}
+                      </button>
+                    </div>
+
+                    <div className="sterile-split-header">
+                      <span className="category-pill-pro" style={{ color: selectedCategory.color, backgroundColor: `${selectedCategory.color}10` }}>
+                        {selectedCategory.title}
+                      </span>
+                      <h1>DISPOSABLE APRON (STERILE)</h1>
+                      <p className="sterile-split-intro">
+                        Available in high-barrier non-woven fabric and waterproof polyethylene (PE) plastic.
+                      </p>
+                    </div>
+
+                    <div className="sterile-split-grid">
+                      {/* Non-Woven Card */}
+                      <div className="sterile-product-card-pro">
+                        <div className="sterile-card-visual">
+                          <img
+                            src="/Product_img_extracted/Bhaarat%20Broucher%20Design_page_16_img_1.jpg"
+                            alt="Sterile Non-Woven Apron"
+                            className="sterile-card-img"
+                          />
+                          <div className="detail-badge-row">
+                            <span className="premium-tag">NON-WOVEN</span>
+                            {nonWovenDetails.hsn && <span className="hsn-tag">HSN: {nonWovenDetails.hsn}</span>}
+                          </div>
+                        </div>
+                        <div className="sterile-card-info">
+                          <h2>Sterile Non-Woven Apron</h2>
+                          {nonWovenDetails.description && <p className="detail-description">{nonWovenDetails.description}</p>}
+                          {Object.keys(nonWovenDetails.specs).length > 0 && (
+                            <div className="detail-specs-section">
+                              <h3>Technical Specifications</h3>
+                              <div className="specs-table-pro">
+                                {Object.entries(nonWovenDetails.specs).map(([key, val]) => (
+                                  <div key={key} className="specs-row-pro">
+                                    <span className="specs-key">{key}</span>
+                                    <span className="specs-val">{val}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                          <div className="detail-actions-pro">
+                            <button
+                              className="btn btn-primary enquire-now-btn-pro"
+                              style={{ backgroundColor: selectedCategory.color, borderColor: selectedCategory.color }}
+                              onClick={() => navigate(`/quote?category=${selectedCategory.id}&product=${encodeURIComponent('Sterile Non-Woven Apron')}`)}
+                            >
+                              Request Quote <ArrowRight size={18} />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* PE Plastic Card */}
+                      <div className="sterile-product-card-pro">
+                        <div className="sterile-card-visual">
+                          <img
+                            src="/Product_img_extracted/Bhaarat%20Broucher%20Design_page_16_img_2.jpg"
+                            alt="Sterile PE Apron"
+                            className="sterile-card-img"
+                          />
+                          <div className="detail-badge-row">
+                            <span className="premium-tag">PE PLASTIC</span>
+                            {peDetails.hsn && <span className="hsn-tag">HSN: {peDetails.hsn}</span>}
+                          </div>
+                        </div>
+                        <div className="sterile-card-info">
+                          <h2>Sterile PE Apron</h2>
+                          {peDetails.description && <p className="detail-description">{peDetails.description}</p>}
+                          {Object.keys(peDetails.specs).length > 0 && (
+                            <div className="detail-specs-section">
+                              <h3>Technical Specifications</h3>
+                              <div className="specs-table-pro">
+                                {Object.entries(peDetails.specs).map(([key, val]) => (
+                                  <div key={key} className="specs-row-pro">
+                                    <span className="specs-key">{key}</span>
+                                    <span className="specs-val">{val}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                          <div className="detail-actions-pro">
+                            <button
+                              className="btn btn-primary enquire-now-btn-pro"
+                              style={{ backgroundColor: selectedCategory.color, borderColor: selectedCategory.color }}
+                              onClick={() => navigate(`/quote?category=${selectedCategory.id}&product=${encodeURIComponent('Sterile PE Apron')}`)}
+                            >
+                              Request Quote <ArrowRight size={18} />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            }
 
             // Find if there is any color specification
+
             const colorSpecKey = Object.keys(details.specs).find(k =>
               k.toLowerCase() === 'available colors' ||
               k.toLowerCase() === 'available color' ||
@@ -2159,7 +2288,7 @@ const Products = () => {
 
                       <div className="detail-badge-row">
                         <span className="premium-tag">PREMIUM MEDICAL DEVICE</span>
-                        <span className="hsn-tag">HSN: {details.hsn}</span>
+                        {details.hsn && !showOnlyQuote && <span className="hsn-tag">HSN: {details.hsn}</span>}
                       </div>
                     </div>
 
@@ -2169,9 +2298,9 @@ const Products = () => {
                         {selectedCategory.title}
                       </span>
                       <h1>{selectedProductName}</h1>
-                      <p className="detail-description">{details.description}</p>
+                      {details.description && !showOnlyQuote && <p className="detail-description">{details.description}</p>}
 
-                      {colorsList.length > 0 && (
+                      {colorsList.length > 0 && !showOnlyQuote && (
                         <div className="detail-colors-section">
                           <h3>Available Colors</h3>
                           <div className="color-swatches-grid">
@@ -2196,17 +2325,19 @@ const Products = () => {
                         </div>
                       )}
 
-                      <div className="detail-specs-section">
-                        <h3>Technical Specifications</h3>
-                        <div className="specs-table-pro">
-                          {Object.entries(details.specs).map(([key, val]) => (
-                            <div key={key} className="specs-row-pro">
-                              <span className="specs-key">{key}</span>
-                              <span className="specs-val">{val}</span>
-                            </div>
-                          ))}
+                      {!showOnlyQuote && Object.keys(details.specs).length > 0 && (
+                        <div className="detail-specs-section">
+                          <h3>Technical Specifications</h3>
+                          <div className="specs-table-pro">
+                            {Object.entries(details.specs).map(([key, val]) => (
+                              <div key={key} className="specs-row-pro">
+                                <span className="specs-key">{key}</span>
+                                <span className="specs-val">{val}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
 
                       <div className="detail-actions-pro">
                         <button

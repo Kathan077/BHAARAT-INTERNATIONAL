@@ -56,15 +56,9 @@ export const productCategories = [
   },
   {
     id: 'disposable-apron-sterile',
-    title: 'DISPOSABLE APRON (STERILE)',
+    title: 'DISPOSABLE APRON',
     icon: Layers,
-    items: ['Sterile Non-Woven Apron', 'Sterile PE Apron']
-  },
-  {
-    id: 'disposable-apron-non-sterile',
-    title: 'DISPOSABLE APRON (NON-STERILE)',
-    icon: Layers,
-    items: ['Non-Sterile Non-Woven Apron', 'Non-Sterile PE Apron']
+    items: ['DISPOSABLE APRON (STERILE)', 'DISPOSABLE APRON (NON STERILE)']
   },
   {
     id: 'disposable-plain-sheet-bed-sheet',

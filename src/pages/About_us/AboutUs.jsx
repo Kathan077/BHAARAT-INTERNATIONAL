@@ -4,6 +4,7 @@ import AboutHero from './sections/AboutHero';
 import AboutStory from './sections/AboutStory';
 import AboutLogistics from './sections/AboutLogistics';
 import AboutProcess from './sections/AboutProcess';
+import AboutGlobal from './sections/AboutGlobal';
 import AboutMission from './sections/AboutMission';
 import SEO from '../../components/SEO/SEO';
 
@@ -31,6 +32,7 @@ const AboutUs = () => {
       <AboutStory />
       <AboutLogistics />
       <AboutProcess />
+      <AboutGlobal />
       <AboutMission />
       
     </motion.div>

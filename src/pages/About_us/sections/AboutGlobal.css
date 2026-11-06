@@ -1,0 +1,144 @@
+/* =========================================================
+   BHAARAT INTERNATIONAL — Global Presence (Simple & Friendly)
+   Clean, Friendly Header + Pure Photo Showcase
+   ========================================================= */
+
+.about-global-section {
+    position: relative;
+    padding: 90px 0 110px;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+    overflow: hidden;
+}
+
+.about-global-mesh-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 15% 15%, rgba(30, 58, 138, 0.05) 0%, transparent 45%),
+                radial-gradient(circle at 85% 75%, rgba(13, 148, 136, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.about-global-section .container {
+    position: relative;
+    z-index: 2;
+    max-width: var(--container-width, 1280px);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ── Section Header (Simple & Friendly) ── */
+.about-global-header {
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 50px;
+}
+
+.global-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    border-radius: 999px;
+    background: rgba(30, 58, 138, 0.07);
+    color: var(--primary-blue, #1e3a8a);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 18px;
+    border: 1px solid rgba(30, 58, 138, 0.15);
+}
+
+.global-eyebrow svg {
+    color: var(--accent-blue, #3b82f6);
+}
+
+.global-title {
+    font-size: clamp(2.1rem, 3.8vw, 3rem);
+    font-weight: 800;
+    color: var(--text-main, #0f172a);
+    line-height: 1.25;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.highlight-blue {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 55%, #0284c7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.global-subtitle {
+    font-size: 1.08rem;
+    color: var(--text-muted, #64748b);
+    line-height: 1.7;
+    margin: 0 auto;
+}
+
+/* ── PURE PHOTO MASONRY GALLERY (ONLY PHOTOS, ZERO TEXT, ZERO CLICK) ── */
+.global-masonry-wrapper {
+    width: 100%;
+}
+
+.global-masonry-grid.pure-photos {
+    columns: 3 340px;
+    column-gap: 26px;
+}
+
+.global-photo-card {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 26px;
+}
+
+.photo-card-inner {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #f1f5f9;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.global-photo-card:hover .photo-card-inner {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(30, 58, 138, 0.14);
+    border-color: rgba(59, 130, 246, 0.5);
+}
+
+.photo-main-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.global-photo-card:hover .photo-main-img {
+    transform: scale(1.02);
+}
+
+/* ── Responsive Rules ── */
+@media (max-width: 768px) {
+    .about-global-section {
+        padding: 65px 0 75px;
+    }
+
+    .about-global-header {
+        margin-bottom: 35px;
+    }
+
+    .global-masonry-grid.pure-photos {
+        columns: 1 100%;
+        column-gap: 0;
+    }
+
+    .global-photo-card {
+        margin-bottom: 20px;
+    }
+}
